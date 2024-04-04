@@ -2,23 +2,35 @@
     height: calc(100vh - 81px);
   }
     
-  .Header {
+.Header {
     font-style: normal;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 1.5rem;
     line-height: 15px;
     text-align: center;
     letter-spacing: 0.2em;
     color: #006566;
+    padding-bottom: 5px;
   }
   
-  .Link {
+.Link {
     text-decoration: none;
     text-align: center;
     display: block;
     margin: auto;
   }
   
-  .Link span {
+.Link span {
     color: #FFA07A;
   }
+
+.Input {
+    background: #ffffff;
+    border: 1px solid #f0f1f9;
+    box-sizing: border-box;
+    border-radius: 2px;
+    color: #7177a1;
+    text-align: center;
+    padding: 10px;
+  }
+  
