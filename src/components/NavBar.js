@@ -5,6 +5,7 @@ import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
 import styles from "../styles/NavBar.module.css";
 import logo from '../assets/logo_ttt.PNG'
+import { NavLink } from 'react-router-dom';
 
 const NavBar = () => {
     return (
@@ -14,35 +15,39 @@ const NavBar = () => {
       className={styles.NavBar}
       >
         <Container>
-          <Navbar.Brand>
-            <Image
-            roundedCircle
-            src={logo} 
-            alt='logo' 
-            height='45' 
-            />
-            
-          </Navbar.Brand>
+          <NavLink className={styles.NavLogo} to="/">
+            <Navbar.Brand>
+              <Image
+              roundedCircle
+              src={logo} 
+              alt='logo' 
+              height='45' 
+              />
+            </Navbar.Brand>
+          </NavLink>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto text-left">
-              <Nav.Link
+            <NavLink
+              exact
               className={styles.NavLink}
               activeClassName={styles.Active}
-              >
-                Home
-              </Nav.Link>
-              <Nav.Link
+              to="/"
+            > Home
+            </NavLink>
+              <NavLink
               className={styles.NavLink}
               activeClassName={styles.Active}
+              to="/signin"
               >
                 Sign in
-              </Nav.Link>
-              <Nav.Link
+              </NavLink>
+              <NavLink
               className={styles.NavLink}
-              activeClassName={styles.Active}>
+              activeClassName={styles.Active}
+              to="/signup">
                 Sign up
-              </Nav.Link>
+              </NavLink>
             </Nav>
           </Navbar.Collapse>
         </Container>
