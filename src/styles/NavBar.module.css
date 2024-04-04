@@ -1,0 +1,12 @@
+.NavBar {
+    background-color: #FFA07A;
+    border-bottom: 2px solid #dadadf;
+  }
+  
+  .NavLink {
+    padding: 5px;
+  }
+  
+  .Active i {
+    color: #FFFACD;
+  }
