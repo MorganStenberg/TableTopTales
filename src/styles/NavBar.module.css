@@ -1,21 +1,27 @@
 .NavBar {
-    background-color: #fff;
-    border-bottom: 2px solid #dadadf;
-    padding: 0;
-  }
+  background-color: #fff;
+  border-bottom: 2px solid #dadadf;
+  padding: 0;
+}
   
-  .NavLink {
-    padding: 12px;
-  }
+.NavLink {
+  padding: 12px;
+}
 
-  .NavLogo {
-    padding: 8px;
-  }
+.NavLink:hover {
+  color:#006566;
+  text-decoration: none;
+  background-color: #FFA07A;
+}
+
+.NavLogo {
+  padding: 8px;
+}
   
-  .Active {
-    background-color: #FFA07A;
-  }
+.Active {
+  background-color: #FFA07A;
+}
 
-  .NavLogo:hover {
-    background-color:#fff;
-  }
+.NavLogo:hover {
+  background-color:#fff;
+}

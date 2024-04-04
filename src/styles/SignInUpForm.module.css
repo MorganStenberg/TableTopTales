@@ -1,0 +1,24 @@
+.Row {
+    height: calc(100vh - 81px);
+  }
+    
+  .Header {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 15px;
+    text-align: center;
+    letter-spacing: 0.2em;
+    color: #006566;
+  }
+  
+  .Link {
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    margin: auto;
+  }
+  
+  .Link span {
+    color: #FFA07A;
+  }

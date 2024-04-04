@@ -8,6 +8,12 @@
     padding-top: 71px;
   }
 
+.Content {
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 2px;
+    border: 1px solid #dadadf;
+  }
 
 * {
     box-sizing: border-box;
@@ -15,12 +21,14 @@
   
 a {
     color: #008080;
-    transition: color ease-in-out 0.3s;
   }
-  
+
 a:hover {
-    color:#006566;
     text-decoration: none;
-    background-color: #FFA07A;
-  }
+    color:#006566;
+}
+
+.BorderOrange {
+    border-color:#FFA07A;
+}
   
