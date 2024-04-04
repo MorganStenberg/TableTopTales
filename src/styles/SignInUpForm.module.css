@@ -33,4 +33,10 @@
     text-align: center;
     padding: 10px;
   }
-  
+
+.WelcomeCta {
+    padding-top: 6rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-bottom: 1rem;
+}

@@ -13,49 +13,45 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import axios from "axios";
 
-// Credit to Code Institute walktrough for form structure
-const SignUpForm = () => {
-    
-    const [signUpData, setSignUpData] = useState({
-      username: '',
-      password1: '',
-      password2: ''
+
+
+function SignInForm() {
+
+    const [signInData, setSignInData] = useState({
+      username: "",
+      password: "",
     });
-    const {username, password1, password2 } = signUpData;
+    const { username, password } = signInData;
   
     const [errors, setErrors] = useState({});
-    
+  
     const history = useHistory();
-  
-    const handleChange = (event) => {
-      setSignUpData({
-          ...signUpData,
-          [event.target.name]: event.target.value,
-      });
-    };
-  
     const handleSubmit = async (event) => {
       event.preventDefault();
       try {
-          await axios.post('/dj-rest-auth/registration/', signUpData)
-          history.push('/signin')
-      } catch(err){
-          setErrors(err.response?.data)
+       await axios.post("/dj-rest-auth/login/", signInData);
+        history.push("/");
+      } catch (err) {
+        setErrors(err.response?.data);
       }
-    }
-    
+    };
+  
+    const handleChange = (event) => {
+      setSignInData({
+        ...signInData,
+        [event.target.name]: event.target.value,
+      });
+    };
+  
     return (
         <>
-            <div className={`text-center ${styles.WelcomeCta}`}>
-                <h2>Welcome to TableTopTales!</h2>
-                <h4>Join our community to discuss and share your best board game tales!</h4>
-            </div>
+        
             <Row className={styles.Row}>
-                <Col className="mx-auto py-2 p-md-2" md={6}>
+                <Col className="m-auto py-2 p-md-2" md={6}>
                     <Container className={`
                     ${appStyles.Content} 
                     ${appStyles.BorderOrange} p-4 `}>
-                        <h1 className={styles.Header}>Sign Up</h1>
+                        <h1 className={styles.Header}>Sign in</h1>
                         <Form onSubmit={handleSubmit}>
                             <Form.Group controlId="username">
                                 <Form.Label className="d-none">username</Form.Label>
@@ -72,33 +68,18 @@ const SignUpForm = () => {
                         <Alert variant="warning" key={idx}>{message}</Alert>
                       )}
 
-                            <Form.Group controlId="password1">
+                            <Form.Group controlId="password">
                                 <Form.Label className="d-none">Password</Form.Label>
                                 <Form.Control
                                     className={styles.Input}
                                     type="password"
                                     placeholder="Password"
-                                    name="password1"
-                                    value={password1}
+                                    name="password"
+                                    value={password}
                                     onChange={handleChange}
                                 />
                             </Form.Group>
-                            {errors.password1?.map((message, idx) =>
-                        <Alert variant="warning" key={idx}>{message}</Alert>
-                      )}
-
-                            <Form.Group controlId="password2">
-                                <Form.Label className="d-none">Confirm password</Form.Label>
-                                <Form.Control
-                                    className={styles.Input}
-                                    type="password"
-                                    placeholder="Confirm password"
-                                    name="password2"
-                                    value={password2}
-                                    onChange={handleChange}
-                                />
-                            </Form.Group>
-                            {errors.password2?.map((message, idx) =>
+                            {errors.password?.map((message, idx) =>
                         <Alert variant="warning" key={idx}>{message}</Alert>
                       )}
 
@@ -116,8 +97,8 @@ const SignUpForm = () => {
 
                     </Container>
                     <Container className={`mt-3 ${appStyles.Content}`}>
-                        <Link className={styles.Link} to="/signin">
-                            Already have an account? <span>Sign in</span>
+                        <Link className={styles.Link} to="/signup">
+                            Dont have an account? <span>Sign Up</span>
                         </Link>
                     </Container>
                 </Col>
@@ -125,6 +106,6 @@ const SignUpForm = () => {
             </Row>
         </>
     );
-  };
+  }
 
-export default SignUpForm;
+export default SignInForm;
