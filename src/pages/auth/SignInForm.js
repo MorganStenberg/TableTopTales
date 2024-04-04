@@ -12,10 +12,13 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import axios from "axios";
+import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 
 
 // Credit to Code Institute walktrough for form structure
 function SignInForm() {
+
+    const setCurrentUser = useSetCurrentUser();
 
     const [signInData, setSignInData] = useState({
       username: "",
@@ -26,10 +29,12 @@ function SignInForm() {
     const [errors, setErrors] = useState({});
   
     const history = useHistory();
+
     const handleSubmit = async (event) => {
       event.preventDefault();
       try {
-       await axios.post("/dj-rest-auth/login/", signInData);
+       const {data} = await axios.post("/dj-rest-auth/login/", signInData);
+       setCurrentUser(data.user)
         history.push("/");
       } catch (err) {
         setErrors(err.response?.data);

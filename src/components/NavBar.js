@@ -6,8 +6,36 @@ import Image from 'react-bootstrap/Image';
 import styles from "../styles/NavBar.module.css";
 import logo from '../assets/logo_ttt.PNG'
 import { NavLink } from 'react-router-dom';
+import { useCurrentUser } from '../contexts/CurrentUserContext';
 
 const NavBar = () => {
+
+    const currentUser = useCurrentUser();
+
+  const loggedOutNavbarIcons = (
+    <>
+      <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/signin"
+      >
+        Sign in
+      </NavLink>
+      <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/signup">
+        Sign up
+      </NavLink>
+    </>
+  )
+
+  const loggedInNavbarIcons = (
+    <>
+    <p>du är nu inloggad</p>
+    </>
+  )
+
     return (
       <Navbar 
       expand="md" 
@@ -35,19 +63,7 @@ const NavBar = () => {
               to="/"
             > Home
             </NavLink>
-              <NavLink
-              className={styles.NavLink}
-              activeClassName={styles.Active}
-              to="/signin"
-              >
-                Sign in
-              </NavLink>
-              <NavLink
-              className={styles.NavLink}
-              activeClassName={styles.Active}
-              to="/signup">
-                Sign up
-              </NavLink>
+              {currentUser ? loggedInNavbarIcons : loggedOutNavbarIcons}
             </Nav>
           </Navbar.Collapse>
         </Container>
