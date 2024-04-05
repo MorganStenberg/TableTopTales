@@ -7,6 +7,7 @@ import styles from "../styles/NavBar.module.css";
 import logo from '../assets/logo_ttt.PNG'
 import { NavLink } from 'react-router-dom';
 import { useCurrentUser } from '../contexts/CurrentUserContext';
+import Avatar from "./Avatar";
 
 const NavBar = () => {
 
@@ -38,16 +39,20 @@ const NavBar = () => {
       >Wishlist
       </NavLink>
 
-      <NavLink className={styles.NavLink} to="/">
+      <NavLink 
+      className={styles.NavLink} 
+      to="/"
+      onClick={() => {}}
+      >
         Sign out
       </NavLink>
 
       <NavLink
-        className={styles.NavLink}
-        activeClassName={styles.Active}
-        to={`/profiles/${currentUser?.profile_id}`}
-      > Profile
+        className={styles.NavLogo}
         
+        to={`/profiles/${currentUser?.profile_id}`}
+      >
+        <Avatar src={currentUser?.profile_image} text="Profile" height={40}/>
       </NavLink>
     </>
   )
