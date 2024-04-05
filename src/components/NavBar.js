@@ -6,12 +6,29 @@ import Image from 'react-bootstrap/Image';
 import styles from "../styles/NavBar.module.css";
 import logo from '../assets/logo_ttt.PNG'
 import { NavLink } from 'react-router-dom';
-import { useCurrentUser } from '../contexts/CurrentUserContext';
+import {
+  useCurrentUser,
+  useSetCurrentUser,
+} from "../contexts/CurrentUserContext";
 import Avatar from "./Avatar";
+import axios from 'axios';
+import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
+
 
 const NavBar = () => {
 
   const currentUser = useCurrentUser();
+  const setCurrentUser = useSetCurrentUser();
+
+  const {expanded, setExpanded, ref} = useClickOutsideToggle();
+
+  const handleSignOut = async () => {
+    try {
+      await axios.post("dj-rest-auth/logout/");
+      setCurrentUser(null);
+    } catch (err) {
+    }
+  };
 
   const addReview = (
     <NavLink
@@ -42,7 +59,7 @@ const NavBar = () => {
       <NavLink 
       className={styles.NavLink} 
       to="/"
-      onClick={() => {}}
+      onClick={handleSignOut}
       >
         Sign out
       </NavLink>
@@ -76,7 +93,7 @@ const NavBar = () => {
   )
 
     return (
-      <Navbar 
+      <Navbar expanded={expanded}
       expand="md" 
       fixed="top"
       className={styles.NavBar}
@@ -93,7 +110,10 @@ const NavBar = () => {
             </Navbar.Brand>
           </NavLink>
           
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Toggle 
+          ref={ref}
+          onClick={() => setExpanded(!expanded)} 
+          aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto text-left">
             <NavLink
