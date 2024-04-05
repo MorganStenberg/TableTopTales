@@ -10,7 +10,47 @@ import { useCurrentUser } from '../contexts/CurrentUserContext';
 
 const NavBar = () => {
 
-    const currentUser = useCurrentUser();
+  const currentUser = useCurrentUser();
+
+  const addReview = (
+    <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/reviews/create"
+      > <i class="fa-solid fa-pencil"></i> Create Review
+      </NavLink>
+  )
+
+  const loggedInNavbarIcons = (
+    <>
+    
+      <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/saved"
+      >Saved
+      </NavLink>
+
+      <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/wishlist"
+      >Wishlist
+      </NavLink>
+
+      <NavLink className={styles.NavLink} to="/">
+        Sign out
+      </NavLink>
+
+      <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to={`/profiles/${currentUser?.profile_id}`}
+      > Profile
+        
+      </NavLink>
+    </>
+  )
 
   const loggedOutNavbarIcons = (
     <>
@@ -27,12 +67,6 @@ const NavBar = () => {
         to="/signup">
         Sign up
       </NavLink>
-    </>
-  )
-
-  const loggedInNavbarIcons = (
-    <>
-    <p>du är nu inloggad</p>
     </>
   )
 
@@ -53,6 +87,7 @@ const NavBar = () => {
               />
             </Navbar.Brand>
           </NavLink>
+          
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto text-left">
@@ -65,6 +100,7 @@ const NavBar = () => {
             </NavLink>
               {currentUser ? loggedInNavbarIcons : loggedOutNavbarIcons}
             </Nav>
+            {currentUser && addReview}
           </Navbar.Collapse>
         </Container>
       </Navbar>
