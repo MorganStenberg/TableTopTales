@@ -2,11 +2,13 @@
   background-color: #fff;
   border-bottom: 2px solid #dadadf;
   padding: 0;
-  font-size: 1.8vh;
+  font-size: 1.6rem;
+  height: 75px
 }
   
 .NavLink {
-  padding: 12px;
+  padding: 10px;
+  align-items: center;
 }
 
 .NavLink:hover {
@@ -16,7 +18,13 @@
 }
 
 .NavLogo {
-  padding: 8px;
+  padding: 10px;
+  margin: 0;
+  font-size: 2rem;
+}
+
+.NavLogo span {
+  font-size: 1.8rem;
 }
   
 .Active {
@@ -24,5 +32,9 @@
 }
 
 .NavLogo:hover {
-  background-color:#fff;
+  background-color:#fff
+}
+
+.Profile:hover {
+  background-color:#fff
 }

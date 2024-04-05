@@ -32,7 +32,7 @@ const NavBar = () => {
 
   const addReview = (
     <NavLink
-        className={styles.NavLink}
+        className={` mr-4 ${styles.NavLink}`}
         activeClassName={styles.Active}
         to="/reviews/create"
       > <i class="fa-solid fa-pencil"></i> Create Review
@@ -65,7 +65,7 @@ const NavBar = () => {
       </NavLink>
 
       <NavLink
-        className={styles.NavLogo}
+        className={`${styles.Profile} ${styles.NavLink} `}
         
         to={`/profiles/${currentUser?.profile_id}`}
       >
@@ -93,21 +93,23 @@ const NavBar = () => {
   )
 
     return (
+      <Container>
       <Navbar expanded={expanded}
-      expand="md" 
+      expand="lg" 
       fixed="top"
       className={styles.NavBar}
       >
-        <Container>
-          <NavLink className={styles.NavLogo} to="/">
-            <Navbar.Brand>
+        
+          <NavLink className={`${styles.NavLogo} ${styles.NavLink} `} to="/">
+            
               <Image
               roundedCircle
               src={logo} 
               alt='logo' 
-              height='45' 
+              height='40' 
               />
-            </Navbar.Brand>
+            <Navbar.Brand className='pl-2 m-auto'>TableTopTales</Navbar.Brand>
+            
           </NavLink>
           
           <Navbar.Toggle 
@@ -127,8 +129,9 @@ const NavBar = () => {
             </Nav>
             {currentUser && addReview}
           </Navbar.Collapse>
-        </Container>
+        
       </Navbar>
+      </Container>
     );
   };
   
