@@ -28,6 +28,14 @@ function ReviewCreateForm() {
   });
   const { title, content, image, rating, game } = postData;
 
+  const handleChange = (event) => {
+    setPostData({
+      ...postData,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  
 
   const formFields = (
     <div className="text-center">
@@ -37,6 +45,7 @@ function ReviewCreateForm() {
           type="text"
           name="title"
           value={title}
+          onChange={handleChange}
 
         />
       </Form.Group>
@@ -48,7 +57,9 @@ function ReviewCreateForm() {
 
       <Form.Group>
         <Form.Label>Content</Form.Label>
-        <ReactQuill value={content}/>
+        <ReactQuill 
+        value={content}
+        onChange={handleChange}/>
         
       </Form.Group>
       {errors.content?.map((message, idx) => (
@@ -63,7 +74,7 @@ function ReviewCreateForm() {
           as="text"
           name="game"
           value={game}
-
+          onChange={handleChange}
         />
       </Form.Group>
       {errors.content?.map((message, idx) => (
@@ -78,7 +89,7 @@ function ReviewCreateForm() {
           as="select"
           name="rating"
           value={rating}
-
+          onChange={handleChange}
         >
         
       <option value="1">One</option>
