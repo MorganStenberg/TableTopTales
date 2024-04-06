@@ -26,44 +26,77 @@ function ReviewCreateForm() {
   const { title, content, image, rating, game } = postData;
 
 
-  const textFields = (
+  const formFields = (
     <div className="text-center">
       <Form.Group>
-          <Form.Label>Title</Form.Label>
-          <Form.Control
-            type="text"
-            name="title"
-            value={title}
-            
-          />
-        </Form.Group>
-        {errors.title?.map((message, idx) => (
-                <Alert key={idx} variant="warning">
-                  {message}
-                </Alert>
-              ))}
+        <Form.Label>Title</Form.Label>
+        <Form.Control
+          type="text"
+          name="title"
+          value={title}
 
-          <Form.Group>
-            <Form.Label>Content</Form.Label>
-            <Form.Control
-              as="textarea"
-              rows={12}
-              name="content"
-              value={content}
-              
-            />
-        </Form.Group>
-        {errors.content?.map((message, idx) => (
-                <Alert key={idx} variant="warning">
-                  {message}
-                </Alert>
-              ))}
+        />
+      </Form.Group>
+      {errors.title?.map((message, idx) => (
+        <Alert key={idx} variant="warning">
+          {message}
+        </Alert>
+      ))}
 
-    
-    
+      <Form.Group>
+        <Form.Label>Content</Form.Label>
+        <Form.Control
+          as="textarea"
+          rows={12}
+          name="content"
+          value={content}
+
+        />
+      </Form.Group>
+      {errors.content?.map((message, idx) => (
+        <Alert key={idx} variant="warning">
+          {message}
+        </Alert>
+      ))}
+
+      <Form.Group>
+        <Form.Label>Game</Form.Label>
+        <Form.Control
+          as="text"
+          name="game"
+          value={game}
+
+        />
+      </Form.Group>
+      {errors.content?.map((message, idx) => (
+        <Alert key={idx} variant="warning">
+          {message}
+        </Alert>
+      ))}
+
+        <Form.Group>
+        <Form.Label>Rating</Form.Label>
+        <Form.Control
+          as="select"
+          name="rating"
+          value={rating}
+
+        >
+        
+      <option value="1">One</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+      </Form.Control>
+      </Form.Group>
+      {errors.rating?.map((message, idx) => (
+        <Alert key={idx} variant="warning">
+          {message}
+        </Alert>
+      ))}
+
       <Button
         className={`${btnStyles.Button} ${btnStyles.Orange}`}
-        onClick={() => {}}
+        onClick={() => { }}
       >
         Cancel
       </Button>
@@ -75,27 +108,26 @@ function ReviewCreateForm() {
 
   return (
     <Form>
-      <Row>
-        
-        <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
-          <Container className={appStyles.Content}>{textFields}</Container>
-        </Col>
+      <Row> 
+
         <Col className="py-2 p-md-2" md={7} lg={8}>
-          
+          <Container className={appStyles.Content}>{formFields}</Container>
+        </Col>
+        <Col className="d-none d-md-block p-0 p-md-2">
+
           <Container
             className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
           >
             <Form.Group className="text-center">
-              
-                <Form.Label
-                  className="d-flex justify-content-center"
-                  htmlFor="image-upload"
-                >
-                 
-                </Form.Label>
+              <Form.Label
+                className="d-flex justify-content-center"
+                htmlFor="image-upload"
+              >
+
+              </Form.Label>
 
             </Form.Group>
-            <div className="d-md-none">{textFields}</div>
+            <div className="d-md-none">{formFields}</div>
           </Container>
 
         </Col>
