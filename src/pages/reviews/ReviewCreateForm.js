@@ -5,7 +5,8 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
-
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 import Alert from "react-bootstrap/Alert";
 
 import styles from "../../styles/ReviewEditCreateForm.module.css";
@@ -47,13 +48,8 @@ function ReviewCreateForm() {
 
       <Form.Group>
         <Form.Label>Content</Form.Label>
-        <Form.Control
-          as="textarea"
-          rows={12}
-          name="content"
-          value={content}
-
-        />
+        <ReactQuill value={content}/>
+        
       </Form.Group>
       {errors.content?.map((message, idx) => (
         <Alert key={idx} variant="warning">

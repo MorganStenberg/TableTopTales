@@ -1,5 +1,6 @@
 import NavBar from './components/NavBar';
 import styles from "./App.module.css"
+import 'react-quill/dist/quill.snow.css';
 import { Container } from 'react-bootstrap';
 import { Route, Switch } from 'react-router-dom';
 import "./api/axiosDefaults"
