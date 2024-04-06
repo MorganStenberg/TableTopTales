@@ -11,6 +11,8 @@ import Alert from "react-bootstrap/Alert";
 import styles from "../../styles/ReviewEditCreateForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
+import Asset from "../../components/Asset";
+import Upload from "../../assets/camera_upload.png"
 
 function ReviewCreateForm() {
 
@@ -113,8 +115,8 @@ function ReviewCreateForm() {
         <Col className="py-2 p-md-2" md={7} lg={8}>
           <Container className={appStyles.Content}>{formFields}</Container>
         </Col>
+        
         <Col className="d-none d-md-block p-0 p-md-2">
-
           <Container
             className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
           >
@@ -123,7 +125,7 @@ function ReviewCreateForm() {
                 className="d-flex justify-content-center"
                 htmlFor="image-upload"
               >
-
+                <Asset src={Upload} message="Click to upload an image with your review"/>
               </Form.Label>
 
             </Form.Group>
