@@ -11,3 +11,24 @@
     margin: 0 0;
   }
   
+
+.Heart {
+    color: #006566;
+    font-size: 1.5rem;
+    padding: 4px
+}
+
+.HeartOutline:hover {
+    color: #FFA07A;
+  }
+
+.LikesAndComments {
+    font-size: 1.2rem;
+    padding: 2px;
+}
+
+.CommentIcon {
+    color: #006566;
+    font-size: 1.5rem;
+    padding: 4px;
+}

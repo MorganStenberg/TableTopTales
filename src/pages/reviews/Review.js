@@ -2,7 +2,7 @@ import React from 'react'
 
 import styles from "../../styles/Review.module.css"
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
-import { Card, Media, ProgressBar } from 'react-bootstrap';
+import { Card, Media, OverlayTrigger, ProgressBar, Tooltip } from 'react-bootstrap';
 
 import Avatar from '../../components/Avatar';
 import { Link } from 'react-router-dom/cjs/react-router-dom';
@@ -16,6 +16,7 @@ const Review = (props) => {
         profile_image,
         comments_count,
         likes_count,
+        like_id,
         title,
         content,
         image,
@@ -32,6 +33,7 @@ const Review = (props) => {
 
     const ratingPercentage = (rating / 10) *100;
 
+ // Credit to Code Institute walkthrough for Liking and unliking reviews
   return (
   
   <Card className={styles.Review}>
@@ -64,6 +66,34 @@ const Review = (props) => {
     </Card.Body>
     <Card.Body>
         {content && <Card.Text dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(content) }}></Card.Text>}
+        <div>
+            {is_owner ? (
+                <OverlayTrigger placement='top' overlay={<Tooltip>You can't like your own review!</Tooltip>}>
+                    <i className={`fa-regular fa-heart ${styles.Heart}`}></i>
+                </OverlayTrigger>
+            ) : like_id ? (
+                <span onClick={()=>{}}>
+                    <i className={`fa-regular fa-heart ${styles.Heart}`} />
+                </span>
+            ) : currentUser ? (
+                <span onClick={()=>{}}>
+                    <i className={`fa-regular fa-heart ${styles.Heart} ${styles.HeartOutline}`}></i>
+                </span>
+            ) : (
+                <OverlayTrigger placement='top' overlay={<Tooltip>You can't like reviews if you are not logged in!</Tooltip>}>
+                    <i className={`fa-regular fa-heart ${styles.Heart}`}></i>
+                </OverlayTrigger>
+            )}
+            <span className={styles.LikesAndComments}>
+                {likes_count}
+            </span>
+            <span className={styles.LikesAndComments}>
+                <Link to={`/reviews/${id}`}>
+                <i className={`fa-regular fa-comments ${styles.CommentIcon}`}></i>
+                </Link>
+                {comments_count}
+            </span>
+        </div>
     </Card.Body>
   </Card>
   )
