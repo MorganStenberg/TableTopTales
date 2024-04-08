@@ -2,10 +2,11 @@ import React from 'react'
 
 import styles from "../../styles/Review.module.css"
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
-import { Card, Media } from 'react-bootstrap';
+import { Card, Media, ProgressBar } from 'react-bootstrap';
 
 import Avatar from '../../components/Avatar';
 import { Link } from 'react-router-dom/cjs/react-router-dom';
+import DOMPurify from 'dompurify';
 
 const Review = (props) => {
     const {
@@ -22,16 +23,20 @@ const Review = (props) => {
         game,
         created_at,
         save_id,
-        reviewPage,
+        ReviewPage,
 
     } = props;
 
     const currentUser = useCurrentUser();
-    const is_owner = currentUser?.username === owner
+    const is_owner = currentUser?.username === owner;
 
+    const ratingPercentage = (rating / 10) *100;
 
-  return <Card className={styles.Review}>
+  return (
+  
+  <Card className={styles.Review}>
     <Card.Body>
+    {title && <Card.Title className='text-center'>{title}</Card.Title>}
         <Media className="align-items-center justify-content-between">
             <Link to={`/profiles/${profile_id}`}>
                 <Avatar src={profile_image} height={50} />
@@ -39,12 +44,29 @@ const Review = (props) => {
             </Link>
             <div className="d-flex align-items-center">
               <span>{created_at}</span>
-              {is_owner && reviewPage && "edit here"}
+              {is_owner && ReviewPage && "..edit here"}
             </div>
         </Media>
     </Card.Body>
-
+    <Link to={`/reviews/${id}`}>
+    <Card.Img src={image} alt={title}/>
+    </Link>
+    
+    <Card.Body>
+        <Card.Title>Rating</Card.Title>
+        {rating && <ProgressBar now={ratingPercentage} label={`${rating}/10`} />}
+        
+    </Card.Body>
+    <Card.Body>
+        <Card.Title>Game</Card.Title>
+        {game && <Card.Text>{game}</Card.Text> }
+        
+    </Card.Body>
+    <Card.Body>
+        {content && <Card.Text dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(content) }}></Card.Text>}
+    </Card.Body>
   </Card>
+  )
 }
 
 export default Review
