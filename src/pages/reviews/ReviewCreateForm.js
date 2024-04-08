@@ -42,7 +42,15 @@ function ReviewCreateForm() {
     });
   };
 
-  
+  const handleChangeImage = (event) => {
+    if (event.target.files.length){
+      URL.revokeObjectURL(image);
+      setReviewData({
+        ...reviewData,
+        image: URL.createObjectURL(event.target.files[0])
+      })
+    }
+  }
 
   const formFields = (
     <div className="text-center">
@@ -109,6 +117,7 @@ function ReviewCreateForm() {
       <option value="8">8</option>
       <option value="9">9</option>
       <option value="10">10</option>
+
       </Form.Control>
       </Form.Group>
       {errors.rating?.map((message, idx) => (
@@ -148,8 +157,9 @@ function ReviewCreateForm() {
               >
                 <Asset src={Upload} message="Click to upload an image with your review"/>
               </Form.Label>
-
+              <Form.File id="image-upload" accept="image/*" onChange={handleChangeImage}/>
             </Form.Group>
+
             <div className="d-md-none">{formFields}</div>
           </Container>
 
