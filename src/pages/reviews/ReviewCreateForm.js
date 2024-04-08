@@ -8,6 +8,7 @@ import Container from "react-bootstrap/Container";
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import Alert from "react-bootstrap/Alert";
+import Image from "react-bootstrap/Image";
 
 import styles from "../../styles/ReviewEditCreateForm.module.css";
 import appStyles from "../../App.module.css";
@@ -148,15 +149,33 @@ function ReviewCreateForm() {
         
         <Col className="d-none d-md-block p-0 p-md-2">
           <Container
-            className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
+            className={`${appStyles.Content} d-flex flex-column justify-content-center`}
           >
             <Form.Group className="text-center">
+              {image ? (
+                <>
+                <figure>
+                <Image className={appStyles.Image} src={image} rounded/>
+                </figure>
+                <div>
+                <Form.Label
+                  className={`
+                  ${btnStyles.Button} 
+                  ${btnStyles.Orange} btn`}
+                  htmlFor="image-upload">
+                  Change image
+                </Form.Label>
+                </div>
+                </>
+              ) : (
               <Form.Label
                 className="d-flex justify-content-center"
                 htmlFor="image-upload"
               >
                 <Asset src={Upload} message="Click to upload an image with your review"/>
               </Form.Label>
+              )}
+              
               <Form.File id="image-upload" accept="image/*" onChange={handleChangeImage}/>
             </Form.Group>
 
