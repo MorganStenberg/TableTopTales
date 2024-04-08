@@ -42,7 +42,7 @@ const Review = (props) => {
         <Media className="align-items-center justify-content-between">
             <Link to={`/profiles/${profile_id}`}>
                 <Avatar src={profile_image} height={50} />
-                {owner}s
+                {owner}
             </Link>
             <div className="d-flex align-items-center">
               <span>{created_at}</span>
@@ -51,17 +51,17 @@ const Review = (props) => {
         </Media>
     </Card.Body>
     <Link to={`/reviews/${id}`}>
-    <Card.Img src={image} alt={title}/>
+    <Card.Img src={image} alt={title} className={styles.Image}/>
     </Link>
     
     <Card.Body>
-        <Card.Title>Rating</Card.Title>
+        <Card.Title className={styles.BorderBottom}>Rating</Card.Title>
         {rating && <ProgressBar now={ratingPercentage} label={`${rating}/10`} />}
         
     </Card.Body>
     <Card.Body>
-        <Card.Title>Game</Card.Title>
-        {game && <Card.Text>{game}</Card.Text> }
+        <Card.Title className={styles.BorderBottom}>Game</Card.Title>
+        {game && <Card.Text className={styles.CardGame}>{game}</Card.Text> }
         
     </Card.Body>
     <Card.Body>
