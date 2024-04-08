@@ -7,6 +7,7 @@ import "./api/axiosDefaults"
 import SignUpForm from './pages/auth/SignUpForm';
 import SignInForm from './pages/auth/SignInForm';
 import ReviewCreateForm from './pages/reviews/ReviewCreateForm';
+import ReviewPage from './pages/reviews/ReviewPage';
 
 
 function App() {
@@ -38,6 +39,12 @@ function App() {
             path="/reviews/create"
             render={() => 
               <ReviewCreateForm />
+          }/>
+          <Route 
+            exact
+            path="/reviews/:id"
+            render={() => 
+              <ReviewPage />
           }/>
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
