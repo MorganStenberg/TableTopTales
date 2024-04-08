@@ -19,19 +19,26 @@ function ReviewCreateForm() {
 
   const [errors, setErrors] = useState({});
 
-  const [postData, setPostData] = useState({
+  const [reviewData, setReviewData] = useState({
     title: "",
     content: "",
     rating: "",
     game: "", 
     image: "",
   });
-  const { title, content, image, rating, game } = postData;
+  const { title, content, image, rating, game } = reviewData;
 
   const handleChange = (event) => {
-    setPostData({
-      ...postData,
+    setReviewData({
+      ...reviewData,
       [event.target.name]: event.target.value,
+    });
+  };
+
+  const handleQuillChange = (content) => {
+    setReviewData({
+      ...reviewData,
+      content: content,
     });
   };
 
@@ -59,7 +66,7 @@ function ReviewCreateForm() {
         <Form.Label>Content</Form.Label>
         <ReactQuill 
         value={content}
-        onChange={handleChange}/>
+        onChange={handleQuillChange}/>
         
       </Form.Group>
       {errors.content?.map((message, idx) => (
@@ -71,13 +78,13 @@ function ReviewCreateForm() {
       <Form.Group>
         <Form.Label>Game</Form.Label>
         <Form.Control
-          as="text"
+          type="text"
           name="game"
           value={game}
           onChange={handleChange}
         />
       </Form.Group>
-      {errors.content?.map((message, idx) => (
+      {errors.game?.map((message, idx) => (
         <Alert key={idx} variant="warning">
           {message}
         </Alert>
@@ -92,9 +99,16 @@ function ReviewCreateForm() {
           onChange={handleChange}
         >
         
-      <option value="1">One</option>
-      <option value="2">Two</option>
-      <option value="3">Three</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
       </Form.Control>
       </Form.Group>
       {errors.rating?.map((message, idx) => (
