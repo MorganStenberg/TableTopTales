@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -15,7 +15,10 @@ import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import Asset from "../../components/Asset";
 import Upload from "../../assets/camera_upload.png"
+import { useHistory } from "react-router";
+import { axiosReq } from "../../api/axiosDefaults";
 
+// Credit to Code Institute for event handlers and image input
 function ReviewCreateForm() {
 
   const [errors, setErrors] = useState({});
@@ -28,6 +31,9 @@ function ReviewCreateForm() {
     image: "",
   });
   const { title, content, image, rating, game } = reviewData;
+
+  const imageInput = useRef(null)
+  const history = useHistory()
 
   const handleChange = (event) => {
     setReviewData({
@@ -50,6 +56,27 @@ function ReviewCreateForm() {
         ...reviewData,
         image: URL.createObjectURL(event.target.files[0])
       })
+    }
+  }
+
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    const formData = new FormData();
+
+    formData.append('title', title)
+    formData.append('content', content)
+    formData.append('rating', rating)
+    formData.append('game', game)
+    formData.append('image', imageInput.current.files[0])
+    
+    try {
+      const {data} = await axiosReq.post('/reviews/', formData);
+      history.push(`/reviews/${data.id}`)
+    } catch(err){
+      console.log(err)
+      if (err.response?.status !== 401) {
+        setErrors(err.response?.data)
+      }
     }
   }
 
@@ -140,7 +167,7 @@ function ReviewCreateForm() {
   );
 
   return (
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <Row> 
 
         <Col className="py-2 p-md-2" md={7} lg={8}>
@@ -176,7 +203,12 @@ function ReviewCreateForm() {
               </Form.Label>
               )}
               
-              <Form.File id="image-upload" accept="image/*" onChange={handleChangeImage}/>
+              <Form.File 
+              id="image-upload"
+              accept="image/*" 
+              onChange={handleChangeImage}
+              ref={imageInput}
+              />
             </Form.Group>
 
             <div className="d-md-none">{formFields}</div>
