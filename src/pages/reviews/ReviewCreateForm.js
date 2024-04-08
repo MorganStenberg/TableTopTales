@@ -101,7 +101,7 @@ function ReviewCreateForm() {
       <Form.Group>
         <Form.Label>Content</Form.Label>
         <ReactQuill 
-        value={content}
+        defaultValue={content}
         onChange={handleQuillChange}/>
         
       </Form.Group>
@@ -156,7 +156,7 @@ function ReviewCreateForm() {
 
       <Button
         className={`${btnStyles.Button} ${btnStyles.Orange}`}
-        onClick={() => { }}
+        onClick={() => history.goBack()}
       >
         Cancel
       </Button>
@@ -210,7 +210,11 @@ function ReviewCreateForm() {
               ref={imageInput}
               />
             </Form.Group>
-
+            {errors.image?.map((message, idx) => (
+                <Alert key={idx} variant="warning">
+                  {message}
+                </Alert>
+              ))}
             <div className="d-md-none">{formFields}</div>
           </Container>
 
