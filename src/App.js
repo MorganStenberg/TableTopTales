@@ -8,9 +8,15 @@ import SignUpForm from './pages/auth/SignUpForm';
 import SignInForm from './pages/auth/SignInForm';
 import ReviewCreateForm from './pages/reviews/ReviewCreateForm';
 import ReviewPage from './pages/reviews/ReviewPage';
+import ReviewsPage from './pages/reviews/ReviewsPage';
+import { useCurrentUser } from './contexts/CurrentUserContext';
 
 
 function App() {
+
+  const currentUser = useCurrentUser();
+  const profile_id = currentUser?.profile_id || "";
+
   return (
     <div className={styles.App}>
       <NavBar />
@@ -20,7 +26,16 @@ function App() {
             exact
             path="/"
             render={() => (
-              <h1>Home Page</h1>
+              <ReviewsPage message="No results found. Try adjusting your search keyword." />
+          )}/>
+          <Route 
+            exact
+            path="/saved"
+            render={() => (
+              <ReviewsPage 
+              message="You have not saved any reviews yet."
+              filter={`saved__owner__profile=${profile_id}&ordering=-saved__created_at&`}
+              />
           )}/>
           <Route 
             exact
