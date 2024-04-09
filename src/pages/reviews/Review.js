@@ -71,34 +71,37 @@ const Review = (props) => {
   return (
   
   <Card className={styles.Review}>
-    <Card.Body>
-    {title && <Card.Title className='text-center'>{title}</Card.Title>}
-        <Media className="align-items-center justify-content-between">
+    <Card.Body className="d-flex align-items-center justify-content-between">
+    
+        
             <Link to={`/profiles/${profile_id}`}>
                 <Avatar src={profile_image} height={50} />
                 {owner}
             </Link>
-            <div className="d-flex align-items-center">
+
+            {title && <Card.Title className={`${styles.Title} text-center`}>{title}</Card.Title>}
+
+            <div>
               <span>{created_at}</span>
               {is_owner && reviewPage && "..edit here"}
             </div>
-        </Media>
+        
     </Card.Body>
     <Link to={`/reviews/${id}`}>
     <Card.Img src={image} alt={title} className={styles.Image}/>
     </Link>
     
-    <Card.Body>
+    <Card.Body className={styles.CardPadding}>
         <Card.Title className={styles.BorderBottom}>Rating</Card.Title>
         {rating && <ProgressBar now={ratingPercentage} label={`${rating}/10`} />}
         
     </Card.Body>
-    <Card.Body>
-        <Card.Title className={styles.BorderBottom}>Game</Card.Title>
+    <Card.Body className={styles.CardPadding}>
+    <Card.Title className={styles.BorderBottom}>Game</Card.Title>
         {game && <Card.Text className={styles.CardGame}>{game}</Card.Text> }
         
     </Card.Body>
-    <Card.Body>
+    <Card.Body className={styles.CardPadding}>
         {content && <Card.Text dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(content) }}></Card.Text>}
         <div>
             {is_owner ? (

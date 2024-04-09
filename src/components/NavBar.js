@@ -92,32 +92,32 @@ const NavBar = () => {
     </>
   )
 
-    return (
-      <Container>
+  return (
+    <Container>
       <Navbar expanded={expanded}
-      expand="lg" 
-      fixed="top"
-      className={styles.NavBar}
+        expand="lg"
+        fixed="top"
+        className={`${styles.NavBar}`}
       >
-        
-          <NavLink className={`${styles.NavLogo} ${styles.NavLink} `} to="/">
-            
-              <Image
-              roundedCircle
-              src={logo} 
-              alt='logo' 
-              height='40' 
-              />
-            <Navbar.Brand className='pl-2 m-auto'>TableTopTales</Navbar.Brand>
-            
-          </NavLink>
-          
-          <Navbar.Toggle 
+
+        <NavLink className={`${styles.NavLogo}`} to="/">
+
+          <Image
+            roundedCircle
+            src={logo}
+            alt='logo'
+            height='40'
+          />
+          <Navbar.Brand className='pl-2 m-auto'>TableTopTales</Navbar.Brand>
+
+        </NavLink>
+
+        <Navbar.Toggle
           ref={ref}
-          onClick={() => setExpanded(!expanded)} 
+          onClick={() => setExpanded(!expanded)}
           aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="mr-auto text-left">
+        <Navbar.Collapse className={styles.NavBarCollapsed} id="basic-navbar-nav">
+          <Nav className="mr-auto text-left">
             <NavLink
               exact
               className={styles.NavLink}
@@ -125,14 +125,14 @@ const NavBar = () => {
               to="/"
             > Home
             </NavLink>
-              {currentUser ? loggedInNavbarIcons : loggedOutNavbarIcons}
-            </Nav>
-            {currentUser && addReview}
-          </Navbar.Collapse>
-        
+            {currentUser ? loggedInNavbarIcons : loggedOutNavbarIcons}
+          </Nav>
+          {currentUser && addReview}
+        </Navbar.Collapse>
+
       </Navbar>
-      </Container>
-    );
-  };
+    </Container>
+  );
+};
   
   export default NavBar;
