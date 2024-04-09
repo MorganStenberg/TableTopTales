@@ -34,7 +34,7 @@ function App() {
             render={() => (
               <ReviewsPage 
               message="You have not saved any reviews yet."
-              filter={`saved__owner__profile=${profile_id}&ordering=-saved__created_at&`}
+              filter={`saved_reviews__owner__profile=${profile_id}&ordering=-saved__created_at&`}
               />
           )}/>
           <Route 
