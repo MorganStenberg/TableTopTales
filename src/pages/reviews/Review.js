@@ -51,6 +51,22 @@ const Review = (props) => {
         }
       };
 
+      const handleUnlike = async () => {
+        try {
+          await axiosRes.delete(`/likes/${like_id}`);
+          setReviews((prevReviews) => ({
+            ...prevReviews,
+            results: prevReviews.results.map((review) => {
+              return review.id === id
+                ? { ...review, likes_count: review.likes_count - 1, like_id: null }
+                : review;
+            }),
+          }));
+        } catch (err) {
+            console.log(err);
+        }
+      };
+
  // Credit to Code Institute walkthrough for the structure for ternary for like icon and like function
   return (
   
@@ -90,7 +106,7 @@ const Review = (props) => {
                     <i className={`fa-regular fa-heart ${styles.Heart}`}></i>
                 </OverlayTrigger>
             ) : like_id ? (
-                <span onClick={()=>{}}>
+                <span onClick={handleUnlike}>
                     <i className={`fa-solid fa-heart ${styles.Heart} ${styles.HeartLiked}`} />
                 </span>
             ) : currentUser ? (
