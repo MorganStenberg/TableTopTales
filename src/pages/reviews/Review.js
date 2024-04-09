@@ -91,18 +91,18 @@ const Review = (props) => {
     <Card.Img src={image} alt={title} className={styles.Image}/>
     </Link>
     
-    <Card.Body className={styles.CardPadding}>
-        <Card.Title className={styles.BorderBottom}>Rating</Card.Title>
+    <Card.Body className={`${styles.CardPadding} ${styles.GameRatingTitle}`}>
+        <Card.Title>Rating</Card.Title>
         {rating && <ProgressBar now={ratingPercentage} label={`${rating}/10`} />}
         
     </Card.Body>
-    <Card.Body className={styles.CardPadding}>
+    <Card.Body className={`${styles.CardPadding} ${styles.GameRatingTitle}`}>
     <Card.Title className={styles.BorderBottom}>Game</Card.Title>
         {game && <Card.Text className={styles.CardGame}>{game}</Card.Text> }
         
     </Card.Body>
     <Card.Body className={styles.CardPadding}>
-        {content && <Card.Text dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(content) }}></Card.Text>}
+        {content && <Card.Text className={styles.ReviewText} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(content) }}></Card.Text>}
         <div>
             {is_owner ? (
                 <OverlayTrigger placement='top' overlay={<Tooltip>You can't like your own review!</Tooltip>}>

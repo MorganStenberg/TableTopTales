@@ -35,10 +35,18 @@ function ReviewsPage({ message, filter = ""}) {
     fetchReviews()
   }, [filter, pathname])
   
+
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={9}>
         
+        <i className={` fa-solid fa-magnifying-glass ${styles.SearchIcon}`} /> 
+        <Form 
+        className={styles.SearchBar}
+        onSubmit={(event) => event.preventDefault()}>
+
+          <Form.Control type="text" className="mr-sm-2" placeholder="Search for reviews or games" />
+        </Form>
         {hasLoaded ? (
           <> 
           {reviews.results.length 
