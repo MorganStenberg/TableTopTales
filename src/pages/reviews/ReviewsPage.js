@@ -20,10 +20,13 @@ function ReviewsPage({ message, filter = ""}) {
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
 
+  const [query, setQuery] = useState("");
+
   useEffect(() => {
+    // Fetch reviews based on filter and search query
     const fetchReviews = async () => {
       try {
-        const {data} = await axiosReq.get(`/reviews/?${filter}`)
+        const {data} = await axiosReq.get(`/reviews/?${filter}search=${query}`)
         setReviews(data)
         setHasLoaded(true)
       } catch(err) {
@@ -31,9 +34,14 @@ function ReviewsPage({ message, filter = ""}) {
       }
     }
 
-    setHasLoaded(false)
-    fetchReviews()
-  }, [filter, pathname])
+    setHasLoaded(false);
+    const timer = setTimeout(() => {
+      fetchReviews();
+    }, 1000)
+    return () => {
+      clearTimeout(timer);
+    }
+  }, [filter, query, pathname]);
   
 
   return (
@@ -45,7 +53,12 @@ function ReviewsPage({ message, filter = ""}) {
         className={styles.SearchBar}
         onSubmit={(event) => event.preventDefault()}>
 
-          <Form.Control type="text" className="mr-sm-2" placeholder="Search for reviews or games" />
+          <Form.Control 
+          value={query}
+          onChange={(event) => setQuery(event.target.value)}
+          type="text" 
+          className="mr-sm-2" 
+          placeholder="Search for reviews, games or users" />
         </Form>
         {hasLoaded ? (
           <> 
