@@ -7,6 +7,7 @@ import { Card, Media, OverlayTrigger, ProgressBar, Tooltip } from 'react-bootstr
 import Avatar from '../../components/Avatar';
 import { Link } from 'react-router-dom/cjs/react-router-dom';
 import DOMPurify from 'dompurify';
+import { axiosRes } from '../../api/axiosDefaults';
 
 const Review = (props) => {
     const {
@@ -24,7 +25,8 @@ const Review = (props) => {
         game,
         created_at,
         save_id,
-        ReviewPage,
+        reviewPage,
+        setReviews,
 
     } = props;
 
@@ -33,7 +35,23 @@ const Review = (props) => {
 
     const ratingPercentage = (rating / 10) *100;
 
- // Credit to Code Institute walkthrough for Liking and unliking reviews
+    const handleLike = async () => {
+        try {
+          const { data } = await axiosRes.post("/likes/", { review: id });
+          setReviews((prevReviews) => ({
+            ...prevReviews,
+            results: prevReviews.results.map((review) => {
+              return review.id === id
+                ? { ...review, likes_count: review.likes_count + 1, like_id: data.id }
+                : review;
+            }),
+          }));
+        } catch (err) {
+            console.log(err);
+        }
+      };
+
+ // Credit to Code Institute walkthrough for the structure for ternary for like icon and like function
   return (
   
   <Card className={styles.Review}>
@@ -46,7 +64,7 @@ const Review = (props) => {
             </Link>
             <div className="d-flex align-items-center">
               <span>{created_at}</span>
-              {is_owner && ReviewPage && "..edit here"}
+              {is_owner && reviewPage && "..edit here"}
             </div>
         </Media>
     </Card.Body>
@@ -73,10 +91,10 @@ const Review = (props) => {
                 </OverlayTrigger>
             ) : like_id ? (
                 <span onClick={()=>{}}>
-                    <i className={`fa-regular fa-heart ${styles.Heart}`} />
+                    <i className={`fa-solid fa-heart ${styles.Heart} ${styles.HeartLiked}`} />
                 </span>
             ) : currentUser ? (
-                <span onClick={()=>{}}>
+                <span onClick={handleLike}>
                     <i className={`fa-regular fa-heart ${styles.Heart} ${styles.HeartOutline}`}></i>
                 </span>
             ) : (

@@ -18,9 +18,21 @@
     padding: 4px
 }
 
+.Heart:hover {
+  color: #01989b;
+}
+
 .HeartOutline:hover {
     color: #FFA07A;
   }
+
+.HeartLiked {
+    color: #FFA07A;
+}
+
+.HeartLiked:hover {
+  color: #f7b195
+}
 
 .LikesAndComments {
     font-size: 1.2rem;
