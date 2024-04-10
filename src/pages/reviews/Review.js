@@ -131,8 +131,8 @@ const Review = (props) => {
             <i className={`fa-regular fa-bookmark ${styles.CommentIcon}`}></i>
             </span>
           </div>
-          <div>
-            <span>{created_at}</span>
+          <div className='d-flex align-items-center'>
+            <span className='mr-3'>{created_at} </span>
             {is_owner && reviewPage && <MoreDropdown />}
           </div>
 

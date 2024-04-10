@@ -1,9 +1,15 @@
 .DropdownItem {
-    display: inline-block;
-    max-width: 50%;
-    padding: 0px;
+
     color: #006566
   }
+
+.DropdownItem p {
+    margin-bottom: 0.25rem;
+}
+
+.DropdownMenu {
+    min-width: 7rem;
+}
 
 .DropdownItem:hover {
     background-color: #ffffff;

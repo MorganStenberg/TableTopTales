@@ -25,7 +25,7 @@
     font-size: 1.5rem;
     padding: 4px
 }
-
+/* remove here and in component */ 
 .Heart:hover {
   color: #01989b;
 }
@@ -42,7 +42,7 @@
   color: #f7b195
 }
 
-
+/* remove here and in component */ 
 .CommentIcon {
     color: #006566;
     font-size: 1.5rem;

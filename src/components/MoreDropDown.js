@@ -16,18 +16,28 @@ const ThreeDots = React.forwardRef(({ onClick }, ref) => (
 
 export const MoreDropdown = () => {
     return (
-        <Dropdown>
-        <Dropdown.Toggle as={ThreeDots} id="dropdown-custom-components">
-          Custom toggle
-        </Dropdown.Toggle>
+        <Dropdown drop="right">
+        <Dropdown.Toggle as={ThreeDots} />
+          
     
-        <Dropdown.Menu>
-          <Dropdown.Item eventKey="1">Red</Dropdown.Item>
-          <Dropdown.Item eventKey="2">Blue</Dropdown.Item>
-          <Dropdown.Item eventKey="3" active>
-            Orange
+        <Dropdown.Menu 
+        className={styles.DropdownMenu}
+        popperConfig={{ strategy: "fixed" }}>
+          <Dropdown.Item 
+          className={styles.DropdownItem}
+          onClick={() => {}}
+          aria-label="edit"
+          ><p>Edit</p>
+
           </Dropdown.Item>
-          <Dropdown.Item eventKey="1">Red-Orange</Dropdown.Item>
+          <Dropdown.Item 
+          className={styles.DropdownItem}
+          onClick={() => {}}
+          aria-label="delete"
+          ><p>Delete</p>
+
+          </Dropdown.Item>
+
         </Dropdown.Menu>
       </Dropdown>
     )
