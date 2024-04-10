@@ -5,10 +5,11 @@ import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import { Card, Media, OverlayTrigger, ProgressBar, Tooltip } from 'react-bootstrap';
 
 import Avatar from '../../components/Avatar';
-import { Link } from 'react-router-dom/cjs/react-router-dom';
+import { Link, useHistory } from 'react-router-dom/cjs/react-router-dom';
 import DOMPurify from 'dompurify';
 import { axiosRes } from '../../api/axiosDefaults';
 import { MoreDropdown } from '../../components/MoreDropDown';
+
 
 const Review = (props) => {
     const {
@@ -35,6 +36,12 @@ const Review = (props) => {
     const is_owner = currentUser?.username === owner;
 
     const ratingPercentage = (rating / 10) *100;
+
+    const history = useHistory();
+
+    const handleEdit = () => {
+      history.push(`/reviews/${id}/edit`)
+    }
 
     const handleLike = async () => {
         try {
@@ -133,7 +140,7 @@ const Review = (props) => {
           </div>
           <div className='d-flex align-items-center'>
             <span className='mr-3'>{created_at} </span>
-            {is_owner && reviewPage && <MoreDropdown />}
+            {is_owner && reviewPage && <MoreDropdown handleEdit={handleEdit}/>}
           </div>
 
 

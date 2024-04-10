@@ -14,7 +14,7 @@ const ThreeDots = React.forwardRef(({ onClick }, ref) => (
   ));
   
 
-export const MoreDropdown = () => {
+export const MoreDropdown = ({handleEdit}) => {
     return (
         <Dropdown drop="right">
         <Dropdown.Toggle as={ThreeDots} />
@@ -25,7 +25,7 @@ export const MoreDropdown = () => {
         popperConfig={{ strategy: "fixed" }}>
           <Dropdown.Item 
           className={styles.DropdownItem}
-          onClick={() => {}}
+          onClick={handleEdit}
           aria-label="edit"
           ><p>Edit</p>
 
