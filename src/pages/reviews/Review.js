@@ -69,70 +69,76 @@ const Review = (props) => {
 
  // Credit to Code Institute walkthrough for the structure for ternary for like icon and like function
   return (
-  
-  <Card className={styles.Review}>
-    <Card.Body className="d-flex align-items-center justify-content-between">
-    
-        
-            <Link to={`/profiles/${profile_id}`}>
-                <Avatar src={profile_image} height={50} />
-                {owner}
-            </Link>
 
-            {title && <Card.Title className={`${styles.Title} text-center`}>{title}</Card.Title>}
+    <Card className={styles.Review}>
+      <Card.Body className="d-flex align-items-center">
 
-            <div>
-              <span>{created_at}</span>
-              {is_owner && reviewPage && "..edit here"}
-            </div>
-        
-    </Card.Body>
-    <Link to={`/reviews/${id}`}>
-    <Card.Img src={image} alt={title} className={styles.Image}/>
-    </Link>
-    
-    <Card.Body className={`${styles.CardPadding} ${styles.GameRatingTitle}`}>
+        {title && <Card.Title className={`${styles.Title}`}>{title}</Card.Title>}
+
+      </Card.Body>
+      <Link to={`/reviews/${id}`}>
+        <Card.Img src={image} alt={title} className={styles.Image} />
+      </Link>
+
+      <Card.Body className={`${styles.CardPadding} ${styles.GameRatingTitle}`}>
         <Card.Title>Rating</Card.Title>
         {rating && <ProgressBar now={ratingPercentage} label={`${rating}/10`} />}
-        
-    </Card.Body>
-    <Card.Body className={`${styles.CardPadding} ${styles.GameRatingTitle}`}>
-    <Card.Title className={styles.BorderBottom}>Game</Card.Title>
-        {game && <Card.Text className={styles.CardGame}>{game}</Card.Text> }
-        
-    </Card.Body>
-    <Card.Body className={styles.CardPadding}>
+
+      </Card.Body>
+      <Card.Body className={`${styles.CardPadding} ${styles.GameRatingTitle}`}>
+        <Card.Title className={styles.BorderBottom}>Game</Card.Title>
+        {game && <Card.Text className={styles.CardGame}>{game}</Card.Text>}
+
+      </Card.Body>
+      <Card.Body className={styles.CardPadding}>
         {content && <Card.Text className={styles.ReviewText} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(content) }}></Card.Text>}
-        <div>
+
+        <div className="d-flex align-items-center justify-content-between">
+          <Link to={`/profiles/${profile_id}`}>
+            <Avatar src={profile_image} height={50} />
+            {owner}
+          </Link>
+
+          <div>
             {is_owner ? (
-                <OverlayTrigger placement='top' overlay={<Tooltip>You can't like your own review!</Tooltip>}>
-                    <i className={`fa-regular fa-heart ${styles.Heart}`}></i>
-                </OverlayTrigger>
+              <OverlayTrigger placement='top' overlay={<Tooltip>You can't like your own review!</Tooltip>}>
+                <i className={`fa-regular fa-heart ${styles.Heart}`}></i>
+              </OverlayTrigger>
             ) : like_id ? (
-                <span onClick={handleUnlike}>
-                    <i className={`fa-solid fa-heart ${styles.Heart} ${styles.HeartLiked}`} />
-                </span>
+              <span onClick={handleUnlike}>
+                <i className={`fa-solid fa-heart ${styles.Heart} ${styles.HeartLiked}`} />
+              </span>
             ) : currentUser ? (
-                <span onClick={handleLike}>
-                    <i className={`fa-regular fa-heart ${styles.Heart} ${styles.HeartOutline}`}></i>
-                </span>
+              <span onClick={handleLike}>
+                <i className={`fa-regular fa-heart ${styles.Heart} ${styles.HeartOutline}`}></i>
+              </span>
             ) : (
-                <OverlayTrigger placement='top' overlay={<Tooltip>You can't like reviews if you are not logged in!</Tooltip>}>
-                    <i className={`fa-regular fa-heart ${styles.Heart}`}></i>
-                </OverlayTrigger>
+              <OverlayTrigger placement='top' overlay={<Tooltip>You can't like reviews if you are not logged in!</Tooltip>}>
+                <i className={`fa-regular fa-heart ${styles.Heart}`}></i>
+              </OverlayTrigger>
             )}
             <span className={styles.LikesAndComments}>
-                {likes_count}
+              {likes_count}
             </span>
             <span className={styles.LikesAndComments}>
-                <Link to={`/reviews/${id}`}>
+              <Link to={`/reviews/${id}`}>
                 <i className={`fa-regular fa-comments ${styles.CommentIcon}`}></i>
-                </Link>
-                {comments_count}
+              </Link>
+              {comments_count}
             </span>
+            <span className={styles.LikesAndComments}>
+            <i className={`fa-regular fa-bookmark ${styles.CommentIcon}`}></i>
+            </span>
+          </div>
+          <div>
+            <span>{created_at}</span>
+            {is_owner && reviewPage && "..edit here"}
+          </div>
+
+
         </div>
-    </Card.Body>
-  </Card>
+      </Card.Body>
+    </Card>
   )
 }
 

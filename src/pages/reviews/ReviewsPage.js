@@ -34,6 +34,7 @@ function ReviewsPage({ message, filter = ""}) {
       }
     }
 
+    // Delays fetching posts when user searches to improve UX
     setHasLoaded(false);
     const timer = setTimeout(() => {
       fetchReviews();

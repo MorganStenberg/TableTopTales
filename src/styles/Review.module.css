@@ -13,6 +13,7 @@
 
 .Title {
   font-size: 1.75rem;
+  text-align: center;
 }
 
 .GameRatingTitle {
@@ -51,6 +52,10 @@
 .Image {
     width: 95%;
     margin: auto;
+    max-height: 500px;
+    width: auto;
+    height: auto;
+
 }
 
 .BorderBottom {
@@ -69,4 +74,8 @@
 
 .ReviewText {
   text-align: left;
+}
+
+.ReviewText p {
+  margin-bottom: 0;
 }
