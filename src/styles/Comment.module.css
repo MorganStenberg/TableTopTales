@@ -1,0 +1,18 @@
+.Owner {
+    font-weight: bold;
+    color: #006566;
+    margin-right: 8px;
+}
+
+.Owner:hover {
+    color: #01989b;
+}
+
+.Media {
+    padding-left: 0.5rem;
+}
+  
+.Date {
+    font-weight: lighter;
+
+}
