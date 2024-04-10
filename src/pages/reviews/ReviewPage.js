@@ -9,12 +9,17 @@ import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 import Review from "./Review";
 
-
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import CommentCreateForm from "../../comments/CommentCreateForm";
 
 // Credit to Code Institute Walkthrough
 function ReviewPage() {
     const { id } = useParams();
     const [review, setReview] = useState({results: [] });
+
+    const currentUser = useCurrentUser();
+    const profile_image = currentUser?.profile_image;
+    const [comments, setComments] = useState({ results: [] });
 
     useEffect(() => {
         const handleMount = async () => {
@@ -41,7 +46,17 @@ function ReviewPage() {
           
           <Container className={appStyles.Content}>
         
-            <p>Placeholder for comments</p>
+            {currentUser ? (
+              <CommentCreateForm
+              profile_id={currentUser.profile_id}
+              profileImage={profile_image}
+              review={id}
+              setReview={setReview}
+              setComments={setComments}
+            />
+            ) : comments.results.length ? (
+              "Comments"
+            ) : null}
           </Container>
         </Col>
         <Col lg={3} className="d-none d-lg-block p-0 p-lg-2">
