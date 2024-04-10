@@ -8,6 +8,7 @@ import Avatar from '../../components/Avatar';
 import { Link } from 'react-router-dom/cjs/react-router-dom';
 import DOMPurify from 'dompurify';
 import { axiosRes } from '../../api/axiosDefaults';
+import { MoreDropdown } from '../../components/MoreDropDown';
 
 const Review = (props) => {
     const {
@@ -132,7 +133,7 @@ const Review = (props) => {
           </div>
           <div>
             <span>{created_at}</span>
-            {is_owner && reviewPage && "..edit here"}
+            {is_owner && reviewPage && <MoreDropdown />}
           </div>
 
 
