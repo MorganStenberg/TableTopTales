@@ -2,7 +2,7 @@ import React from 'react'
 
 import styles from "../../styles/Review.module.css"
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
-import { Card, Media, OverlayTrigger, ProgressBar, Tooltip } from 'react-bootstrap';
+import { Card, OverlayTrigger, ProgressBar, Tooltip } from 'react-bootstrap';
 
 import Avatar from '../../components/Avatar';
 import { Link, useHistory } from 'react-router-dom/cjs/react-router-dom';

@@ -3,6 +3,9 @@ import styles from "../../styles/Comment.module.css"
 import { Media } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
+import { useCurrentUser } from '../../contexts/CurrentUserContext';
+import { MoreDropdown } from '../../components/MoreDropDown';
+import { axiosRes } from '../../api/axiosDefaults';
 
 // Credit to Code Institute for structure of Comment component
 const Comment = (props) => {
@@ -18,6 +21,30 @@ const Comment = (props) => {
     setComments,
   } = props;
 
+  const currentUser = useCurrentUser();
+  const is_owner = currentUser?.username === owner; 
+
+  const handleDelete = async () => {
+    try {
+      await axiosRes.delete(`/comments/${id}`)
+      setReview(prevReview => ({
+        results: [{
+          ...prevReview.results[0],
+          comments_count: prevReview.results[0].comments_count - 1
+        }]
+      }))
+
+      setComments(prevComments => ({
+        ...prevComments,
+        results: prevComments.results.filter((comment) => comment.id !== id),
+      }))
+    } catch(err){
+      console.log(err)
+    }
+  }
+
+  
+
 
   return (
     <>
@@ -30,7 +57,11 @@ const Comment = (props) => {
           <span className={styles.Owner}>{owner}</span>
           <span className={styles.Date}>{created_at}</span>
             <p>{content}</p>
+
         </Media.Body>
+        {is_owner && (
+          <MoreDropdown handleDelete={handleDelete}/>
+        )}
       </Media>
     </>
   )
