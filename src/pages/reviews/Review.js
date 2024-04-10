@@ -43,6 +43,15 @@ const Review = (props) => {
       history.push(`/reviews/${id}/edit`)
     }
 
+    const handleDelete = async () => {
+      try {
+        await axiosRes.delete(`/reviews/${id}/`);
+        history.goBack();
+      } catch (err) {
+        console.log(err)
+      }
+    };
+
     const handleLike = async () => {
         try {
           const { data } = await axiosRes.post("/likes/", { review: id });
@@ -140,7 +149,7 @@ const Review = (props) => {
           </div>
           <div className='d-flex align-items-center'>
             <span className='mr-3'>{created_at} </span>
-            {is_owner && reviewPage && <MoreDropdown handleEdit={handleEdit}/>}
+            {is_owner && reviewPage && <MoreDropdown handleEdit={handleEdit} handleDelete={handleDelete}/>}
           </div>
 
 
