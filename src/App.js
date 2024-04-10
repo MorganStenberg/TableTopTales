@@ -10,6 +10,7 @@ import ReviewCreateForm from './pages/reviews/ReviewCreateForm';
 import ReviewPage from './pages/reviews/ReviewPage';
 import ReviewsPage from './pages/reviews/ReviewsPage';
 import { useCurrentUser } from './contexts/CurrentUserContext';
+import ReviewEditForm from './pages/reviews/ReviewEditForm';
 
 
 function App() {
@@ -54,6 +55,12 @@ function App() {
             path="/reviews/create"
             render={() => 
               <ReviewCreateForm />
+          }/>
+          <Route 
+            exact
+            path="/reviews/:id/edit"
+            render={() => 
+              <ReviewEditForm />
           }/>
           <Route 
             exact
