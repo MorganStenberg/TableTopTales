@@ -10,6 +10,7 @@ import styles from "../../styles/ReviewsPage.module.css";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 import Review from "./Review";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 import NoResults from "../../assets/no-results.png"
 import Asset from "../../components/Asset";
@@ -63,13 +64,22 @@ function ReviewsPage({ message, filter = ""}) {
         </Form>
         {hasLoaded ? (
           <> 
-          {reviews.results.length 
-          ? reviews.results.map((review) => (
-              <Review key={review.id} {...review} setReviews={setReviews} />
-            ))
-             : <Container className={appStyles.Content}>
+          {reviews.results.length ? (
+            <InfiniteScroll 
+              children={
+                reviews.results.map((review) => (
+                  <Review key={review.id} {...review} setReviews={setReviews} />
+                ))
+              }
+              dataLength={reviews.results.length}
+              loader={<Asset spinner />}
+              hasMore={!!reviews.next}
+              next={() => {}}
+            />
+            
+           ) : (<Container className={appStyles.Content}>
               <Asset src={NoResults} message={message}/>
-             </Container> }
+             </Container> )}
           </>
         ) : (
           <Container className={appStyles.Content}>
