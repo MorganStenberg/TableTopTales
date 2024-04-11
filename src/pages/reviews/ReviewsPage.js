@@ -15,7 +15,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import NoResults from "../../assets/no-results.png"
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
-import PopularReviewsComments from "./PopularReviewsComments";
+import PopularReviews from "./PopularReviews";
 
 function ReviewsPage({ message, filter = ""}) {
 
@@ -91,7 +91,7 @@ function ReviewsPage({ message, filter = ""}) {
         
       </Col>
       <Col md={3} className="d-none d-lg-block p-0 p-lg-2">
-        <PopularReviewsComments />
+        <PopularReviews />
       </Col>
     </Row>
   );

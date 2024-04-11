@@ -3,14 +3,15 @@ import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import { axiosReq } from '../../api/axiosDefaults';
 import Container from "react-bootstrap/Container";
 import appStyles from "../../App.module.css"
+import Asset from '../../components/Asset';
 
-const PopularReviewsComments = () => {
+const PopularReviews = () => {
   
   const [reviewData, setReviewData] = useState({
-    PopularReviewsComments: { results: [] },
+    PopularReviews: { results: [] },
   });
 
-  const { PopularReviewsComments } = reviewData;
+  const { PopularReviews } = reviewData;
   const currentUser = useCurrentUser();
 
   useEffect(() => {
@@ -21,7 +22,7 @@ const PopularReviewsComments = () => {
             );
             setReviewData(prevState => ({
                 ...prevState,
-                PopularReviewsComments: data
+                PopularReviews: data
             }))
         } catch (err){
             console.log(err)
@@ -35,12 +36,18 @@ const PopularReviewsComments = () => {
 
     return (
     <Container className={appStyles.Content}>
-    <p>Most discussed reviews!</p>
-        {PopularReviewsComments.results.map((review) => (
-            <p key={review.id}>{review.title}</p>
+      {PopularReviews.results.length ? (
+        <>
+          <p>Most discussed reviews!</p>
+          {PopularReviews.results.map((review) => (
+          <p key={review.id}>{review.title}</p>
         ))}
+      </>
+      ) : ( 
+        <Asset spinner />
+      )}
     </Container>
-  )
-}
+  );
+};
 
-export default PopularReviewsComments
+export default PopularReviews
