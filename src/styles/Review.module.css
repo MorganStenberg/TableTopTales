@@ -23,7 +23,7 @@
 .Heart {
     color: #006566;
     font-size: 1.5rem;
-    padding: 4px
+    padding: 4px 6px;
 }
 /* remove here and in component */ 
 .Heart:hover {
@@ -46,7 +46,7 @@
 .CommentIcon {
     color: #006566;
     font-size: 1.5rem;
-    padding: 4px;
+    padding: 4px 6px;
 }
 
 .Image {
