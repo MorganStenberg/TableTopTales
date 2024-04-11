@@ -84,6 +84,39 @@ const Review = (props) => {
         }
       };
 
+
+      const handleSave = async () => {
+        try {
+          const { data } = await axiosRes.post("/saved/", { review: id });
+          setReviews((prevReviews) => ({
+            ...prevReviews,
+            results: prevReviews.results.map((review) => {
+              return review.id === id
+                ? { ...review, save_id: data.id }
+                : review;
+            }),
+          }));
+        } catch (err) {
+            console.log(err);
+        }
+      };
+
+      const handleRemoveSave = async () => {
+        try {
+          await axiosRes.delete(`/saved/${save_id}`);
+          setReviews((prevReviews) => ({
+            ...prevReviews,
+            results: prevReviews.results.map((review) => {
+              return review.id === id
+                ? { ...review, save_id: null }
+                : review;
+            }),
+          }));
+        } catch (err) {
+            console.log(err);
+        }
+      }; 
+
  // Credit to Code Institute walkthrough for the structure for ternary for like icon and like function
   return (
 
