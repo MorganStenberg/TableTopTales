@@ -12,6 +12,9 @@ import Review from "./Review";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import CommentCreateForm from "../comments/CommentCreateForm";
 import Comment from "../comments/Comment";
+import Asset from "../../components/Asset";
+import { fetchMoreData } from "../../utils/utils";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 
 
@@ -63,13 +66,22 @@ function ReviewPage() {
               "Comments"
             ) : null}
             {comments.results.length ? (
-              comments.results.map(comment => (
-                <Comment 
-                key={comment.id} 
-                {...comment}
-                setReview={setReview}
-                setComments={setComments}/>
-              ))
+              <InfiniteScroll 
+              children={
+                comments.results.map(comment => (
+                  <Comment 
+                  key={comment.id} 
+                  {...comment}
+                  setReview={setReview}
+                  setComments={setComments}/>
+                ))
+              }
+              dataLength={comments.results.length}
+              loader={<Asset spinner />}
+              hasMore={!!comments.next}
+              next={() => fetchMoreData(comments, setComments)}
+              />
+              
             ) : currentUser ? (
               <span>Be the first to start the discussion!</span>
             ) : (
