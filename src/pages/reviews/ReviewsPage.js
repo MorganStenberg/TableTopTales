@@ -15,7 +15,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import NoResults from "../../assets/no-results.png"
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
-import PopularReviews from "./PopularReviews";
+import MostPopularReviews from "./MostPopularReviews";
 
 function ReviewsPage({ message, filter = ""}) {
 
@@ -51,7 +51,7 @@ function ReviewsPage({ message, filter = ""}) {
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={9}>
-        <PopularReviews smallscreen />
+        <MostPopularReviews smallscreen />
         <i className={` fa-solid fa-magnifying-glass ${styles.SearchIcon}`} /> 
         <Form 
         className={styles.SearchBar}
@@ -91,7 +91,7 @@ function ReviewsPage({ message, filter = ""}) {
         
       </Col>
       <Col md={3} className="d-none d-lg-block p-0 p-lg-2">
-        <PopularReviews />
+        <MostPopularReviews />
       </Col>
     </Row>
   );

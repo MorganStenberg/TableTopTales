@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import { axiosReq } from '../../api/axiosDefaults';
 import Container from "react-bootstrap/Container";
+import styles from "../../styles/MostPopularReviews.module.css"
 import appStyles from "../../App.module.css"
 import Asset from '../../components/Asset';
+import PopularReview from './PopularReview';
 
-const PopularReviews = ({ smallscreen }) => {
+const MostPopularReviews = ({ smallscreen }) => {
   
   const [reviewData, setReviewData] = useState({
     popularReviews: { results: [] },
@@ -36,21 +38,25 @@ const PopularReviews = ({ smallscreen }) => {
 
   return (
     <Container 
-    className={`${appStyles.Content} ${ smallscreen && "d-lg-none text-center mb-3"
+    className={`${appStyles.Content} ${styles.Border} ${ smallscreen && "d-lg-none text-center mb-3"
       }`}
     >
       {popularReviews.results.length ? (
         <>
-          <p>Most discussed reviews!</p>
+          <div className={styles.Header}>
+            <h5>Most discussed reviews!</h5>
+          </div>
+          
+
           {smallscreen ? (
             <div className='d-flex justify-content-around'>
               {popularReviews.results.slice(0, 3).map((review) => (
-                <p key={review.id}>{review.title}</p>
+                <PopularReview key={review.id} review={review} smallscreen/>
               ))}
             </div>
           ) : (
-            popularReviews.results.map((review) => (
-              <p key={review.id}>{review.title}</p>
+            popularReviews.results.slice(0, 5).map((review) => (
+              <PopularReview key={review.id} review={review}/>
             ))
           )}
         </>
@@ -61,4 +67,4 @@ const PopularReviews = ({ smallscreen }) => {
   );
 };
 
-export default PopularReviews
+export default MostPopularReviews
