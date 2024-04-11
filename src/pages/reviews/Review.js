@@ -145,7 +145,7 @@ const Review = (props) => {
 
         <div className="d-flex align-items-center justify-content-between">
           <Link to={`/profiles/${profile_id}`}>
-            <Avatar src={profile_image} height={50} />
+            <Avatar src={profile_image} height={40} />
             {owner}
           </Link>
 

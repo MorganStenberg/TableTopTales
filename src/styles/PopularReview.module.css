@@ -1,0 +1,43 @@
+.CardImage {
+    border-radius: 0.15rem;
+    opacity: 0.4;
+}
+
+.Card {
+    max-width: 12rem;
+    max-height: 8rem;
+    border: none;
+    position: relative;
+    text-align: center;
+    border-radius: 0.15rem;
+}
+
+.Card:hover {
+    box-shadow: 0 0 8px rgba(255, 160, 122, 0.4); 
+}
+
+.Card p {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: fit-content;
+    margin: auto;
+    color: #000000;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 525px) {
+    .Card {
+        max-width: 10rem;
+        max-height: 6rem;
+    }
+
+    .Card p {
+        font-size: 0.85rem;
+        letter-spacing: 0.5px;
+    }
+    
+}

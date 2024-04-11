@@ -44,7 +44,7 @@ const MostPopularReviews = ({ smallscreen }) => {
       {popularReviews.results.length ? (
         <>
           <div className={styles.Header}>
-            <h5>Most discussed reviews!</h5>
+            <h5>Most discussed reviews</h5>
           </div>
           
 
