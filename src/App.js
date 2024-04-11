@@ -11,6 +11,7 @@ import ReviewPage from './pages/reviews/ReviewPage';
 import ReviewsPage from './pages/reviews/ReviewsPage';
 import { useCurrentUser } from './contexts/CurrentUserContext';
 import ReviewEditForm from './pages/reviews/ReviewEditForm';
+import GamesCreateForm from './games/GamesCreateForm';
 
 
 function App() {
@@ -67,6 +68,12 @@ function App() {
             path="/reviews/:id"
             render={() => 
               <ReviewPage />
+          }/>
+          <Route 
+            exact
+            path="/games/create"
+            render={() => 
+              <GamesCreateForm />
           }/>
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
