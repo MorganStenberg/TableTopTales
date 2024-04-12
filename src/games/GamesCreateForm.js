@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -31,6 +31,26 @@ function GamesCreateForm() {
 
   const { title, description, genre, review_connect } = gameData;
 
+  const [genres, setGenres] = useState([]);
+
+  // Fetching genres and structuring them to fit with react options
+  useEffect(() => {
+    const fetchGenres = async () => {
+      try {
+        const {data} = await axiosReq.get('/genres/')
+        const structuredData = data.map((item) => ({
+          value: item[0],
+          label: item[1]
+        }));
+
+        setGenres(structuredData);
+      } catch(err) {
+        console.log(err)
+      }
+    };
+    fetchGenres();
+  }, []);
+
   const history = useHistory()
 
   const handleChange = (event) => {
@@ -59,6 +79,7 @@ function GamesCreateForm() {
       }
     }
   }
+
 
   const formFields = (
     <div className="text-center">
@@ -103,11 +124,11 @@ function GamesCreateForm() {
           value={genre}
           onChange={handleChange}
         >
-        
-      <option value="1">1</option>
-      <option value="2">2</option>
-    
-
+      
+      {genres.map((genreChoices) => (
+        <option key={genreChoices.value} value={genreChoices.value}>{genreChoices.label}</option>
+      ))}
+      
       </Form.Control>
       </Form.Group>
       {errors.genre?.map((message, idx) => (
