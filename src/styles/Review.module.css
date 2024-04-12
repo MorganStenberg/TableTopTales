@@ -50,7 +50,7 @@
 }
 
 .Image {
-    width: 95%;
+    max-width: 95%;
     margin: auto;
     max-height: 500px;
     width: auto;

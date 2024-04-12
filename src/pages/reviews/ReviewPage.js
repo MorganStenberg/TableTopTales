@@ -49,7 +49,7 @@ function ReviewPage() {
   
     return (
       <Row className="h-100">
-        <Col className="py-2 p-0 p-lg-2" lg={9}>
+        <Col className="py-2 p-0 p-lg-2" lg={12}>
         <Review {...review.results[0]} setReviews={setReview} reviewPage />
           
           <Container className={appStyles.Content}>
@@ -88,9 +88,6 @@ function ReviewPage() {
               <span>No comments..</span>
             )}
           </Container>
-        </Col>
-        <Col lg={3} className="d-none d-lg-block p-0 p-lg-2">
-        <p>Most discussed reviews placeholder</p>
         </Col>
       </Row>
     );
