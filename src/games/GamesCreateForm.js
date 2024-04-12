@@ -113,7 +113,10 @@ function GamesCreateForm({filter = ""}) {
       <option></option>
       {savedReviews.results.length ? 
         savedReviews.results.map((savedReviews) => {
-          return <option key={savedReviews.id} value={savedReviews.review_connect}>{savedReviews.title}</option>
+          return <option 
+          key={savedReviews.id} 
+          value={savedReviews.save_id}>
+            {savedReviews.title}</option>
         })
         : <option>No saved reviews</option>
       }
