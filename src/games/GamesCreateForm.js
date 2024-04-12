@@ -8,7 +8,7 @@ import Container from "react-bootstrap/Container";
 
 import Alert from "react-bootstrap/Alert";
 
-
+import styles from "../styles/GamesCreateForm.module.css"
 import appStyles from "../App.module.css";
 import btnStyles from "../styles/Button.module.css";
 
@@ -109,7 +109,7 @@ function GamesCreateForm({filter = ""}) {
           value={review_connect}
           onChange={handleChange}
         >
-      
+      <option></option>
       {savedReviews.results.length ? 
         savedReviews.results.map((savedReviews) => {
           return <option key={savedReviews.id} value={savedReviews.review_connect}>{savedReviews.title}</option>
@@ -204,17 +204,24 @@ function GamesCreateForm({filter = ""}) {
       <Row> 
 
         <Col className="py-2 p-md-2" md={7} lg={8}>
-          <Container className={appStyles.Content}>{formFields}</Container>
-          <div>{selectSavedReviews}</div>
+          <Container className={`${styles.Container} ${appStyles.Content}`}>
+            <div className={styles.Header}>
+              <h5>Create a game to add to your wishlist!</h5>
+            </div>
+            {formFields}
+          </Container>
+          
         </Col>
         
-        <Col className="d-none d-md-block p-0 p-md-2">
+        <Col className="py-2 p-md-2" md={5} lg={4}>
           <Container
-            className={`${appStyles.Content} d-flex flex-column justify-content-center`}
+            className={`${appStyles.Content} ${styles.Container} d-flex flex-column`}
           >
-            
-            
-        
+            <div className={styles.Header}>
+              <p>Connect your wishlist game to a saved review!</p>
+            </div>
+            {selectSavedReviews}
+          
           </Container>
 
         </Col>
