@@ -72,9 +72,10 @@ function App() {
           <Route 
             exact
             path="/games/create"
-            render={() => 
-              <GamesCreateForm />
-          }/>
+            render={() => (
+              <GamesCreateForm 
+              filter={`saved_reviews__owner__profile=${profile_id}&ordering=-saved__created_at&`}/>
+              )}/>
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
       </Container>

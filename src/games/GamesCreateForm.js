@@ -15,9 +15,10 @@ import btnStyles from "../styles/Button.module.css";
 
 import { useHistory } from "react-router";
 import { axiosReq } from "../api/axiosDefaults";
+import { useCurrentUser } from "../contexts/CurrentUserContext";
 
 
-function GamesCreateForm() {
+function GamesCreateForm({filter = ""}) {
 
   const [errors, setErrors] = useState({});
 
@@ -32,8 +33,9 @@ function GamesCreateForm() {
   const { title, description, genre, review_connect } = gameData;
 
   const [genres, setGenres] = useState([]);
+  const [savedReviews, setSavedReviews] = useState({ results: []});
 
-  // Fetching genres and structuring them to fit with react options
+  // Fetching genres and structuring them to fit with react dropdown options
   useEffect(() => {
     const fetchGenres = async () => {
       try {
@@ -50,6 +52,22 @@ function GamesCreateForm() {
     };
     fetchGenres();
   }, []);
+
+
+  const currentUser = useCurrentUser();
+
+  useEffect(() => {
+    const fetchSavedReviews = async () => {
+      try {
+        const {data} = await axiosReq.get(`/reviews/?${filter}/`);
+        setSavedReviews(data);
+      } catch(err) {
+        console.log(err)
+      }
+    }
+    fetchSavedReviews();
+
+  }, [currentUser, filter])
 
   const history = useHistory()
 
@@ -80,6 +98,37 @@ function GamesCreateForm() {
     }
   }
 
+  const selectSavedReviews = (
+    <div className="text-center">
+             
+        <Form.Group>
+        <Form.Label>Saved Reviews</Form.Label>
+        <Form.Control
+          as="select"
+          name="review_connect"
+          value={review_connect}
+          onChange={handleChange}
+        >
+      
+      {savedReviews.results.length ? 
+        savedReviews.results.map((savedReviews) => {
+          return <option key={savedReviews.id} value={savedReviews.review_connect}>{savedReviews.title}</option>
+        })
+        : <option>No saved reviews</option>
+      }
+      
+      </Form.Control>
+      </Form.Group>
+      {errors.review_connect?.map((message, idx) => (
+        <Alert key={idx} variant="warning">
+          {message}
+        </Alert>
+      ))}
+        
+
+    
+    </div>
+  )
 
   const formFields = (
     <div className="text-center">
@@ -156,6 +205,7 @@ function GamesCreateForm() {
 
         <Col className="py-2 p-md-2" md={7} lg={8}>
           <Container className={appStyles.Content}>{formFields}</Container>
+          <div>{selectSavedReviews}</div>
         </Col>
         
         <Col className="d-none d-md-block p-0 p-md-2">
@@ -164,7 +214,7 @@ function GamesCreateForm() {
           >
             
             
-            <div className="d-md-none">{formFields}</div>
+        
           </Container>
 
         </Col>
