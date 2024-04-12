@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom/cjs/react-router-dom';
 const PopularReview = (props) => {
 
   const { review, smallscreen } = props;
-  const { id, title, game, image } = review;
+  const { id, title, image } = review;
 
 
 

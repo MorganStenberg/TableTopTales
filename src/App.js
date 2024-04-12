@@ -12,6 +12,7 @@ import ReviewsPage from './pages/reviews/ReviewsPage';
 import { useCurrentUser } from './contexts/CurrentUserContext';
 import ReviewEditForm from './pages/reviews/ReviewEditForm';
 import GamesCreateForm from './games/GamesCreateForm';
+import WishListPage from './games/WishListPage';
 
 
 function App() {
@@ -75,6 +76,13 @@ function App() {
             render={() => (
               <GamesCreateForm 
               filter={`saved_reviews__owner__profile=${profile_id}&ordering=-saved__created_at&`}/>
+              )}/>
+              <Route 
+            exact
+            path="/wishlist"
+            render={() => (
+              <WishListPage
+              filter={`owner__profile=${profile_id}&ordering=-saved__created_at&`}/>
               )}/>
           <Route render={() => <p>Page not found!</p>} />
         </Switch>

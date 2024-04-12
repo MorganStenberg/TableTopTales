@@ -1,9 +1,13 @@
 import React, { useState } from 'react'
 import styles from "../styles/Game.module.css"
-
+import appStyles from "../App.module.css";
+import btnStyles from "../styles/Button.module.css";
 import { Card } from 'react-bootstrap';
-
+import Button from "react-bootstrap/Button";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 import { axiosRes } from '../api/axiosDefaults';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom';
 
 // Credit to Code Institute for structure of Comment component
 const Game = (props) => {
@@ -16,6 +20,7 @@ const Game = (props) => {
     genre,
   } = props;
 
+  const history = useHistory()
 
   const handleEdit = () => {
     history.push(`/games/${id}/edit`)
@@ -33,62 +38,63 @@ const Game = (props) => {
   
 
 
-  return (
-    <>
-      <Card>
-        <col>
-        <row>
-        <Card.Body>
-        <Card.Title>
-            {title}
-        </Card.Title>
-            <Card.Text>
-                {description}
-            </Card.Text>
-        </Card.Body>
-        </row>
+    return (
+        <>
+            <Card>
+                <Col>
+                    <Row>
+                        <Card.Body>
+                            <Card.Title>
+                                {title}
+                            </Card.Title>
+                            <Card.Text>
+                                {description}
+                            </Card.Text>
+                        </Card.Body>
+                    </Row>
 
-        <row>
-            <col>
-            <Card.Body>
-                <Card.Text>
-                    {genre}
-                </Card.Text>
-            </Card.Body>
+                    <Row>
+                        <Col>
+                            <Card.Body>
+                                <Card.Text>
+                                    {genre}
+                                </Card.Text>
+                            </Card.Body>
 
-            </col>
+                        </Col>
 
-            <col>
-            <Card.Body>
-                <Card.Text>
-                    {review_connect}
-                </Card.Text>
-            </Card.Body>
-            
-            </col>
+                        <Col>
+                            <Card.Body>
+                                <Card.Text>
+                                    {review_connect}
+                                </Card.Text>
+                            </Card.Body>
 
-        </row>
+                        </Col>
 
-        </col>
-        <Button
-            className={`${btnStyles.Button} ${btnStyles.Orange}`}
-            onClick={handleEdit}
-            >
-            Edit
-        </Button>
+                    </Row>
 
-        <Button 
-        className={`${btnStyles.Button} ${btnStyles.Orange}`} 
-        onClick={handleDelete}
-        >
-           Delete
-        </Button>
-        
+                </Col>
+                <Button
+                    className={`${btnStyles.Button} ${btnStyles.Orange}`}
+                    onClick={handleEdit}
+                >
+                    Edit
+                </Button>
 
-      </Card>
-      
-    </>
-  )
+                <Button
+                    className={`${btnStyles.Button} ${btnStyles.Orange}`}
+                    onClick={handleDelete}
+                >
+                    Delete
+                </Button>
+                
+
+
+            </Card>
+
+        </>
+    )
 }
 
 export default Game

@@ -56,6 +56,7 @@ function GamesCreateForm({filter = ""}) {
 
   const currentUser = useCurrentUser();
 
+  // Fetching saved reviews filtered by user
   useEffect(() => {
     const fetchSavedReviews = async () => {
       try {
