@@ -19,6 +19,7 @@ import Game from "./Game";
 
 
 
+
 // Credit to Code Institute Walkthrough
 function WishListPage({filter = ""}) {
 
@@ -56,30 +57,30 @@ function WishListPage({filter = ""}) {
             next={() => fetchMoreData(games, setGames)}
           />
 
-          ) : (
-            <Asset 
+        ) : (
+          <Asset
             src={noGames}
             message="You have not added any games yet!"
-            />
-          )}
-           
+          />
+        )}
 
 
 
-            <Container className={appStyles.Content}>
-            <Button
-                className={`${btnStyles.Button} ${btnStyles.Orange}`}
-                >
-                    <Link to="/games/create">
-                        Add a game to your wishlist!
-                    </Link>
 
-                </Button>
-              
-            </Container>
-          </Col>
-        </Row>
-      );
-    }
+        <Container className={appStyles.Content}>
+          <Button
+            className={`${btnStyles.Button} ${btnStyles.Orange}`}
+          >
+            <Link to="/games/create">
+              Add a game to your wishlist!
+            </Link>
+
+          </Button>
+
+        </Container>
+      </Col>
+    </Row>
+  );
+}
   
   export default WishListPage;
