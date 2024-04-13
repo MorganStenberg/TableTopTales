@@ -13,6 +13,7 @@ import { useCurrentUser } from './contexts/CurrentUserContext';
 import ReviewEditForm from './pages/reviews/ReviewEditForm';
 import GamesCreateForm from './games/GamesCreateForm';
 import WishListPage from './games/WishListPage';
+import GamesEditForm from './games/GamesEditForm';
 
 
 function App() {
@@ -75,6 +76,13 @@ function App() {
             path="/games/create"
             render={() => (
               <GamesCreateForm 
+              filter={`saved_reviews__owner__profile=${profile_id}&ordering=-saved__created_at&`}/>
+              )}/>
+              <Route 
+            exact
+            path="/games/:id/edit"
+            render={() => (
+              <GamesEditForm 
               filter={`saved_reviews__owner__profile=${profile_id}&ordering=-saved__created_at&`}/>
               )}/>
               <Route 

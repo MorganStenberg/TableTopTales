@@ -41,7 +41,7 @@ const Game = (props) => {
 
   return (
     <>
-      <Card className={`${styles.CardShadow} m-2`}>
+      <Card className={`${styles.CardShadow}`}>
         <Row>
           <Col md={6}>  
             <Card.Body className={styles.CardBody}>
