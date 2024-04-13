@@ -20,57 +20,65 @@ import MostPopularReviews from "../pages/reviews/MostPopularReviews";
 
 
 
-function WishListPage({filter = ""}) {
+function WishListPage({ filter = "" }) {
 
-    const [games, setGames] = useState({results: [] });
+  const [games, setGames] = useState({ results: [] });
+  const [hasLoaded, setHasLoaded] = useState(false);
 
-    useEffect(() => {
-        const fetchGames = async () => {
-          try {
-            const {data } = await axiosReq.get(`/games/?${filter}/`);
-            console.log(data)
-            setGames(data);
-          } catch(err) {
-            console.log(err)
-          }
-        }
-        fetchGames();
-    
-      }, [filter])
-  
-    return (
-        <Row className="h-100">
-          <Col className="py-2 p-0 p-lg-2" lg={9}>
-          <h4 className="text-center">Games that have been added to wishlist</h4>
-          
-          {games.results.length ? (
-            <InfiniteScroll 
-            children={
-              games.results.map((game) => (
-                <Game key={game.id} {...game} setGames={setGames}/>
-              ))
-            }
-            dataLength={games.results.length}
-            loader={<Asset spinner />}
-            hasMore={!!games.next}
-            next={() => fetchMoreData(games, setGames)}
-          />
+  useEffect(() => {
+    const fetchGames = async () => {
+      try {
+        const { data } = await axiosReq.get(`/games/?${filter}/`);
+        setGames(data);
+        setHasLoaded(true)
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    fetchGames();
 
+  }, [filter])
+
+  return (
+
+    <Row className="h-100">
+
+      <Col className="py-2 p-0 p-lg-2" lg={9}>
+        <h4 className="text-center">Games that have been added to wishlist</h4>
+
+        {hasLoaded ? (
+          <>
+            {games.results.length ? (
+              <InfiniteScroll
+                children={
+                  games.results.map((game) => (
+                    <Game key={game.id} {...game} setGames={setGames} />
+                  ))
+                }
+                dataLength={games.results.length}
+                loader={<Asset spinner />}
+                hasMore={!!games.next}
+                next={() => fetchMoreData(games, setGames)}
+              />
+
+            ) : (
+              <Asset
+                src={noGames}
+                message="You have not added any games yet!"
+              />
+            )}
+          </>
         ) : (
-          <Asset
-            src={noGames}
-            message="You have not added any games yet!"
-          />
+          <Container className={appStyles.Content}>
+            <Asset spinner />
+          </Container>
         )}
 
-
-
-
         <Container className={`text-center `}>
-          
-            <Link className={`mt-3 ${btnStyles.LinkButton}`} to="/games/create">
+
+          <Link className={`mt-3 ${btnStyles.LinkButton}`} to="/games/create">
             Add a game to your wishlist!
-            </Link>
+          </Link>
 
         </Container>
       </Col>
