@@ -1,3 +1,21 @@
 .CardBody {
     padding: 0.75rem;
 }
+
+.WishlistText {
+    font-weight: bold;
+    margin: 0;
+}
+
+
+.Badge {
+    background-color: #008080;
+    color: #fff;
+    padding: .5rem .8rem;
+    font-size: 90%;
+}
+
+.CardShadow {
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,.2)
+}

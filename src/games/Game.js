@@ -2,8 +2,10 @@ import React from 'react'
 import styles from "../styles/Game.module.css"
 import appStyles from "../App.module.css";
 import btnStyles from "../styles/Button.module.css";
+
 import { Card } from 'react-bootstrap';
 import Button from "react-bootstrap/Button";
+import Badge from 'react-bootstrap/Badge';
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { axiosRes } from '../api/axiosDefaults';
@@ -16,8 +18,8 @@ const Game = (props) => {
     id,
     title,
     description,
-    genre,
     saved_review_connect,
+    genre_label,
   } = props;
 
   const history = useHistory()
@@ -35,14 +37,11 @@ const Game = (props) => {
     }
   };
 
-  console.log(genre.key)
-
-  
 
 
   return (
     <>
-      <Card className='mb-2'>
+      <Card className={`${styles.CardShadow} m-2`}>
         <Row>
           <Col md={6}>  
             <Card.Body className={styles.CardBody}>
@@ -54,7 +53,7 @@ const Game = (props) => {
               </Card.Title>
               <Card.Text>
                 <span className='d-flex'>
-                  <h5 className='mr-1'>Description:</h5>
+                  <p className={`${styles.WishlistText} mr-1 `}>Description:</p>
                   {description}
                 </span>
               </Card.Text>
@@ -65,15 +64,21 @@ const Game = (props) => {
             <Card.Body className={styles.CardBody}>
               <Card.Text>
               <span className='d-flex'> 
-              <h5 className='mr-1'>Genre:</h5> {genre}
+              <p className={`${styles.WishlistText} mr-1 `}>Genre:
+              </p> 
+              {genre_label}
               </span>
                 
                 </Card.Text>
               <Card.Text>
-                <h5 className='mb-1'>Connected review:</h5>
+                <p className={`${styles.WishlistText} mb-1 `}>Connected review:</p>
                 {saved_review_connect && saved_review_connect.map((review) => (
-                  <Link to={`reviews/${review.id}`} key={review.id}>
-                    <span>{review.review}</span>
+                  <Link to={`/reviews/${review.id}`} key={review.id}>
+                    <span>
+                        <Badge pill className={styles.Badge}>
+                        {review.review}
+                        </Badge>
+                    </span>
                   </Link>
                 ))}
               </Card.Text>

@@ -16,6 +16,7 @@ import { fetchMoreData } from "../utils/utils";
 
 import InfiniteScroll from "react-infinite-scroll-component";
 import Game from "./Game";
+import MostPopularReviews from "../pages/reviews/MostPopularReviews";
 
 
 
@@ -72,6 +73,9 @@ function WishListPage({filter = ""}) {
             </Link>
 
         </Container>
+      </Col>
+      <Col md={3} className="d-none d-lg-block p-0 p-lg-2">
+        <MostPopularReviews />
       </Col>
     </Row>
   );
