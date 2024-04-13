@@ -39,8 +39,8 @@ function WishListPage({filter = ""}) {
   
     return (
         <Row className="h-100">
-          <Col className="py-2 p-0 p-lg-2" lg={12}>
-          
+          <Col className="py-2 p-0 p-lg-2" lg={9}>
+          <h4 className="text-center">Games that have been added to wishlist</h4>
           
           {games.results.length ? (
             <InfiniteScroll 
@@ -67,11 +67,9 @@ function WishListPage({filter = ""}) {
 
         <Container className={`text-center `}>
           
-            <Link className={btnStyles.LinkButton} to="/games/create">
+            <Link className={`mt-3 ${btnStyles.LinkButton}`} to="/games/create">
             Add a game to your wishlist!
             </Link>
-            
-          
 
         </Container>
       </Col>

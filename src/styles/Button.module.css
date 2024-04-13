@@ -44,6 +44,7 @@
 
 .LinkButton {
   font-size: 1rem;
+  font-weight: bold;
   align-self: center;
   border-color: transparent;
   padding: 4px 10px;

@@ -35,76 +35,77 @@ const Game = (props) => {
     }
   };
 
+  console.log(genre.key)
+
   
 
 
-    return (
-        <>
-            <Card>
-                <Col>
-                    <Row>
-                        <Card.Body>
-                            <Card.Title>
-                                {title}
-                            </Card.Title>
-                            <Card.Text>
-                                {description}
-                            </Card.Text>
-                        </Card.Body>
-                    </Row>
+  return (
+    <>
+      <Card className='mb-2'>
+        <Row>
+          <Col md={6}>  
+            <Card.Body className={styles.CardBody}>
+              <Card.Title>
+                <span className='d-flex'>
+                  <h5 className='mr-1'>Title:</h5>
+                  {title}
+                </span>
+              </Card.Title>
+              <Card.Text>
+                <span className='d-flex'>
+                  <h5 className='mr-1'>Description:</h5>
+                  {description}
+                </span>
+              </Card.Text>
+            </Card.Body>
+          </Col>
 
-                    <Row>
-                        <Col>
-                            <Card.Body>
-                                <Card.Text>
-                                    {genre}
-                                </Card.Text>
-                            </Card.Body>
-
-                        </Col>
-
-                        <Col>
-                            <Card.Body>
-                                <Card.Text>
-                                    <h5>Connected review</h5>
-                                    {saved_review_connect && (saved_review_connect.map((review) => {
-                                        return (
-                                            <Link to={`reviews/${review.id}`} key={review.id}>
-                                                <span>
-                                                    {review.review}
-                                                </span>
-                                            
-                                            </Link>
-                                        )
-                                    }))}
-                                </Card.Text>
-                            </Card.Body>
-
-                        </Col>
-
-                    </Row>
-
-                </Col>
-                <Button
-                    className={`${btnStyles.Button} ${btnStyles.Orange}`}
-                    onClick={handleEdit}
-                >
-                    Edit
-                </Button>
-
-                <Button
-                    className={`${btnStyles.Button} ${btnStyles.Orange}`}
-                    onClick={handleDelete}
-                >
-                    Delete
-                </Button>
+          <Col md={6}>
+            <Card.Body className={styles.CardBody}>
+              <Card.Text>
+              <span className='d-flex'> 
+              <h5 className='mr-1'>Genre:</h5> {genre}
+              </span>
                 
+                </Card.Text>
+              <Card.Text>
+                <h5 className='mb-1'>Connected review:</h5>
+                {saved_review_connect && saved_review_connect.map((review) => (
+                  <Link to={`reviews/${review.id}`} key={review.id}>
+                    <span>{review.review}</span>
+                  </Link>
+                ))}
+              </Card.Text>
+              
+            </Card.Body>
+          </Col>
+        </Row>
+
+        <Row className="mt-1 mb-2">
+        <Col className="text-center">
+          <Button
+            className={`${btnStyles.Button} ${btnStyles.Orange} mr-2`}
+            onClick={handleEdit}
+          >
+            Edit
+          </Button>
+          <Button
+            className={`${btnStyles.Button} ${btnStyles.Orange}`}
+            onClick={handleDelete}
+          >
+            Delete
+          </Button>
+        </Col>
+      </Row>
+      </Card>
+    </>
+  );
+  
 
 
-            </Card>
 
-        </>
-    )
+    
 }
 
 export default Game

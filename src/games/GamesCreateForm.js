@@ -86,7 +86,10 @@ function GamesCreateForm({filter = ""}) {
     formData.append('title', title)
     formData.append('description', description)
     formData.append('genre', genre)
-    formData.append('review_connect', review_connect)
+    if (review_connect) {
+      formData.append('review_connect', review_connect)
+    }
+    
     
     try {
       await axiosReq.post('/games/', formData);
