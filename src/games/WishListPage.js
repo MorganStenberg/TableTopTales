@@ -19,8 +19,6 @@ import Game from "./Game";
 
 
 
-
-// Credit to Code Institute Walkthrough
 function WishListPage({filter = ""}) {
 
     const [games, setGames] = useState({results: [] });
@@ -67,15 +65,13 @@ function WishListPage({filter = ""}) {
 
 
 
-        <Container className={appStyles.Content}>
-          <Button
-            className={`${btnStyles.Button} ${btnStyles.Orange}`}
-          >
-            <Link to="/games/create">
-              Add a game to your wishlist!
+        <Container className={`text-center `}>
+          
+            <Link className={btnStyles.LinkButton} to="/games/create">
+            Add a game to your wishlist!
             </Link>
-
-          </Button>
+            
+          
 
         </Container>
       </Col>

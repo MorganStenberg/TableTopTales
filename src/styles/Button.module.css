@@ -7,37 +7,60 @@
     min-width: 80px;
   }
   
-  .Button:hover {
+.Button:hover {
     opacity: 0.8;
     border-color: transparent;
     cursor: pointer;
   }
   
-  .Button:hover:active {
+.Button:hover:active {
     background-color: #006566 !important;
   }
   
-  .Button:active {
+.Button:active {
     background-color: #006566 !important;
   }
   
-  .Button:focus {
+.Button:focus {
     background-color: #006566;
   }
   
-  .Wide {
+.Wide {
     padding: 10px 50px;
     width: 100%;
   }
   
-  .Orange:hover {
+.Orange:hover {
     background-color: #006566;
     color: #ffffff;
     font-weight: bold
   }
 
   
-  .Orange {
+.Orange {
     background-color: #FFA07A;
     color: #ffffff;
   }
+
+.LinkButton {
+  font-size: 1rem;
+  align-self: center;
+  border-color: transparent;
+  padding: 4px 10px;
+  margin: 3px;
+  min-width: 80px;
+  text-decoration: none;
+  background-color: #006566;
+  color: #ffffff;
+  display: inline-block;
+  border-radius: 0.25rem;
+}
+
+.LinkButton:hover {
+  opacity: 0.8;
+  border-color: transparent;
+  cursor: pointer;
+  background-color: #FFA07A;
+  color: #ffffff;
+  font-weight: bold;
+}
