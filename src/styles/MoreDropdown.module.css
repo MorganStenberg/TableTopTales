@@ -20,3 +20,9 @@
     position: absolute;
     z-index: 99;
   }
+
+.DropdownRight {
+    position: absolute;
+    z-index: 99;
+    right: 0;
+}

@@ -18,6 +18,7 @@ import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no-results.png"
 import MostPopularReviews from "../reviews/MostPopularReviews";
 import Review from "../reviews/Review";
+import { ProfileEditDropdown } from "../../components/MoreDropDown";
 
 
 function ProfilePage() {
@@ -55,7 +56,7 @@ function ProfilePage() {
 
     const mainProfile = (
         <>
-            {profile?.is_owner}
+            {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
             <Row noGutters className="mr-3 px-3">
                 <Col lg={3} className="text-lg-left d-flex">
                     <span>
