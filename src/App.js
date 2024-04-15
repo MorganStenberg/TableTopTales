@@ -15,6 +15,7 @@ import GamesCreateForm from './games/GamesCreateForm';
 import WishListPage from './games/WishListPage';
 import GamesEditForm from './games/GamesEditForm';
 import ProfilePage from './pages/profiles/ProfilePage';
+import ProfileEditForm from './pages/profiles/ProfileEditForm';
 
 
 function App() {
@@ -95,6 +96,21 @@ function App() {
               )}/>
 
           <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
+          <Route
+            exact
+            path="/profiles/:id/edit/username"
+            render={() => {}}
+          />
+          <Route
+            exact
+            path="/profiles/:id/edit/password"
+            render={() => {}}
+          />
+          <Route
+            exact
+            path="/profiles/:id/edit"
+            render={() => <ProfileEditForm />}
+          />
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
       </Container>
