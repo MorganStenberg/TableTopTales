@@ -12,6 +12,7 @@ import Alert from "react-bootstrap/Alert";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useCurrentUser, useSetCurrentUser } from "../../contexts/CurrentUserContext";
 
+import styles from "../../styles/ProfileEditForm.module.css"
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
@@ -131,8 +132,11 @@ const ProfileEditForm = () => {
   return (
     <Form onSubmit={handleSubmit}>
       <Row>
-        <Col className="py-2 p-0 p-md-2 text-center" md={7} lg={6}>
-          <Container className={appStyles.Content}>
+      <Col md={8} lg={7} className="d-none d-md-block p-0 p-md-2 text-center">
+          <Container className={`${appStyles.Content} ${styles.Container}`}>{textFields}</Container>
+        </Col>
+        <Col className="py-2 p-0 p-md-2 text-center" md={4} lg={5}>
+          <Container className={`${appStyles.Content} ${styles.Container}`}>
             <Form.Group>
               {image && (
                 <figure>
@@ -169,9 +173,7 @@ const ProfileEditForm = () => {
             <div className="d-md-none">{textFields}</div>
           </Container>
         </Col>
-        <Col md={5} lg={6} className="d-none d-md-block p-0 p-md-2 text-center">
-          <Container className={appStyles.Content}>{textFields}</Container>
-        </Col>
+        
       </Row>
     </Form>
   );
