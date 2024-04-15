@@ -17,6 +17,7 @@ import GamesEditForm from './games/GamesEditForm';
 import ProfilePage from './pages/profiles/ProfilePage';
 import ProfileEditForm from './pages/profiles/ProfileEditForm';
 import UsernameForm from './pages/profiles/UsernameForm';
+import UserPasswordForm from './pages/profiles/UserPasswordForm';
 
 
 function App() {
@@ -105,7 +106,7 @@ function App() {
           <Route
             exact
             path="/profiles/:id/edit/password"
-            render={() => {}}
+            render={() => <UserPasswordForm />}
           />
           <Route
             exact
