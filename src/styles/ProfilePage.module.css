@@ -1,0 +1,29 @@
+.ProfileImage {
+    object-fit: cover;
+    height: 160px;
+    width: 160px;
+  }
+
+
+.Reviews {
+    font-size: large;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.ReviewsCount {
+    color: gray;
+    margin-top: 1.5rem;
+}
+
+.ProfilePageContainer {
+    border-radius: 0.3rem;
+}
+
+@media screen and (max-width: 991px) {
+    .ReviewsCount {
+        text-align: left;
+        padding-left: 3rem;
+        margin-top: 0.5rem;
+    }
+  }

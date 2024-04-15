@@ -14,6 +14,7 @@ import ReviewEditForm from './pages/reviews/ReviewEditForm';
 import GamesCreateForm from './games/GamesCreateForm';
 import WishListPage from './games/WishListPage';
 import GamesEditForm from './games/GamesEditForm';
+import ProfilePage from './pages/profiles/ProfilePage';
 
 
 function App() {
@@ -92,6 +93,8 @@ function App() {
               <WishListPage
               filter={`owner__profile=${profile_id}&ordering=-saved__created_at&`}/>
               )}/>
+
+          <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
       </Container>
