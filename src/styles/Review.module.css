@@ -16,6 +16,10 @@
   margin: auto;
 }
 
+.Title a {
+  color: #212529;
+}
+
 .GameRatingTitle {
   font-size: 1.5rem;
 }
@@ -78,4 +82,14 @@
 
 .ReviewText p {
   margin-bottom: 0;
+}
+
+.RatingBar {
+  font-size: 1.1rem;
+  height: 1.5rem;
+  
+}
+
+.RatingBar > * {
+  background-color: #006566;
 }

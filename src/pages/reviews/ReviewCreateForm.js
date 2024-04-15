@@ -67,7 +67,10 @@ function ReviewCreateForm() {
     formData.append('content', content)
     formData.append('rating', rating)
     formData.append('game', game)
-    formData.append('image', imageInput.current.files[0])
+    if (imageInput.current && imageInput.current.files[0]) {
+      formData.append('image', imageInput.current.files[0]);
+    }
+    
     
     try {
       const {data} = await axiosReq.post('/reviews/', formData);

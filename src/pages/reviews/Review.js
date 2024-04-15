@@ -123,16 +123,16 @@ const Review = (props) => {
     <Card className={styles.Review}>
       <Card.Body className="d-flex align-items-center">
 
-        {title && <Card.Title className={`${styles.Title}`}>{title}</Card.Title>}
+        {title && <Card.Title className={`${styles.Title}`}><Link to={`/reviews/${id}`}>{title}</Link></Card.Title>}
 
       </Card.Body>
       <Link to={`/reviews/${id}`}>
-        <Card.Img src={image} alt={title} className={styles.Image} />
+        {image && <Card.Img src={image} alt={title} className={styles.Image} />}
       </Link>
 
       <Card.Body className={`${styles.CardPadding} ${styles.GameRatingTitle}`}>
         <Card.Title>Rating</Card.Title>
-        {rating && <ProgressBar now={ratingPercentage} label={`${rating}/10`} />}
+        {rating && <ProgressBar className={styles.RatingBar} now={ratingPercentage} label={`${rating}/10`} />}
 
       </Card.Body>
       <Card.Body className={`${styles.CardPadding} ${styles.GameRatingTitle}`}>
