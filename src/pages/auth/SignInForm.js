@@ -14,6 +14,7 @@ import Container from "react-bootstrap/Container";
 import axios from "axios";
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 import { useRedirect } from "../../hooks/UseRedirect";
+import { setTokenTimestamp } from "../../utils/utils";
 
 
 // Credit to Code Institute walktrough for form structure
@@ -36,6 +37,7 @@ function SignInForm() {
       try {
        const {data} = await axios.post("/dj-rest-auth/login/", signInData);
        setCurrentUser(data.user)
+       setTokenTimestamp(data)
         history.goBack();
       } catch (err) {
         setErrors(err.response?.data);
