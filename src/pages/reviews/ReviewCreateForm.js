@@ -17,10 +17,11 @@ import Asset from "../../components/Asset";
 import Upload from "../../assets/camera_upload.png"
 import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
+import { useRedirect } from "../../hooks/UseRedirect";
 
 // Credit to Code Institute for event handlers and image input
 function ReviewCreateForm() {
-
+  useRedirect("loggedOut");
   const [errors, setErrors] = useState({});
 
   const [reviewData, setReviewData] = useState({
