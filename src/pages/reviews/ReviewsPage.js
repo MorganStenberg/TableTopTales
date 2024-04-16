@@ -16,13 +16,14 @@ import NoResults from "../../assets/no-results.png"
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
 import MostPopularReviews from "./MostPopularReviews";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function ReviewsPage({ message, filter = ""}) {
 
   const [reviews, setReviews] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
-
+  const currentUser = useCurrentUser();
   const [query, setQuery] = useState("");
 
   useEffect(() => {
@@ -45,7 +46,7 @@ function ReviewsPage({ message, filter = ""}) {
     return () => {
       clearTimeout(timer);
     }
-  }, [filter, query, pathname]);
+  }, [filter, query, pathname, currentUser]);
   
 
   return (
