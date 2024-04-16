@@ -109,7 +109,7 @@ function GamesEditForm({ filter = "" }) {
 		}
 
 		try {
-			await axiosReq.put('/games/', formData);
+			await axiosReq.put(`/games/${id}/`, formData);
 			history.push('/wishlist/')
 		} catch (err) {
 			//console.log(err)
@@ -218,7 +218,7 @@ function GamesEditForm({ filter = "" }) {
 				Cancel
 			</Button>
 			<Button className={`${btnStyles.Button} ${btnStyles.Orange}`} type="submit">
-				Add game
+			Save your changes
 			</Button>
 		</div>
 	);
