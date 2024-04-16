@@ -5,7 +5,6 @@ import { useCurrentUser } from "./CurrentUserContext";
 
 
 // Credit to Code Institute Walkthrough for ProfileDataProvider
-
 export const ProfileDataContext = createContext();
 export const SetProfileDataContext = createContext();
 

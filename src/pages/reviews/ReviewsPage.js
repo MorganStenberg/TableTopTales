@@ -18,84 +18,84 @@ import { fetchMoreData } from "../../utils/utils";
 import MostPopularReviews from "./MostPopularReviews";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
-function ReviewsPage({ message, filter = ""}) {
+function ReviewsPage({ message, filter = "" }) {
 
-  const [reviews, setReviews] = useState({ results: [] });
-  const [hasLoaded, setHasLoaded] = useState(false);
-  const { pathname } = useLocation();
-  const currentUser = useCurrentUser();
-  const [query, setQuery] = useState("");
+    const [reviews, setReviews] = useState({ results: [] });
+    const [hasLoaded, setHasLoaded] = useState(false);
+    const { pathname } = useLocation();
+    const currentUser = useCurrentUser();
+    const [query, setQuery] = useState("");
 
-  useEffect(() => {
-    // Fetch reviews based on filter and search query
-    const fetchReviews = async () => {
-      try {
-        const {data} = await axiosReq.get(`/reviews/?${filter}search=${query}`)
-        setReviews(data)
-        setHasLoaded(true)
-      } catch(err) {
-        //console.log(err)
-      }
-    }
+    useEffect(() => {
+        // Fetch reviews based on filter and search query
+        const fetchReviews = async () => {
+            try {
+                const { data } = await axiosReq.get(`/reviews/?${filter}search=${query}`)
+                setReviews(data)
+                setHasLoaded(true)
+            } catch (err) {
+                //console.log(err)
+            }
+        }
 
-    // Delays fetching posts when user searches to improve UX
-    setHasLoaded(false);
-    const timer = setTimeout(() => {
-      fetchReviews();
-    }, 1000)
-    return () => {
-      clearTimeout(timer);
-    }
-  }, [filter, query, pathname, currentUser]);
-  
+        // Delays fetching posts when user searches to improve UX
+        setHasLoaded(false);
+        const timer = setTimeout(() => {
+            fetchReviews();
+        }, 1000)
+        return () => {
+            clearTimeout(timer);
+        }
+    }, [filter, query, pathname, currentUser]);
 
-  return (
-    <Row className="h-100">
-      <Col className="py-2 p-0 p-lg-2" lg={9}>
-        <MostPopularReviews smallscreen />
-        <i className={` fa-solid fa-magnifying-glass ${styles.SearchIcon}`} /> 
-        <Form 
-        className={styles.SearchBar}
-        onSubmit={(event) => event.preventDefault()}>
 
-          <Form.Control 
-          value={query}
-          onChange={(event) => setQuery(event.target.value)}
-          type="text" 
-          className="mr-sm-2" 
-          placeholder="Search for reviews, games or users" />
-        </Form>
-        {hasLoaded ? (
-          <> 
-          {reviews.results.length ? (
-            <InfiniteScroll 
-              children={
-                reviews.results.map((review) => (
-                  <Review key={review.id} {...review} setReviews={setReviews} />
-                ))
-              }
-              dataLength={reviews.results.length}
-              loader={<Asset spinner />}
-              hasMore={!!reviews.next}
-              next={() => fetchMoreData(reviews, setReviews)}
-            />
-            
-           ) : (<Container className={appStyles.Content}>
-              <Asset src={NoResults} message={message}/>
-             </Container> )}
-          </>
-        ) : (
-          <Container className={appStyles.Content}>
-                <Asset spinner />
-          </Container>
-        )}
-        
-      </Col>
-      <Col md={3} className="d-none d-lg-block p-0 p-lg-2">
-        <MostPopularReviews />
-      </Col>
-    </Row>
-  );
+    return (
+        <Row className="h-100">
+            <Col className="py-2 p-0 p-lg-2" lg={9}>
+                <MostPopularReviews smallscreen />
+                <i className={` fa-solid fa-magnifying-glass ${styles.SearchIcon}`} />
+                <Form
+                    className={styles.SearchBar}
+                    onSubmit={(event) => event.preventDefault()}>
+
+                    <Form.Control
+                        value={query}
+                        onChange={(event) => setQuery(event.target.value)}
+                        type="text"
+                        className="mr-sm-2"
+                        placeholder="Search for reviews, games or users" />
+                </Form>
+                {hasLoaded ? (
+                    <>
+                        {reviews.results.length ? (
+                            <InfiniteScroll
+                                children={
+                                    reviews.results.map((review) => (
+                                        <Review key={review.id} {...review} setReviews={setReviews} />
+                                    ))
+                                }
+                                dataLength={reviews.results.length}
+                                loader={<Asset spinner />}
+                                hasMore={!!reviews.next}
+                                next={() => fetchMoreData(reviews, setReviews)}
+                            />
+
+                        ) : (<Container className={appStyles.Content}>
+                            <Asset src={NoResults} message={message} />
+                        </Container>)}
+                    </>
+                ) : (
+                    <Container className={appStyles.Content}>
+                        <Asset spinner />
+                    </Container>
+                )}
+
+            </Col>
+            <Col md={3} className="d-none d-lg-block p-0 p-lg-2">
+                <MostPopularReviews />
+            </Col>
+        </Row>
+    );
 }
 
 export default ReviewsPage;

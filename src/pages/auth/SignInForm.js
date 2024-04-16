@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 
 import styles from "../../styles/SignInUpForm.module.css";
@@ -23,37 +23,37 @@ function SignInForm() {
     useRedirect('loggedIn')
 
     const [signInData, setSignInData] = useState({
-      username: "",
-      password: "",
+        username: "",
+        password: "",
     });
     const { username, password } = signInData;
-  
+
     const [errors, setErrors] = useState({});
-  
+
     const history = useHistory();
 
     const handleSubmit = async (event) => {
-      event.preventDefault();
-      try {
-       const {data} = await axios.post("/dj-rest-auth/login/", signInData);
-       setCurrentUser(data.user)
-       setTokenTimestamp(data)
-        history.goBack();
-      } catch (err) {
-        setErrors(err.response?.data);
-      }
+        event.preventDefault();
+        try {
+            const { data } = await axios.post("/dj-rest-auth/login/", signInData);
+            setCurrentUser(data.user)
+            setTokenTimestamp(data)
+            history.goBack();
+        } catch (err) {
+            setErrors(err.response?.data);
+        }
     };
-  
+
     const handleChange = (event) => {
-      setSignInData({
-        ...signInData,
-        [event.target.name]: event.target.value,
-      });
+        setSignInData({
+            ...signInData,
+            [event.target.name]: event.target.value,
+        });
     };
-  
+
     return (
         <>
-        
+
             <Row className={styles.Row}>
                 <Col className="m-auto py-2 p-md-2" md={6}>
                     <Container className={`
@@ -73,8 +73,8 @@ function SignInForm() {
                                 />
                             </Form.Group>
                             {errors.username?.map((message, idx) =>
-                        <Alert variant="warning" key={idx}>{message}</Alert>
-                      )}
+                                <Alert variant="warning" key={idx}>{message}</Alert>
+                            )}
 
                             <Form.Group controlId="password">
                                 <Form.Label className="d-none">Password</Form.Label>
@@ -88,8 +88,8 @@ function SignInForm() {
                                 />
                             </Form.Group>
                             {errors.password?.map((message, idx) =>
-                        <Alert variant="warning" key={idx}>{message}</Alert>
-                      )}
+                                <Alert variant="warning" key={idx}>{message}</Alert>
+                            )}
 
                             <Button
                                 className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Orange}`}
@@ -100,7 +100,7 @@ function SignInForm() {
                             {errors.non_field_errors?.map((message, idx) =>
                                 <Alert variant="warning" key={idx} className="mt-3">{message}</Alert>
                             )}
- 
+
                         </Form>
 
                     </Container>
@@ -114,6 +114,6 @@ function SignInForm() {
             </Row>
         </>
     );
-  }
+}
 
 export default SignInForm;

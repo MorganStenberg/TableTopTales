@@ -3,23 +3,23 @@ import { useEffect, useRef, useState } from 'react'
 
 // Credit to Code institute walkthrough
 const useClickOutsideToggle = () => {
-  const [expanded, setExpanded] = useState(false)
-  const ref = useRef(null);
-  
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (ref.current && !ref.current.contains(event.target)){
-        setExpanded(false)
-      }
-    }
+	const [expanded, setExpanded] = useState(false)
+	const ref = useRef(null);
 
-    document.addEventListener('mouseup', handleClickOutside)
-    return () => {
-      document.removeEventListener('mouseup', handleClickOutside)
-    }
-  }, [ref])
+	useEffect(() => {
+		const handleClickOutside = (event) => {
+			if (ref.current && !ref.current.contains(event.target)) {
+				setExpanded(false)
+			}
+		}
 
-  return { expanded, setExpanded, ref};
+		document.addEventListener('mouseup', handleClickOutside)
+		return () => {
+			document.removeEventListener('mouseup', handleClickOutside)
+		}
+	}, [ref])
+
+	return { expanded, setExpanded, ref };
 
 }
 

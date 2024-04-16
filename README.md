@@ -1,4 +1,4 @@
-# ** TableTopTales API **
+# **TableTopTales API**
 
 TabletopTales is a social media site for board games enthusiasts, targeted towards people who love to play board games and want to share their reviews for others! As well as finding new games to add to their wishlist of games they want to play. 
 
@@ -30,6 +30,8 @@ The goal of this site is to create a place where people can share reviews and di
 ### Manual Testing
 
 ### Validator Testing
+
+### Resolved problems and bugs
 
 
 ## Deployment

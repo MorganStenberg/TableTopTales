@@ -23,102 +23,102 @@ import NotFound from './components/NotFound';
 
 function App() {
 
-  const currentUser = useCurrentUser();
-  const profile_id = currentUser?.profile_id || "";
+    const currentUser = useCurrentUser();
+    const profile_id = currentUser?.profile_id || "";
 
-  return (
-    <div className={styles.App}>
-      <NavBar />
-      <Container className={styles.Main}>
-        <Switch>
-          <Route 
-            exact
-            path="/"
-            render={() => (
-              <ReviewsPage message="No results found. Try adjusting your search keyword." />
-          )}/>
-          <Route 
-            exact
-            path="/saved"
-            render={() => (
-              <ReviewsPage 
-              message="You have not saved any reviews yet."
-              filter={`saved_reviews__owner__profile=${profile_id}&ordering=-saved__created_at&`}
-              />
-          )}/>
-          <Route 
-            exact
-            path="/signin"
-            render={() => 
-              <SignInForm />
-          }/>
-          <Route 
-            exact
-            path="/signup"
-            render={() => 
-              <SignUpForm />
-          }/>
-          <Route 
-            exact
-            path="/reviews/create"
-            render={() => 
-              <ReviewCreateForm />
-          }/>
-          <Route 
-            exact
-            path="/reviews/:id/edit"
-            render={() => 
-              <ReviewEditForm />
-          }/>
-          <Route 
-            exact
-            path="/reviews/:id"
-            render={() => 
-              <ReviewPage />
-          }/>
-          <Route 
-            exact
-            path="/games/create"
-            render={() => (
-              <GamesCreateForm 
-              filter={`saved_reviews__owner__profile=${profile_id}&ordering=-saved__created_at&`}/>
-              )}/>
-              <Route 
-            exact
-            path="/games/:id/edit"
-            render={() => (
-              <GamesEditForm 
-              filter={`saved_reviews__owner__profile=${profile_id}&ordering=-saved__created_at&`}/>
-              )}/>
-              <Route 
-            exact
-            path="/wishlist"
-            render={() => (
-              <WishListPage
-              filter={`owner__profile=${profile_id}&ordering=-saved__created_at&`}/>
-              )}/>
+    return (
+        <div className={styles.App}>
+            <NavBar />
+            <Container className={styles.Main}>
+                <Switch>
+                    <Route
+                        exact
+                        path="/"
+                        render={() => (
+                            <ReviewsPage message="No results found. Try adjusting your search keyword." />
+                        )} />
+                    <Route
+                        exact
+                        path="/saved"
+                        render={() => (
+                            <ReviewsPage
+                                message="You have not saved any reviews yet."
+                                filter={`saved_reviews__owner__profile=${profile_id}&ordering=-saved__created_at&`}
+                            />
+                        )} />
+                    <Route
+                        exact
+                        path="/signin"
+                        render={() =>
+                            <SignInForm />
+                        } />
+                    <Route
+                        exact
+                        path="/signup"
+                        render={() =>
+                            <SignUpForm />
+                        } />
+                    <Route
+                        exact
+                        path="/reviews/create"
+                        render={() =>
+                            <ReviewCreateForm />
+                        } />
+                    <Route
+                        exact
+                        path="/reviews/:id/edit"
+                        render={() =>
+                            <ReviewEditForm />
+                        } />
+                    <Route
+                        exact
+                        path="/reviews/:id"
+                        render={() =>
+                            <ReviewPage />
+                        } />
+                    <Route
+                        exact
+                        path="/games/create"
+                        render={() => (
+                            <GamesCreateForm
+                                filter={`saved_reviews__owner__profile=${profile_id}&ordering=-saved__created_at&`} />
+                        )} />
+                    <Route
+                        exact
+                        path="/games/:id/edit"
+                        render={() => (
+                            <GamesEditForm
+                                filter={`saved_reviews__owner__profile=${profile_id}&ordering=-saved__created_at&`} />
+                        )} />
+                    <Route
+                        exact
+                        path="/wishlist"
+                        render={() => (
+                            <WishListPage
+                                filter={`owner__profile=${profile_id}&ordering=-saved__created_at&`} />
+                        )} />
 
-          <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
-          <Route
-            exact
-            path="/profiles/:id/edit/username"
-            render={() => <UsernameForm />}
-          />
-          <Route
-            exact
-            path="/profiles/:id/edit/password"
-            render={() => <UserPasswordForm />}
-          />
-          <Route
-            exact
-            path="/profiles/:id/edit"
-            render={() => <ProfileEditForm />}
-          />
-          <Route render={() => <NotFound />} />
-        </Switch>
-      </Container>
-    </div>
-  );
+                    <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
+                    <Route
+                        exact
+                        path="/profiles/:id/edit/username"
+                        render={() => <UsernameForm />}
+                    />
+                    <Route
+                        exact
+                        path="/profiles/:id/edit/password"
+                        render={() => <UserPasswordForm />}
+                    />
+                    <Route
+                        exact
+                        path="/profiles/:id/edit"
+                        render={() => <ProfileEditForm />}
+                    />
+                    <Route render={() => <NotFound />} />
+                </Switch>
+            </Container>
+        </div>
+    );
 }
 
 export default App;

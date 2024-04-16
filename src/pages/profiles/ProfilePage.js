@@ -22,7 +22,7 @@ import { ProfileEditDropdown } from "../../components/MoreDropDown";
 
 
 function ProfilePage() {
-    
+
     const currentUser = useCurrentUser();
     const { id } = useParams();
     const { setProfileData } = useSetProfileData();
@@ -35,7 +35,7 @@ function ProfilePage() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const [{ data: pageProfile }, { data: profileReviews } ] =
+                const [{ data: pageProfile }, { data: profileReviews }] =
                     await Promise.all([
                         axiosReq.get(`/profiles/${id}/`),
                         axiosReq.get(`/reviews/?owner__profile=${id}`)
@@ -60,9 +60,9 @@ function ProfilePage() {
             <Row noGutters className="mr-3 px-3">
                 <Col lg={3} className="text-lg-left d-flex">
                     <span>
-                        <Image 
+                        <Image
                             roundedCircle
-                            className={styles.ProfileImage} 
+                            className={styles.ProfileImage}
                             rounded src={profile?.image}>
                         </Image>
                     </span>
@@ -71,11 +71,11 @@ function ProfilePage() {
                     <h3 className="mb-3"><strong>{profile?.owner}</strong></h3>
                     <p>Bio: {profile?.content}</p>
                     <p>Favorite Game: {profile?.favorite_game}</p>
-                    
+
                 </Col>
-        
+
                 <Col lg={3} className="text-right">
-                <p className={`${styles.ReviewsCount}`}>
+                    <p className={`${styles.ReviewsCount}`}>
                         {profile?.review_count} Reviews
                     </p>
                 </Col>
@@ -85,9 +85,9 @@ function ProfilePage() {
 
     const mainProfileReviews = (
         <>
-            
+
             <p className={`${styles.Reviews} text-center`}><strong>Reviews</strong></p>
-            
+
             {profileReviews.results.length ? (
                 <InfiniteScroll
                     dataLength={profileReviews.results.length}
@@ -96,10 +96,10 @@ function ProfilePage() {
                     next={() => fetchMoreData(profileReviews, setProfileReviews)}
                 >
                     {profileReviews.results.map((review) => (
-                        <Review 
-                            reviewId={review.id} 
-                            num_of_comments={review.comments_count} 
-                            key={review.id} {...review} setReviews={setProfileReviews} 
+                        <Review
+                            reviewId={review.id}
+                            num_of_comments={review.comments_count}
+                            key={review.id} {...review} setReviews={setProfileReviews}
                         />
                     ))}
                 </InfiniteScroll>
@@ -115,23 +115,23 @@ function ProfilePage() {
 
     return (
         <Row>
-        <Col lg={9} className={`${styles.ProfilePageContainer} py-2 p-0 p-lg-2`}>
-          <MostPopularReviews smallscreen />
-          <Container className={`${appStyles.Content} ${styles.ProfilePageContainer}`}>
-            {hasLoaded ? (
-              <>
-                {mainProfile}
-                {mainProfileReviews}
-              </>
-            ) : (
-              <Asset spinner />
-            )}
-          </Container>
-        </Col>
-        <Col lg={3} className="d-none d-lg-block p-0 p-lg-2">
-          <MostPopularReviews />
-        </Col>
-      </Row>
+            <Col lg={9} className={`${styles.ProfilePageContainer} py-2 p-0 p-lg-2`}>
+                <MostPopularReviews smallscreen />
+                <Container className={`${appStyles.Content} ${styles.ProfilePageContainer}`}>
+                    {hasLoaded ? (
+                        <>
+                            {mainProfile}
+                            {mainProfileReviews}
+                        </>
+                    ) : (
+                        <Asset spinner />
+                    )}
+                </Container>
+            </Col>
+            <Col lg={3} className="d-none d-lg-block p-0 p-lg-2">
+                <MostPopularReviews />
+            </Col>
+        </Row>
     )
 };
 

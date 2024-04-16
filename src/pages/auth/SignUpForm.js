@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 
 import styles from "../../styles/SignInUpForm.module.css";
@@ -18,33 +18,33 @@ import { useRedirect } from "../../hooks/UseRedirect";
 const SignUpForm = () => {
     useRedirect('loggedIn')
     const [signUpData, setSignUpData] = useState({
-      username: '',
-      password1: '',
-      password2: ''
+        username: '',
+        password1: '',
+        password2: ''
     });
-    const {username, password1, password2 } = signUpData;
-  
+    const { username, password1, password2 } = signUpData;
+
     const [errors, setErrors] = useState({});
-    
+
     const history = useHistory();
-  
+
     const handleChange = (event) => {
-      setSignUpData({
-          ...signUpData,
-          [event.target.name]: event.target.value,
-      });
+        setSignUpData({
+            ...signUpData,
+            [event.target.name]: event.target.value,
+        });
     };
-  
+
     const handleSubmit = async (event) => {
-      event.preventDefault();
-      try {
-          await axios.post('/dj-rest-auth/registration/', signUpData)
-          history.push('/signin')
-      } catch(err){
-          setErrors(err.response?.data)
-      }
+        event.preventDefault();
+        try {
+            await axios.post('/dj-rest-auth/registration/', signUpData)
+            history.push('/signin')
+        } catch (err) {
+            setErrors(err.response?.data)
+        }
     }
-    
+
     return (
         <>
             <div className={`text-center ${styles.WelcomeCta}`}>
@@ -70,8 +70,8 @@ const SignUpForm = () => {
                                 />
                             </Form.Group>
                             {errors.username?.map((message, idx) =>
-                        <Alert variant="warning" key={idx}>{message}</Alert>
-                      )}
+                                <Alert variant="warning" key={idx}>{message}</Alert>
+                            )}
 
                             <Form.Group controlId="password1">
                                 <Form.Label className="d-none">Password</Form.Label>
@@ -85,8 +85,8 @@ const SignUpForm = () => {
                                 />
                             </Form.Group>
                             {errors.password1?.map((message, idx) =>
-                        <Alert variant="warning" key={idx}>{message}</Alert>
-                      )}
+                                <Alert variant="warning" key={idx}>{message}</Alert>
+                            )}
 
                             <Form.Group controlId="password2">
                                 <Form.Label className="d-none">Confirm password</Form.Label>
@@ -100,8 +100,8 @@ const SignUpForm = () => {
                                 />
                             </Form.Group>
                             {errors.password2?.map((message, idx) =>
-                        <Alert variant="warning" key={idx}>{message}</Alert>
-                      )}
+                                <Alert variant="warning" key={idx}>{message}</Alert>
+                            )}
 
                             <Button
                                 className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Orange}`}
@@ -112,7 +112,7 @@ const SignUpForm = () => {
                             {errors.non_field_errors?.map((message, idx) =>
                                 <Alert variant="warning" key={idx} className="mt-3">{message}</Alert>
                             )}
- 
+
                         </Form>
 
                     </Container>
@@ -126,6 +126,6 @@ const SignUpForm = () => {
             </Row>
         </>
     );
-  };
+};
 
 export default SignUpForm;
