@@ -33,7 +33,7 @@ const Game = (props) => {
       await axiosRes.delete(`/games/${id}/`);
       history.goBack();
     } catch (err) {
-      console.log(err)
+      //console.log(err)
     }
   };
 

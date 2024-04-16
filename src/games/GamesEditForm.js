@@ -50,7 +50,7 @@ function GamesEditForm({filter = ""}) {
 
         setGenres(structuredData);
       } catch(err) {
-        console.log(err)
+        //console.log(err)
       }
     };
     fetchGenres();
@@ -66,7 +66,7 @@ function GamesEditForm({filter = ""}) {
         const {data} = await axiosReq.get(`/reviews/?${filter}/`);
         setSavedReviews(data);
       } catch(err) {
-        console.log(err)
+        //console.log(err)
       }
     }
     fetchSavedReviews();
@@ -82,7 +82,7 @@ function GamesEditForm({filter = ""}) {
 
         is_owner ? setGameData({ title, description, genre, review_connect }) : history.push("/");
         } catch(err) {
-        console.log(err)
+        //console.log(err)
         }
     };
     handleMount();
@@ -112,7 +112,7 @@ function GamesEditForm({filter = ""}) {
       await axiosReq.put('/games/', formData);
       history.push('/wishlist/')
     } catch(err){
-      console.log(err)
+      //console.log(err)
       if (err.response?.status !== 401) {
         setErrors(err.response?.data)
       }

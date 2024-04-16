@@ -48,7 +48,7 @@ const Review = (props) => {
         await axiosRes.delete(`/reviews/${id}/`);
         history.goBack();
       } catch (err) {
-        console.log(err)
+        //console.log(err)
       }
     };
 
@@ -64,7 +64,7 @@ const Review = (props) => {
             }),
           }));
         } catch (err) {
-            console.log(err);
+            //console.log(err);
         }
       };
 
@@ -80,7 +80,7 @@ const Review = (props) => {
             }),
           }));
         } catch (err) {
-            console.log(err);
+            //console.log(err);
         }
       };
 
@@ -97,7 +97,7 @@ const Review = (props) => {
             }),
           }));
         } catch (err) {
-            console.log(err);
+            //console.log(err);
         }
       };
 
@@ -113,7 +113,7 @@ const Review = (props) => {
             }),
           }));
         } catch (err) {
-            console.log(err);
+            //console.log(err);
         }
       }; 
 
