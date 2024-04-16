@@ -188,12 +188,12 @@ function ReviewEditForm() {
       <Row> 
 
         <Col className="py-2 p-md-2" md={7} lg={8}>
-          <Container className={appStyles.Content}>{formFields}</Container>
+          <Container className={`${appStyles.Content} ${styles.Container}`}>{formFields}</Container>
         </Col>
         
         <Col className="d-none d-md-block p-0 p-md-2">
           <Container
-            className={`${appStyles.Content} d-flex flex-column justify-content-center`}
+            className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
           >
             <Form.Group className="text-center">
               

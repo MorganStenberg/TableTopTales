@@ -1,6 +1,5 @@
 import React from 'react'
 import styles from "../styles/Game.module.css"
-import appStyles from "../App.module.css";
 import btnStyles from "../styles/Button.module.css";
 
 import { Card } from 'react-bootstrap';
