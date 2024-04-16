@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+# ** TableTopTales API **
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+TabletopTales is a social media site for board games enthusiasts, targeted towards people who love to play board games and want to share their reviews for others! As well as finding new games to add to their wishlist of games they want to play. 
 
-## Available Scripts
+On TableTopTales users can write their own review of a game, create games to add to their whishlist, connect those games to an existing review, like and comment on other reviews. 
 
-In the project directory, you can run:
+The app is built in two parts with this making up the backend API and the front end is built with React.js. 
 
-### `npm start`
+[Link to live site here](https://tabletoptales-718dd24dcac5.herokuapp.com/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+[Link to deployed backend API here](https://ttt-api-0a140d9077e3.herokuapp.com/)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+## Project Goals
+The goal of this site is to create a place where people can share reviews and discuss board games, and inspire other people to find their new favorite games! 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## UX
 
-### `npm run build`
+### User Stories
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Agile Development
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Data Models and database
 
-### `npm run eject`
+## Features
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Testing
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Manual Testing
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Validator Testing
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## Deployment
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Technologies, frameworks, libraries and languages used
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### **Languages**
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### **Frameworks**
+- [Django Rest Framwork](https://www.django-rest-framework.org/) - Python web framework used to develop this API
+- [Django](https://www.djangoproject.com/)
 
-### Analyzing the Bundle Size
+### **Software and Sites**
+- [Git and GitHub](https://github.com/)- Version control and used as tool for agile development with Github Projects
+- [Cloudinary](https://cloudinary.com/) - Image hosting and management
+- [ElephantSQL](https://www.elephantsql.com/) - Free database service that hosts the PostgreSQL database for this project 
+- [Lucidchart](https://www.lucidchart.com/pages/sv) - Used for creating ERD diagram
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### **Other dependencies**
+- [django-rest-auth](https://pypi.org/project/django-rest-auth/) - Provides a set of REST API endpoints for Authentication and Registration
+- [django-allauth](https://django-allauth.readthedocs.io/en/latest/) - Set of Django applications addressing authentication, registration, account management as well as 3rd party (social) account authentication
+- [Psycopg2](https://pypi.org/project/psycopg2/) - Python-PostgreSQL database adapter
+- [dj_database_url](https://pypi.org/project/dj-database-url/) - method returning a Django database connection dictionary
+- [Pillow](https://pypi.org/project/Pillow/8.2.0/) - Python Imaging Library 
+- [urllib3](https://pypi.org/project/urllib3/1.26.15/) - User-friendly HTTP client for Python used by many components in Python, such as requests and pip
+- [PyJWT](https://pypi.org/project/PyJWT/) - JSON Web Token implementation in Python
+- [Gunicorn](https://gunicorn.org/) - Python WSGI HTTP Server acting as the web server for the project
 
-### Making a Progressive Web App
+## Credits
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Acknowledgements
