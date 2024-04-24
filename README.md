@@ -20,19 +20,34 @@ The goal of this site is to create a place where people can share reviews and di
 
 
 ## Agile Development
+The application was built using an agile approach, using a Github Project Board and Issues. The Github project board can be found [here](https://github.com/users/MorganStenberg/projects/7). All user stories listed above were created with Github Issues. All issues were linked to a milestone, 'Iterations', which was used to plan the development work of the project. The user stories were used to keep track of progress throughout the project, via different columns specifying the status of the issue. With columns for 'Todo', 'In progress', 'Done' and 'DoD'. DoD, or Definition of Done was used for user stories that had been implemented and gone through testing. I also added a column for 'Backlog' for future features to be implemented, as a way to keep control of the scope of the project and be sure to deliver a MVP in time.
 
 ## Data Models and database
+
+The ERD diagram below lays out the structure for the data models. 
+
+Django AllAuth was used for the user model and user authentication system.
+
+The profile model was created so the user can create and save reviews and create a wishlist of games that can be edited and deleted. 
+
+The game model contains all information on a game item that a user can create and add to a wishlist of games, such as creator of the game, title, description, review connection and a choice of genre. 
+
+The reiew model contains all information about a review, such as creator, title, content, image, rating and created at information.  
+
+The saved model enables the user to connect a wishlist game item to a review by saving the review. 
+
+The like model contains all information about a like, such as which user has made it and which review it has liked. 
+
+The comment model contains all information about a comment, such as which user has written it and on which review, the content of the comment and the creation date. 
+
+![ERD diagram displaying the structure of the data models](documentation/data_model.PNG)
+
 
 ## Features
 
 ## Testing
 
-### Manual Testing
-
-### Validator Testing
-
-### Resolved problems and bugs
-
+See [TESTING](TESTING.md) for the full documentation of all testing done.
 
 ## Deployment
 
