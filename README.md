@@ -14,6 +14,10 @@ The app is built in two parts with this making up the backend API and the front 
 ## Project Goals
 The goal of this site is to create a place where people can share reviews and discuss board games, and inspire other people to find their new favorite games! 
 
+### User Goals
+
+### Site owner Goals
+
 ## UX
 
 ### User Stories
@@ -45,36 +49,49 @@ The comment model contains all information about a comment, such as which user h
 
 ## Features
 
+### Future Features
+
+## Components
+
 ## Testing
 
 See [TESTING](TESTING.md) for the full documentation of all testing done.
 
 ## Deployment
 
+The site was deployed to Heroku from GitHub with the following steps:
+
+- In the package.json file add this code `"heroku-prebuild": "npm install -g serve",` in the scripts section. Then create a Procfile in the root directory and add `web: serve -s build` in it.
+
+- Create a Heroku app by logging in to your Heroku account. Click the "New" button in the top right corner and then "Create new app". Give it a name, choose a region and then click the "Create app" button. 
+
+- In Gitpod or other IDE, save all files, add, commit and push your code to GitHub. Then go to Heroku, scroll to the top menu and click the "Deploy"-tab. Connect to your Github repository by selecting Github in the Deployment Method section and searching for your repository, either manually deploy the branch or activate "Enable Automatic Deploys". When the deployment is ready you can find the link to your deployed app. 
+
+
 ## Technologies, frameworks, libraries and languages used
 
 ### **Languages**
 
+- HTML
+- CSS 
+- JSX
 
-### **Frameworks**
-- [Django Rest Framwork](https://www.django-rest-framework.org/) - Python web framework used to develop this API
-- [Django](https://www.djangoproject.com/)
+### **Libraries**
+- [React](https://legacy.reactjs.org/) - main Javascript library for creating the user interface.
+- [react-Bootstrap](https://react-bootstrap-v4.netlify.app/) - to make the site responsive and to style user interface.
+- [axios](https://axios-http.com/docs/intro) - HTTP library used to make requests.
+- [react-router-dom](https://reactrouter.com/en/main) - routing based on URL.
+- [jwt-decode](https://www.npmjs.com/package/jwt-decode) - decoding of JWTs token.
+- [react-dom](https://www.npmjs.com/package/react-dom) - the entry point to the DOM and server renderers for React.
+- [react-infinite-scroll-component](https://www.npmjs.com/package/react-infinite-scroll-component) - component to implement infinite scrolling.
+- [react-scripts](https://www.npmjs.com/package/react-scripts) - scripts and configuration used by Create React App.
 
 ### **Software and Sites**
 - [Git and GitHub](https://github.com/)- Version control and used as tool for agile development with Github Projects
 - [Cloudinary](https://cloudinary.com/) - Image hosting and management
 - [ElephantSQL](https://www.elephantsql.com/) - Free database service that hosts the PostgreSQL database for this project 
 - [Lucidchart](https://www.lucidchart.com/pages/sv) - Used for creating ERD diagram
-
-### **Other dependencies**
-- [django-rest-auth](https://pypi.org/project/django-rest-auth/) - Provides a set of REST API endpoints for Authentication and Registration
-- [django-allauth](https://django-allauth.readthedocs.io/en/latest/) - Set of Django applications addressing authentication, registration, account management as well as 3rd party (social) account authentication
-- [Psycopg2](https://pypi.org/project/psycopg2/) - Python-PostgreSQL database adapter
-- [dj_database_url](https://pypi.org/project/dj-database-url/) - method returning a Django database connection dictionary
-- [Pillow](https://pypi.org/project/Pillow/8.2.0/) - Python Imaging Library 
-- [urllib3](https://pypi.org/project/urllib3/1.26.15/) - User-friendly HTTP client for Python used by many components in Python, such as requests and pip
-- [PyJWT](https://pypi.org/project/PyJWT/) - JSON Web Token implementation in Python
-- [Gunicorn](https://gunicorn.org/) - Python WSGI HTTP Server acting as the web server for the project
+- [Balsamiq](https://balsamiq.com/) - Used to create wireframes 
 
 ## Credits
 
