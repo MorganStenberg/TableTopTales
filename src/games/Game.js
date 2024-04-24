@@ -30,7 +30,7 @@ const Game = (props) => {
 	const handleDelete = async () => {
 		try {
 			await axiosRes.delete(`/games/${id}/`);
-			history.goBack();
+			window.location.reload();
 		} catch (err) {
 			//console.log(err)
 		}
