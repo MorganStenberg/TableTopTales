@@ -22,6 +22,44 @@ The goal of this site is to create a place where people can share reviews and di
 
 ### User Stories
 
+The user of TableTopTales is anyone with an interest in board games and wants to share their experiences and thoughts on the board games they love, as well as anyone who wants to find a new board game to play. 
+
+**Reviews**
+- As a user I can create a review of a board game so that I can share my review with others
+- As a User I can view all reviews created by other users so that I can be inspired and read about games that other people have reviewed
+- As a user I can view a single review in detail so that I can get all details from that review
+- As a user I can edit a review I have created so that I can make changes and updates to my own review after it has been created
+- As a user I can delete my own review so that I can control the removal of my own reviews
+- As a user I can save a review so that I can save them to read at a later point or return and read the saved reviews at any time
+- As a user I can view the reviews I have saved so that I can return to reviews that I like, or so that I can read reviews that I didnt have time to finish earlier
+- As a user I can remove previously saved reviews so that I can manage what reviews I want to keep as saved and remove those that are no longer of interest
+- As a user I can like a review so that I can show that I appreciate the review and that it is interesting
+- As a user I can remove i like I have previously made so that I can change my mind about if I like a review or not
+- As a user I can comment on a review so that I can share my thoughts about the review and stay in contact with other users
+- As a user I can view comments on a review so that I can see what I and other users are saying about a review
+- As a user I can edit a comment that I have created so that I can make changes to a comment after I have made it, so that I can fix or update the content of a comment
+- As a user I can view the top 5 most commented reviews so that I can see which reviews that engages the most
+- As a user I can use the search bar to search for games or reviews so that I can find the games or reviews I am most interested in
+
+**Authentication**
+- As a user I can sign up and create a new account so that I can access features for signed up users, such as creating a review, comment and like a review, save a review and create a game to add to wishlist
+- As a user I can sign in so that I can use features, creating a review, comment, like, saving a review and adding game to wishlist
+- As a user I can stay logged in until I choose to log out so that I don't have to log in multiple times and so that my user experience is enhanced
+
+**Navigation**
+- As a user I can view and access the navbar on all pages so that so that I can easily navigate the site
+- As a user I can view different parts of the navbar depending on my logged in/logged out status so that the correct options are available for users that are not logged in and users that are logged in, as well as the user knowing if they are logged in our not
+
+**Profile**
+- As a user I can view my own profile and other users profile and all reviews connected to that profile so that I can view a profile and see all reviews that they have written and other information they have shared in their profile
+- As a user I can edit my own profile so that I can edit the content displayed there and change profile picture
+
+**Wishlist**
+- As a user I can create a game to add to my wish list of games so that I can keep track of games that I would like to play or buy in the future
+- As a user I can edit a game added to my wish list of games so that I can update or correct information on my added game
+- As a user I can delete a game I have created and added to wish list so that I can remove games that are no longer of interest
+- As a user I can view the wish list of games I have created so that I can see what games I would like to play or buy in the future
+
 
 ## Agile Development
 The application was built using an agile approach, using a Github Project Board and Issues. The Github project board can be found [here](https://github.com/users/MorganStenberg/projects/7). All user stories listed above were created with Github Issues. All issues were linked to a milestone, 'Iterations', which was used to plan the development work of the project. The user stories were used to keep track of progress throughout the project, via different columns specifying the status of the issue. With columns for 'Todo', 'In progress', 'Done' and 'DoD'. DoD, or Definition of Done was used for user stories that had been implemented and gone through testing. I also added a column for 'Backlog' for future features to be implemented, as a way to keep control of the scope of the project and be sure to deliver a MVP in time.
