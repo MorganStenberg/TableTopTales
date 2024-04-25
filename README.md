@@ -96,31 +96,79 @@ The comment model contains all information about a comment, such as which user h
 
 ### Existing features
 
-**Relevant on all pages**
+#### Relevant on all pages
 
-**Home Page**
+**Navbar**
+- Contains logo and navigation links to all pages. Is constantantly located at the top as users would expect, and to be easily reached at all times. 
+- Is displayed with active links, with the links displaying an orange color that stays when the user is on that page. Except for the profile page, to distingish that from other pages with content on. The links also display the orange color when the user hovers over them. 
+- Displays different items depending on if the user is logged in or not, with sign up and sign in links displaying for users that are not logged in. And the other links to the different pages of the site displaying for logged in users.
+- The navbar is responsive and collapses when the screen size decreases. All links are displayed when clicking the 'burger' icon.
 
-**Most discussed (commented) reviews**
+**Loading spinner**
+- A loading spinner is displayed on all pages where data is fetched from API, while data is being fetched. 
 
-**Saved reviews**
+#### Home Page
 
-**Sign up/Log in**
+- Intro, a short welcoming text that is displayed for users that are not logged in. Giving some context to what the purpose of the site is to new visitors. 
 
-**Create and edit review**
+- Reviews, displayes a feed of reviews created by users. With the reviews being displayed with the latest displayed at the top. Infinite scrolling is active, meaning that the user can scroll infinitly as long as there is more content available
 
-**Profile**
+- The reviews are displayed as Cards with a structure of, title, image, rating, game, content (review text). At the bottom of the cards the avatar and username of the user that created the review is displayed to the left, with symbols for likes, comments and saving a post in the middle and lastly the date it was created to the bottom right. The title of the review also serves as a link to the detailed view of the review.
 
-**Create and edit Game to add to wishlist**
+- Users can like and save all reviews, but their own. When the user has liked or saved a review, the symbol changes color to visually represent that the review has been liked or saved.
+Next to the like symbol the number of likes is displayed. 
 
-**Wishlist**
+- Users can click on the comment symbol to be taken to the detailed view of the review where the comments are displayed and new ones can be created. Logged in users can comment on all posts. Next to the comment symbol the number of comments made to that review is displayed.
 
-**Not Found**
+#### Detailed review
+
+- Displays a review in the same structure as the home page, but in a wider format. And also displays the comments that have been made and a input field to make new comments on a review. 
+
+- If the user is logged in and is a owner of a comment, then three dots are displayed to the right of the comment that the user can click to display a menu for editing and deleting a comment. 
+
+- If the edit option of the menu is clicked then the comment is changed in to a input field where the user can choose to edit their comment, two buttons for save and cancel is displayed as well. They can also choose to cancel their edit by clicking the cancel button that is displayed.
+
+- If the user chooses to delete their comment, the comment is removed and the user stays on the same page.
+
+#### Most discussed (commented) reviews
+
+- To the right of the feed of reviews there is a section for the most discussed reviews, which is displaying the top 5 reviews with the most comments on. The reviews are displayed as small cards with the Title of the review over the image of the review as background. When the cards are hovered over there is a orange outlining around the card. Each card also links to the review it is representing. 
+
+- On smaller screens the section is moved to be displayed on top of the feed of reviews, in a smaller format with only the top 3 most discussed reviews. Otherwise it is displayed in the same structure with the image in the background and title on top. 
+
+#### Saved reviews
+
+- Displays the reviews the logged in user has chosen to save, in the same way and format as the home page, with infinite scrolling. As well as displaying the section for the most discussed reviews in the same way. 
+
+#### Sign up/Log in
+
+- The sign up page displays a form for the user to enter username and password to create a account/profile. Displays warning messages if the user has not entered the username and password correctly.
+
+- Has a link to the sign in page as well. 
+
+- The sign in page displays a form for the user to enter their username and password.
+
+- Has a link to the sign up page if the user already has an account.
+
+#### Create and edit review
+- When clicking the create review button in the navbar the user is taken to the Create Review page, where a form with inputs for Title, Content, Game, Rating and an image section with a symbol for an image where the user can click and choose an image to upload if they want. The form displays warnings if the fields are not empty or not valid. In the content field there is also included a rich text editor for the user to be able to customize their review text. The rating field contains a dropdown menu with choices ranging from 1-10. There are two buttons, Cancel takes the user back to their previous page and 'Share your tale' publishes the review.
+
+- Editing a review, 
+
+#### Profile
+
+#### Create and edit Game to add to wishlist
+
+#### Wishlist
+
+#### Not Found
 
 
 ### Future Features
 
 - Adding tags to reviews to further categorize or sort the content. The user should be able to click on the tags to see all reviews with the same tags. 
 - Making the reviews collapseable, so that not all the text is visible at once and the user should be able to choose to expand the review to view all the content. 
+- Add a feature to have the most discussed reviews update every month/week, to keep the content changing. 
 
 ## Components
 
@@ -128,7 +176,7 @@ The comment model contains all information about a comment, such as which user h
 
 ### Avatar
 
-### Asset
+### Assets
 
 ### MoreDropDown
 
