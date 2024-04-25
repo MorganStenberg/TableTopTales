@@ -52,6 +52,16 @@ function ReviewsPage({ message, filter = "" }) {
     return (
         <Row className="h-100">
             <Col className="py-2 p-0 p-lg-2" lg={9}>
+                {!currentUser && (
+                <Col className="py-3 p-0">
+                    <Container className="text-center">
+                        <h4 className={styles.IntroHeader}>Welcome to TableTopTales, the best place for sharing board game reviews!</h4>
+                        <h5 className={styles.IntroSubHeader}>Sign up today and share your review!</h5>
+                    </Container>
+                </Col>
+                )}
+                
+
                 <MostPopularReviews smallscreen />
                 <i className={` fa-solid fa-magnifying-glass ${styles.SearchIcon}`} />
                 <Form

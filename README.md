@@ -61,6 +61,13 @@ The user of TableTopTales is anyone with an interest in board games and wants to
 - As a user I can view the wish list of games I have created so that I can see what games I would like to play or buy in the future
 
 
+### Design 
+The design of the site is focused on being user friendly and giving the reviews center stage, as they are the main purpose and content of the site. Therefore the colors chosen are fairly neutral, especially the background color of a shade of grey. The two other colors in use are used consistently throughout the site in the same manner for buttons and other elements, to give the user a sense of familiarity when navigating the site. The font of Roboto was chosen as it is clean and easily read by the user. 
+
+
+**Wireframes**
+
+
 ## Agile Development
 The application was built using an agile approach, using a Github Project Board and Issues. The Github project board can be found [here](https://github.com/users/MorganStenberg/projects/7). All user stories listed above were created with Github Issues. All issues were linked to a milestone, 'Iterations', which was used to plan the development work of the project. The user stories were used to keep track of progress throughout the project, via different columns specifying the status of the issue. With columns for 'Todo', 'In progress', 'Done' and 'DoD'. DoD, or Definition of Done was used for user stories that had been implemented and gone through testing. I also added a column for 'Backlog' for future features to be implemented, as a way to keep control of the scope of the project and be sure to deliver a MVP in time.
 
@@ -87,9 +94,45 @@ The comment model contains all information about a comment, such as which user h
 
 ## Features
 
+### Existing features
+
+**Relevant on all pages**
+
+**Home Page**
+
+**Most discussed (commented) reviews**
+
+**Saved reviews**
+
+**Sign up/Log in**
+
+**Create and edit review**
+
+**Profile**
+
+**Create and edit Game to add to wishlist**
+
+**Wishlist**
+
+**Not Found**
+
+
 ### Future Features
 
+- Adding tags to reviews to further categorize or sort the content. The user should be able to click on the tags to see all reviews with the same tags. 
+- Making the reviews collapseable, so that not all the text is visible at once and the user should be able to choose to expand the review to view all the content. 
+
 ## Components
+
+### Navbar
+
+### Avatar
+
+### Asset
+
+### MoreDropDown
+
+### Not Found
 
 ## Testing
 
