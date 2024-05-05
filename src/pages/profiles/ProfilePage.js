@@ -86,7 +86,7 @@ function ProfilePage() {
     const mainProfileReviews = (
         <>
 
-            <p className={`${styles.Reviews} text-center`}><strong>Reviews</strong></p>
+            <p className={`${styles.Reviews} text-center`}><strong>Reviews written by {profile?.owner}</strong></p>
 
             {profileReviews.results.length ? (
                 <InfiniteScroll

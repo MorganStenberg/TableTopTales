@@ -118,7 +118,7 @@ function ReviewEditForm() {
             <Form.Group>
                 <Form.Label>Content</Form.Label>
                 <ReactQuill
-                    defaultValue={content}
+                    value={content}
                     onChange={handleQuillChange} />
 
             </Form.Group>

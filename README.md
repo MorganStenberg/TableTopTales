@@ -124,6 +124,8 @@ Next to the like symbol the number of likes is displayed.
 
 - Displays a review in the same structure as the home page, but in a wider format. And also displays the comments that have been made and a input field to make new comments on a review. 
 
+- If the user is logged in and is the owner of the review they can click the three dots symbol in the bottom right corner to edit or delete the review. If the user clicks delete the review is removed and the user is taken back to the page they were previously on. 
+
 - If the user is logged in and is a owner of a comment, then three dots are displayed to the right of the comment that the user can click to display a menu for editing and deleting a comment. 
 
 - If the edit option of the menu is clicked then the comment is changed in to a input field where the user can choose to edit their comment, two buttons for save and cancel is displayed as well. They can also choose to cancel their edit by clicking the cancel button that is displayed.
@@ -151,18 +153,34 @@ Next to the like symbol the number of likes is displayed.
 - Has a link to the sign up page if the user already has an account.
 
 #### Create and edit review
-- When clicking the create review button in the navbar the user is taken to the Create Review page, where a form with inputs for Title, Content, Game, Rating and an image section with a symbol for an image where the user can click and choose an image to upload if they want. The form displays warnings if the fields are not empty or not valid. In the content field there is also included a rich text editor for the user to be able to customize their review text. The rating field contains a dropdown menu with choices ranging from 1-10. There are two buttons, Cancel takes the user back to their previous page and 'Share your tale' publishes the review.
+- When clicking the create review button in the navbar the user is taken to the Create Review page, where a form with inputs for Title, Content, Game, Rating and an image section with a symbol for an image where the user can click and choose an image to upload if they want. 
 
-- Editing a review, 
+- The form displays warnings if the fields are not empty or not valid. In the content field there is also included a rich text editor for the user to be able to customize their review text. The rating field contains a dropdown menu with choices ranging from 1-10. There are two buttons, Cancel takes the user back to their previous page and 'Share your tale' publishes the review.
+
+- Editing a review
 
 #### Profile
+- The profile page displays information about a user, that has created an account on the site. The information displayed is username, profile image, favorite game, description (bio) and number of reviews written. The profile page also displays all the reviews written by that user as a feed as well. 
 
-#### Create and edit Game to add to wishlist
+- When the user is visiting their own profile there are three dots in the top right corner where the user can access the menu for editing their username, password and profile in general. When clicking either of those the user is taken to a page with a form for updating or editing their profile information. If the user has not written any reviews yet, there is a text informing the visitor of the profile that. The profile page also has the section for most commented reviews. 
 
-#### Wishlist
+- When the user first creates an account they only choose a username and a password, the rest of the profile information can be added/updated via clickin the edit button on the three dots menu when visiting their own profile page. The fields are not required as the user should be able to decide on their own how much information they want to include in their own profile. 
+
+#### Wishlist page and create and edit Game to add to wishlist
+- The user can access the wishlist page by clicking the wishlist button in the navbar. If they have not created any games to add to their wishlist the page is empty and displays information to the user that they have not created any games yet, as well as presenting a button for the user to click to create games. 
+
+- When clickin the add a game to your wishlist-button they are taken to the page for creating games. Which has similar form input fields as other parts of the site. They can add a game title/name, a short description and choose a genre from a prepopulated dropdown list of genres. 
+
+- There is also a section to the right with a dropdown menu for connecting their wishlist game to a previously saved review. To enable the user to connect a wellwritten review for a game that they want to add to there wishlist of games. If they have no saved reviews there is a text displaying that information to the user. If they have saved reviews they are displayed with the titles of the review. This field is not required to add a new game, so the user can choose freely to add games without connecting them to reviews.
+
+- Once the user has created a game to add to their wishlist, the games are displayed as cards with information on the title, description, genre and connected reviews, if there are any. There are also buttons for editing and deleting the wishlist games. 
+
+- If the user clicks the edit button they are taken to the edit game page with the form fields prefilled, and they can update or edit any information they want. 
+
+- If the user clicks the delete button the game is removed and the page is refreshed. 
 
 #### Not Found
-
+- Displays if the user enters an incorrect url, that does not exist on the page. Displays a small image and text saying the the page could not be found. 
 
 ### Future Features
 
