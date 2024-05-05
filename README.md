@@ -191,14 +191,19 @@ Next to the like symbol the number of likes is displayed.
 ## Components
 
 ### Navbar
+- The navbar component is displaying on all pages, with conditional rendering of navbar items depending on if the user is logged in or not. 
 
 ### Avatar
+- Displays the users profile images, is used throughout the site everytime the users profile image is to be displayed. Such as next to reviews, in the navbar and comments section. 
 
-### Assets
+### Asset
+- Renders differently depending on what props are passed to it, is used throughout the site. Some uses are, rendering the loading spinner when content is being fetched and for displaying the not found image and text.  Can be used to display images and messages.
 
 ### MoreDropDown
+- Is used to display a dropdown menu with options for editing or deleting. Is used for all reviews, profile and comments. 
 
 ### Not Found
+- Is used to display a not found image and message. Is used to display information to the user when they enter a url that does not exist on the site. 
 
 ## Testing
 
