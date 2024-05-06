@@ -1,14 +1,18 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, Component } from "react";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
+//import ReactQuill from 'react-quill';
+//import 'react-quill/dist/quill.snow.css';
 import Alert from "react-bootstrap/Alert";
 import Image from "react-bootstrap/Image";
+import { Editor } from "react-draft-wysiwyg";
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+import { EditorState, convertToRaw } from "draft-js";
+import draftToHtml from 'draftjs-to-html';
 
 import styles from "../../styles/ReviewEditCreateForm.module.css";
 import appStyles from "../../App.module.css";
@@ -19,11 +23,12 @@ import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useRedirect } from "../../hooks/UseRedirect";
 
+
 // Credit to Code Institute for event handlers and image input
 function ReviewCreateForm() {
 	useRedirect("loggedOut");
 	const [errors, setErrors] = useState({});
-
+	const [editorState, setEditorState] = useState(EditorState.createEmpty());
 	const [reviewData, setReviewData] = useState({
 		title: "",
 		content: "",
@@ -43,12 +48,23 @@ function ReviewCreateForm() {
 		});
 	};
 
-	const handleQuillChange = (content) => {
-		setReviewData({
-			...reviewData,
-			content: content,
-		});
-	};
+	const handleEditorStateChange = (editorState) => {
+        setEditorState(editorState);
+        const rawContentState = convertToRaw(editorState.getCurrentContent());
+        // Get the HTML content from raw content state
+        const htmlContent = draftToHtml(rawContentState);
+        setReviewData({
+            ...reviewData,
+            content: htmlContent, // Update content state with HTML content
+        });
+    };
+
+	// const handleQuillChange = (content) => {
+	// 	setReviewData({
+	// 		...reviewData,
+	// 		content: content,
+	// 	});
+	// };
 
 	const handleChangeImage = (event) => {
 		if (event.target.files.length) {
@@ -104,10 +120,14 @@ function ReviewCreateForm() {
 
 			<Form.Group>
 				<Form.Label>Content</Form.Label>
-				<ReactQuill
+				{/* <ReactQuill
 					defaultValue={content}
-					onChange={handleQuillChange} />
+					onChange={handleQuillChange} /> */}
 
+					<Editor
+					editorState={editorState}
+					onEditorStateChange={handleEditorStateChange}
+					/>
 			</Form.Group>
 			{errors.content?.map((message, idx) => (
 				<Alert key={idx} variant="warning">

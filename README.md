@@ -1,4 +1,4 @@
-# **TableTopTales API**
+# **TableTopTales**
 
 TabletopTales is a social media site for board games enthusiasts, targeted towards people who love to play board games and want to share their reviews for others! As well as finding new games to add to their wishlist of games they want to play. 
 
@@ -97,7 +97,6 @@ The comment model contains all information about a comment, such as which user h
 ### Existing features
 
 #### Relevant on all pages
-
 **Navbar**
 - Contains logo and navigation links to all pages. Is constantantly located at the top as users would expect, and to be easily reached at all times. 
 - Is displayed with active links, with the links displaying an orange color that stays when the user is on that page. Except for the profile page, to distingish that from other pages with content on. The links also display the orange color when the user hovers over them. 
@@ -208,6 +207,10 @@ Next to the like symbol the number of likes is displayed.
 ## Testing
 
 See [TESTING](TESTING.md) for the full documentation of all testing done.
+
+### Bugs and problems
+
+- Issue with Quill rich text editor
 
 ## Deployment
 

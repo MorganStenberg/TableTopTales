@@ -24,22 +24,27 @@ function ReviewEditForm() {
 
     const [reviewData, setReviewData] = useState({
         title: "",
-        content: "",
         rating: "",
+        content: "",
         game: "",
         image: "",
     });
     const { title, content, image, rating, game } = reviewData;
 
+
     const imageInput = useRef(null)
     const history = useHistory()
     const { id } = useParams();
+
+   
 
     useEffect(() => {
         const handleMount = async () => {
             try {
                 const { data } = await axiosReq.get(`/reviews/${id}/`);
                 const { title, content, image, is_owner, rating, game } = data;
+                console.log("this is data= ",data)
+                const testing = data.content
 
                 is_owner ? setReviewData({ title, content, image, rating, game }) : history.push("/");
             } catch (err) {
@@ -118,8 +123,10 @@ function ReviewEditForm() {
             <Form.Group>
                 <Form.Label>Content</Form.Label>
                 <ReactQuill
+                    //defaultValue={content}
                     value={content}
-                    onChange={handleQuillChange} />
+                    onChange={handleQuillChange} 
+                    />
 
             </Form.Group>
             {errors.content?.map((message, idx) => (
