@@ -51,20 +51,14 @@ function ReviewCreateForm() {
 	const handleEditorStateChange = (editorState) => {
         setEditorState(editorState);
         const rawContentState = convertToRaw(editorState.getCurrentContent());
-        // Get the HTML content from raw content state
         const htmlContent = draftToHtml(rawContentState);
         setReviewData({
             ...reviewData,
-            content: htmlContent, // Update content state with HTML content
+            content: htmlContent, 
         });
     };
 
-	// const handleQuillChange = (content) => {
-	// 	setReviewData({
-	// 		...reviewData,
-	// 		content: content,
-	// 	});
-	// };
+	
 
 	const handleChangeImage = (event) => {
 		if (event.target.files.length) {
@@ -120,9 +114,7 @@ function ReviewCreateForm() {
 
 			<Form.Group>
 				<Form.Label>Content</Form.Label>
-				{/* <ReactQuill
-					defaultValue={content}
-					onChange={handleQuillChange} /> */}
+				
 
 					<Editor
 					editorState={editorState}
