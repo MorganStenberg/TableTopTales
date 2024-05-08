@@ -19,10 +19,7 @@ import { useParams } from "react-router-dom/cjs/react-router-dom";
 
 // Credit to Code Institute for event handlers and image input
 function ReviewEditForm() {
-
     const [errors, setErrors] = useState({});
-   
-
     const [reviewData, setReviewData] = useState({
         title: "",
         rating: "",

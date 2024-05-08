@@ -156,7 +156,7 @@ Next to the like symbol the number of likes is displayed.
 
 - The form displays warnings if the fields are not empty or not valid. In the content field there is also included a rich text editor for the user to be able to customize their review text. The rating field contains a dropdown menu with choices ranging from 1-10. There are two buttons, Cancel takes the user back to their previous page and 'Share your tale' publishes the review.
 
-- Editing a review
+- Editing a review, when clickin the edit button from the dropdown menu in the detailed view of a review the user is taken to the page for editing a review. Which is the same form for when creating a review, but with the fields prefilled with the content fetched from the API for that review. Similarly to when creating a review in the first place, there is two buttons, one for saving your edits and one "cancel" for exiting the edit review page and taking the user back to the page they were previously on. The edit form contains the same rich text editor and also has warnings for if fields are left empty or with invalid data. 
 
 #### Profile
 - The profile page displays information about a user, that has created an account on the site. The information displayed is username, profile image, favorite game, description (bio) and number of reviews written. The profile page also displays all the reviews written by that user as a feed as well. 
@@ -210,7 +210,8 @@ See [TESTING](TESTING.md) for the full documentation of all testing done.
 
 ### Bugs and problems
 
-- Issue with Quill rich text editor
+- Issue with Quill rich text editor, issue with the React Draft Wysiwyg editor. 
+One major bug that was found during the later stages of development of the site was with the rich text editor for creating and editing reviews. The issue was specifically with initializing the editor with the content of the review from the API when the user tries to edit their previously written review. First when trying with the Quill editor I could not get it to function properly in the edit page, with some trouble just initializing the content correctly in the first place and then with the editor consistently losing focus after typing. This was most likely related to how I was handling the changing state of the editor content. After much trial and error I still could not get it working properly and moved on to trying another editor, React Draft Wysiwyg, and had similar issues with the editor not handling the content correctly after initializing and with the content not being saved correctly. Tried several different methods of handling and initializing the content with the editor, but could not get it working properly. So I finally moved on the the third editor, which was the CKEditor and that finally worked and solved all my issues both with the editor losing focus and issues with initializing the content. 
 
 ## Deployment
 
