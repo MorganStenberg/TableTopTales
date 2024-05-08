@@ -40,6 +40,8 @@
 
 .HeartLiked {
     color: #FFA07A;
+    font-size: 1.5rem;
+    padding: 4px 6px;
 }
 
 .HeartLiked:hover {
@@ -51,6 +53,10 @@
     color: #006566;
     font-size: 1.5rem;
     padding: 4px 6px;
+}
+
+.CommentIcon:hover {
+  color: #01989b;
 }
 
 .Image {
@@ -93,3 +99,13 @@
 .RatingBar > * {
   background-color: #006566;
 }
+
+/* i {
+  color: #006566;
+  font-size: 1.5rem;
+  padding: 4px 6px;
+}
+
+i:hover {
+color: #01989b;
+} */

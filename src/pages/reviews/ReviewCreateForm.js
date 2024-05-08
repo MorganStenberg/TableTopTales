@@ -99,9 +99,33 @@ function ReviewCreateForm() {
 			<Form.Group>
 				<Form.Label>Content</Form.Label>
 
-				<CKEditor
+				{/* <CKEditor
 						editor={ClassicEditor}
 						data={content}
+						onChange={(event, editor) => {
+							const data = editor.getData();
+							setReviewData({
+								...reviewData,
+								content: data,
+							});
+						}}
+					/> */}
+
+					<CKEditor
+						editor={ClassicEditor}
+						data={content}
+						config={{
+							toolbar: [
+								'heading', '|',
+								'bold', 'italic', 'link', '|',
+								'bulletedList', 'numberedList', '|',
+								'blockQuote', 'undo', 'redo'
+							],
+							removePlugins: [
+								'ImageUpload', 'ImageToolbar', 'ImageStyle', 'ImageCaption', 'ImageResize',
+								'Table', 'TableToolbar', 'MediaEmbed', 'EasyImage'
+							]
+						}}
 						onChange={(event, editor) => {
 							const data = editor.getData();
 							setReviewData({

@@ -6,6 +6,7 @@ The testing documentation provides an overview of all testing conducted on Table
 
 - [Code Validation](#code-validation)
 - [Accessibility](#accessibility)
+- [Responsiveness](#responsiveness)
 - [Performance](#performance)
 - [Automated testing](#automated-testing)
 - [Manual testing](#manual-testing)
@@ -13,7 +14,13 @@ The testing documentation provides an overview of all testing conducted on Table
 
 ### Validation
 
+- JSX code have been manually validated and adjusted throughout development via direct feedback from npm in the terminal.
+- The CSS code has been validated through [W3Cs validation](https://jigsaw.w3.org/css-validator/) service and passed without remarks.  
+
 ### Accessibility
+
+### Responsiveness
+The site has been tested for responsiveness throughout the development by using Google Dev Tools, as well as through [Responsivetesttool](https://responsivetesttool.com/). 
 
 ### Performance
 
