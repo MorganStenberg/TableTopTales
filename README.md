@@ -15,8 +15,10 @@ The app is built in two parts with this making up the backend API and the front 
 The goal of this site is to create a place where people can share reviews and discuss board games, and inspire other people to find their new favorite games! 
 
 ### User Goals
+Users can have a variety of goals when visiting the site, some may want to find a new board game to add to their collection, some may want to discuss a board game the like to play and some may just want to read up on a board game they want to know more about. Other users may want to share their knowledge and insights on a board game, or share their love of a certain board game with others. Some users may want to share their thoughts and critique of a board game. Some users may want to save a review to come back to it later and read more, or to gather information on a board game they may want to look into in the future or add to their wishlist of board games now. 
 
 ### Site owner Goals
+The goal of the site owner is to provide a reliable and user friendly platform for users to share and discuss reviews of board games. Encouraging users to engage and interact, by having a intiuitive and structured site.
 
 ## UX
 
