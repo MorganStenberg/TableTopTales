@@ -5,14 +5,11 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
-//import ReactQuill from 'react-quill';
-//import 'react-quill/dist/quill.snow.css';
 import Alert from "react-bootstrap/Alert";
 import Image from "react-bootstrap/Image";
-import { Editor } from "react-draft-wysiwyg";
-import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
-import { EditorState, convertToRaw } from "draft-js";
-import draftToHtml from 'draftjs-to-html';
+
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 import styles from "../../styles/ReviewEditCreateForm.module.css";
 import appStyles from "../../App.module.css";
@@ -28,7 +25,6 @@ import { useRedirect } from "../../hooks/UseRedirect";
 function ReviewCreateForm() {
 	useRedirect("loggedOut");
 	const [errors, setErrors] = useState({});
-	const [editorState, setEditorState] = useState(EditorState.createEmpty());
 	const [reviewData, setReviewData] = useState({
 		title: "",
 		content: "",
@@ -47,18 +43,6 @@ function ReviewCreateForm() {
 			[event.target.name]: event.target.value,
 		});
 	};
-
-	const handleEditorStateChange = (editorState) => {
-        setEditorState(editorState);
-        const rawContentState = convertToRaw(editorState.getCurrentContent());
-        const htmlContent = draftToHtml(rawContentState);
-        setReviewData({
-            ...reviewData,
-            content: htmlContent, 
-        });
-    };
-
-	
 
 	const handleChangeImage = (event) => {
 		if (event.target.files.length) {
@@ -114,12 +98,19 @@ function ReviewCreateForm() {
 
 			<Form.Group>
 				<Form.Label>Content</Form.Label>
-				
 
-					<Editor
-					editorState={editorState}
-					onEditorStateChange={handleEditorStateChange}
+				<CKEditor
+						editor={ClassicEditor}
+						data={content}
+						onChange={(event, editor) => {
+							const data = editor.getData();
+							setReviewData({
+								...reviewData,
+								content: data,
+							});
+						}}
 					/>
+
 			</Form.Group>
 			{errors.content?.map((message, idx) => (
 				<Alert key={idx} variant="warning">
@@ -148,8 +139,7 @@ function ReviewCreateForm() {
 					as="select"
 					name="rating"
 					value={rating}
-					onChange={handleChange}
-				>
+					onChange={handleChange}>
 					<option value="1">1</option>
 					<option value="2">2</option>
 					<option value="3">3</option>

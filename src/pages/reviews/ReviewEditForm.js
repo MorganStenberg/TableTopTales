@@ -5,16 +5,10 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
-// import ReactQuill from 'react-quill';
-// import 'react-quill/dist/quill.snow.css';
 import Alert from "react-bootstrap/Alert";
 import Image from "react-bootstrap/Image";
-
-import { Editor } from "react-draft-wysiwyg";
-import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
-import { EditorState, ContentState, convertToRaw } from "draft-js";
-import draftToHtml from 'draftjs-to-html';
-import htmlToDraft from "html-to-draftjs";
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 import styles from "../../styles/ReviewEditCreateForm.module.css";
 import appStyles from "../../App.module.css";
@@ -27,7 +21,7 @@ import { useParams } from "react-router-dom/cjs/react-router-dom";
 function ReviewEditForm() {
 
     const [errors, setErrors] = useState({});
-    const [editorState, setEditorState] = useState(EditorState.createEmpty());
+   
 
     const [reviewData, setReviewData] = useState({
         title: "",
@@ -50,13 +44,8 @@ function ReviewEditForm() {
                 console.log("this is data= ",data)
 
                 is_owner ? setReviewData({ title, content, image, rating, game }) : history.push("/");
-                const contentBlock = htmlToDraft(content);
-                if (contentBlock) {
-                    const contentState = ContentState.createFromBlockArray(contentBlock.contentBlocks);
-                    const editorState = EditorState.createWithContent(contentState);
-                    setEditorState(editorState); 
-                }       
                 
+                                
             } catch (err) {
                 //console.log(err)
             }
@@ -71,27 +60,8 @@ function ReviewEditForm() {
             ...reviewData,
             [event.target.name]: event.target.value,
         });
+        console.log("now callin handlechange!")
     };
-
-
-    const handleEditorStateChange = (editorState) => {
-        setEditorState(editorState);
-        console.log("now the handle editor is running")
-        
-        const rawContentState = convertToRaw(editorState.getCurrentContent());
-        const htmlContent = draftToHtml(rawContentState);
-        setReviewData({
-            ...reviewData,
-            content: htmlContent,
-        });
-        console.log("and now it is passed setReviewData")
-    };
-    
-    // const handleEditorStateChange = (editorState) => {
-    //     setEditorState(editorState);
-    //   };
-
-
 
     const handleChangeImage = (event) => {
         if (event.target.files.length) {
@@ -147,28 +117,17 @@ function ReviewEditForm() {
 
             <Form.Group>
                 <Form.Label>Content</Form.Label>
-               
-                    <Editor
-                        editorState={editorState}
-                        onEditorStateChange={handleEditorStateChange}
-                       
-                        />
-
-                        {/* <Editor
-                        key={"editor1"}
-                        editorState={editorState}
-                        onEditorStateChange={handleEditorStateChange}
-                        toolbar={{
-                            options: ['inline', 'blockType', 'fontSize', 'fontFamily'],
-                            inline: { inDropdown: false },
-                            list: { inDropdown: true },
-                            textAlign: { inDropdown: true },
-                            link: { inDropdown: false },
-                            history: { inDropdown: false },
-                        }}
-                        /> */}
-
-                        
+                    <CKEditor
+                    editor={ClassicEditor}
+                    data={content}
+                    onChange={(event, editor) => {
+                        const data = editor.getData();
+                        setReviewData(prevState => ({
+                            ...prevState,
+                            content: data
+                        }));
+                    }}
+                     />
             </Form.Group>
             {errors.content?.map((message, idx) => (
                 <Alert key={idx} variant="warning">
@@ -251,8 +210,8 @@ function ReviewEditForm() {
                             <div>
                                 <Form.Label
                                     className={`
-                  ${btnStyles.Button} 
-                  ${btnStyles.Orange} btn`}
+                                    ${btnStyles.Button} 
+                                    ${btnStyles.Orange} btn`}
                                     htmlFor="image-upload">
                                     Change image
                                 </Form.Label>
