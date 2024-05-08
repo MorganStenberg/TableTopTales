@@ -10,7 +10,7 @@ import Row from "react-bootstrap/Row";
 import { axiosRes } from '../api/axiosDefaults';
 import { Link, useHistory } from 'react-router-dom/cjs/react-router-dom';
 
-// Credit to Code Institute for structure of Comment component
+
 const Game = (props) => {
 
 	const {
@@ -35,7 +35,6 @@ const Game = (props) => {
 			//console.log(err)
 		}
 	};
-
 
 
 	return (

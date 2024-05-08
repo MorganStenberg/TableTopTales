@@ -17,7 +17,7 @@ import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
 
-// Credit to Code Institute Walkthrough for structure of ProfileEditForm
+// Credit to Code Institute Moments Walkthrough for structure of ProfileEditForm
 
 const ProfileEditForm = () => {
 	const currentUser = useCurrentUser();

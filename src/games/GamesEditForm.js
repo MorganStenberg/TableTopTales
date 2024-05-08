@@ -22,7 +22,6 @@ import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 function GamesEditForm({ filter = "" }) {
 
 	const [errors, setErrors] = useState({});
-
 	const [gameData, setGameData] = useState({
 		title: "",
 		description: "",

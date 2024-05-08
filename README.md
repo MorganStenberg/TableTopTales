@@ -210,8 +210,11 @@ See [TESTING](TESTING.md) for the full documentation of all testing done.
 
 ### Bugs and problems
 
-- Issue with Quill rich text editor, issue with the React Draft Wysiwyg editor. 
-One major bug that was found during the later stages of development of the site was with the rich text editor for creating and editing reviews. The issue was specifically with initializing the editor with the content of the review from the API when the user tries to edit their previously written review. First when trying with the Quill editor I could not get it to function properly in the edit page, with some trouble just initializing the content correctly in the first place and then with the editor consistently losing focus after typing. This was most likely related to how I was handling the changing state of the editor content. After much trial and error I still could not get it working properly and moved on to trying another editor, React Draft Wysiwyg, and had similar issues with the editor not handling the content correctly after initializing and with the content not being saved correctly. Tried several different methods of handling and initializing the content with the editor, but could not get it working properly. So I finally moved on the the third editor, which was the CKEditor and that finally worked and solved all my issues both with the editor losing focus and issues with initializing the content. 
+- Issue with Quill rich text editor, issue with the React Draft Wysiwyg editor.
+
+One major bug that was found during the later stages of development of the site was with the rich text editor for creating and editing reviews. The issue was specifically with initializing the editor with the content of the review from the API when the user tries to edit their previously written review. First when trying with the Quill editor I could not get it to function properly in the edit page, with some trouble just initializing the content correctly in the first place and then with the editor consistently losing focus after typing. This was most likely related to how I was handling the changing state of the editor content. 
+
+After much trial and error I still could not get it working properly and moved on to trying another editor, React Draft Wysiwyg, and had similar issues with the editor not handling the content correctly after initializing and with the content not being saved correctly. Tried several different methods of handling and initializing the content with the editor, including building the editor as a seperate component and trying to handle the state of the editor more locally, but could not get it working properly. So I finally moved on the the third editor, which was the CKEditor and that finally worked and solved all my issues both with the editor losing focus and issues with initializing the content. 
 
 ## Deployment
 
@@ -232,7 +235,7 @@ The site was deployed to Heroku from GitHub with the following steps:
 - CSS 
 - JSX
 
-### **Libraries**
+### **Libraries and frameworks**
 - [React](https://legacy.reactjs.org/) - main Javascript library for creating the user interface.
 - [react-Bootstrap](https://react-bootstrap-v4.netlify.app/) - to make the site responsive and to style user interface.
 - [axios](https://axios-http.com/docs/intro) - HTTP library used to make requests.
@@ -241,14 +244,27 @@ The site was deployed to Heroku from GitHub with the following steps:
 - [react-dom](https://www.npmjs.com/package/react-dom) - the entry point to the DOM and server renderers for React.
 - [react-infinite-scroll-component](https://www.npmjs.com/package/react-infinite-scroll-component) - component to implement infinite scrolling.
 - [react-scripts](https://www.npmjs.com/package/react-scripts) - scripts and configuration used by Create React App.
+- [CKEditor 5](https://ckeditor.com/docs/ckeditor5/latest/installation/integrations/react/react.html) - Rich text editor used for content in reviews. 
 
 ### **Software and Sites**
 - [Git and GitHub](https://github.com/)- Version control and used as tool for agile development with Github Projects
 - [Cloudinary](https://cloudinary.com/) - Image hosting and management
 - [ElephantSQL](https://www.elephantsql.com/) - Free database service that hosts the PostgreSQL database for this project 
 - [Lucidchart](https://www.lucidchart.com/pages/sv) - Used for creating ERD diagram
-- [Balsamiq](https://balsamiq.com/) - Used to create wireframes 
+- [Balsamiq](https://balsamiq.com/) - Used to create wireframes
+- [Favicon.io](https://favicon.io/favicon-converter/) - Used to create the Favicon. 
 
 ## Credits
+Throughout the project the [Code Institute Walkthrough project "Moments"](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+RA101+2021_T3/courseware/70a8c55db0504bbdb5bcc3bfcf580080/953cd4e5015f483bb05263db3e740e19/) has been used as a template and inspiration. The basic structure of this project is based on that, as well as several components and other parts of the code, with my own additions and customizations of course. The Walkthrough is heavily referenced throughout the project. The basic layout and design of the site is also inspired by the Moments Walkthrough, with my own additions here as well. 
+
+Other sources of inspirations are [BoardGameGeek](https://boardgamegeek.com/), for inspiration on what to include for creating a review. As well as other students project such as [TravelTickr](https://github.com/SandraBergstrom/travel-tickr) for inspiration on layout and design. For this readme I have taken parts of the structure from my previous project [LeagueHub](https://github.com/MorganStenberg/League-hub)
+
+[ChatGPT](https://chatgpt.com/) has been used to create content for reviews, by prompting it to write a review for a certain board game. As well as generating the image that is used as the logo and favicon.
+
+### Other credits
+- 
+
+### Images
+- 
 
 ## Acknowledgements

@@ -18,7 +18,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 
 
 
-// Credit to Code Institute Walkthrough
+// Credit to Code Institute Moments Walkthrough for structure of ReviewPage
 function ReviewPage() {
     const { id } = useParams();
     const [review, setReview] = useState({ results: [] });

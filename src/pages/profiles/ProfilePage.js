@@ -20,7 +20,7 @@ import MostPopularReviews from "../reviews/MostPopularReviews";
 import Review from "../reviews/Review";
 import { ProfileEditDropdown } from "../../components/MoreDropDown";
 
-
+// Credit to Code Institute Moments Walkthrough for structure of ProfilePage
 function ProfilePage() {
 
     const currentUser = useCurrentUser();

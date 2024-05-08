@@ -8,10 +8,7 @@ const PopularReview = (props) => {
 	const { review, smallscreen } = props;
 	const { id, title, image } = review;
 
-
-
 	return (
-
 		<div
 			className={`mb-3 d-flex align-items-center justify-content-center ${smallscreen && "flex-column"}`}>
 			<div>

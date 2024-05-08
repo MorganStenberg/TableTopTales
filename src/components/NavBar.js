@@ -15,7 +15,7 @@ import axios from 'axios';
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import { removeTokenTimestamp } from '../utils/utils';
 
-
+// Credit to Code Institute Moments Walkthrough for structure of NavBar component 
 const NavBar = () => {
 
     const currentUser = useCurrentUser();

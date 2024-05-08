@@ -17,7 +17,7 @@ import { useRedirect } from "../../hooks/UseRedirect";
 import { setTokenTimestamp } from "../../utils/utils";
 
 
-// Credit to Code Institute walktrough for form structure
+// Credit to Code Institute Moments walktrough for form structure
 function SignInForm() {
     const setCurrentUser = useSetCurrentUser();
     useRedirect('loggedIn')

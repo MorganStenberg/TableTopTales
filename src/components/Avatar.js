@@ -2,7 +2,7 @@ import React from "react";
 import styles from "../styles/Avatar.module.css";
 
 
-// Credit to Code Institute Walkthrough
+// Credit to Code Institute Moments Walkthrough
 const Avatar = ({ src, height = 45, text }) => {
 		return (
 			<span>

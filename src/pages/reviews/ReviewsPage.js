@@ -19,7 +19,6 @@ import MostPopularReviews from "./MostPopularReviews";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function ReviewsPage({ message, filter = "" }) {
-
     const [reviews, setReviews] = useState({ results: [] });
     const [hasLoaded, setHasLoaded] = useState(false);
     const { pathname } = useLocation();

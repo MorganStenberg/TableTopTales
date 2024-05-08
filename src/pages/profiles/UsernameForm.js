@@ -19,7 +19,7 @@ import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
 
-// Credit to Code Institute walkthrough for UsernameForm
+// Credit to Code Institute Moments walkthrough for structure of UsernameForm
 const UsernameForm = () => {
 	const [username, setUsername] = useState("");
 	const [errors, setErrors] = useState({});

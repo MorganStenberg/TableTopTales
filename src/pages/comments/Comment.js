@@ -8,7 +8,7 @@ import { MoreDropdown } from '../../components/MoreDropDown';
 import { axiosRes } from '../../api/axiosDefaults';
 import CommentEditForm from './CommentEditForm';
 
-// Credit to Code Institute for structure of Comment component
+// Credit to Code Institute Moments Walkthrough for structure of Comment component
 const Comment = (props) => {
 
 	const {

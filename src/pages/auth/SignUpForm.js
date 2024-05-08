@@ -14,7 +14,7 @@ import Container from "react-bootstrap/Container";
 import axios from "axios";
 import { useRedirect } from "../../hooks/UseRedirect";
 
-// Credit to Code Institute walktrough for form structure
+// Credit to Code Institute Moments walktrough for form structure
 const SignUpForm = () => {
     useRedirect('loggedIn')
     const [signUpData, setSignUpData] = useState({

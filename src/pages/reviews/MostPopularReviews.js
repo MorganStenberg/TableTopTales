@@ -8,7 +8,6 @@ import Asset from '../../components/Asset';
 import PopularReview from './PopularReview';
 
 const MostPopularReviews = ({ smallscreen }) => {
-
 	const [reviewData, setReviewData] = useState({
 		popularReviews: { results: [] },
 	});

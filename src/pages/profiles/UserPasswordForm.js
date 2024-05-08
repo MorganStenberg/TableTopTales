@@ -16,7 +16,7 @@ import appStyles from "../../App.module.css";
 import styles from "../../styles/ProfileEditForm.module.css"
 
 
-// Credit to Code Institute Walkthrough for UserPassWordForm
+// Credit to Code Institute Moments Walkthrough for UserPassWordForm
 
 const UserPasswordForm = () => {
 	const history = useHistory();
