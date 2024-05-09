@@ -45,3 +45,13 @@
 .Profile:hover {
   background-color:#fff
 }
+
+.ReviewSymbol {
+  color: #006566;
+  font-size: 1.5rem;
+  padding: 4px 6px;
+}
+
+.ReviewSymbol:hover {
+color: #01989b;
+}

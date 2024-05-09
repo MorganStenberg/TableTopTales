@@ -2,6 +2,7 @@ import React from 'react'
 import styles from "../../styles/PopularReview.module.css"
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom/cjs/react-router-dom';
+import logoDefault from '../../assets/logo_ttt_default.png'
 
 const PopularReview = (props) => {
 
@@ -15,7 +16,7 @@ const PopularReview = (props) => {
 				<Link className={`${styles.Popular}`} to={`/reviews/${id}`}>
 					<Card className={`${styles.Card} overflow-hidden m-1`}>
 						<Card.Img
-							src={image}
+							src={image || logoDefault}
 							alt={title}
 							className={styles.CardImage}
 						/>

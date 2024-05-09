@@ -26,3 +26,13 @@
     z-index: 99;
     right: 0;
 }
+
+.CommentIcon {
+    color: #006566;
+    font-size: 1.5rem;
+    padding: 4px 6px;
+}
+
+.CommentIcon:hover {
+  color: #01989b;
+}

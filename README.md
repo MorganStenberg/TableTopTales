@@ -187,7 +187,7 @@ Next to the like symbol the number of likes is displayed.
 
 - Adding tags to reviews to further categorize or sort the content. The user should be able to click on the tags to see all reviews with the same tags. 
 - Making the reviews collapseable, so that not all the text is visible at once and the user should be able to choose to expand the review to view all the content. 
-- Add a feature to have the most discussed reviews update every month/week, to keep the content changing. 
+- Add a feature to have the most discussed reviews section update every month/week, to keep the content changing. 
 
 ## Components
 
@@ -217,6 +217,9 @@ See [TESTING](TESTING.md) for the full documentation of all testing done.
 One major bug that was found during the later stages of development of the site was with the rich text editor for creating and editing reviews. The issue was specifically with initializing the editor with the content of the review from the API when the user tries to edit their previously written review. First when trying with the Quill editor I could not get it to function properly in the edit page, with some trouble just initializing the content correctly in the first place and then with the editor consistently losing focus after typing. This was most likely related to how I was handling the changing state of the editor content. 
 
 After much trial and error I still could not get it working properly and moved on to trying another editor, React Draft Wysiwyg, and had similar issues with the editor not handling the content correctly after initializing and with the content not being saved correctly. Tried several different methods of handling and initializing the content with the editor, including building the editor as a seperate component and trying to handle the state of the editor more locally, but could not get it working properly. So I finally moved on the the third editor, which was the CKEditor and that finally worked and solved all my issues both with the editor losing focus and issues with initializing the content. 
+
+- Minor bugs and problems
+I had some minor issues and bugs during development, like one where I could not create reviews without including an image even though the image field was supposed to be optional. This was solved by including extra_kwargs for the review serializer, with help from an answer from Stackoverflow. There were also a few design issues with the navbar and with the review cards as well, but eventually these were solved as well. 
 
 ## Deployment
 
@@ -254,19 +257,28 @@ The site was deployed to Heroku from GitHub with the following steps:
 - [ElephantSQL](https://www.elephantsql.com/) - Free database service that hosts the PostgreSQL database for this project 
 - [Lucidchart](https://www.lucidchart.com/pages/sv) - Used for creating ERD diagram
 - [Balsamiq](https://balsamiq.com/) - Used to create wireframes
-- [Favicon.io](https://favicon.io/favicon-converter/) - Used to create the Favicon. 
+- [Favicon.io](https://www.favicon-generator.org) - Used to create the Favicon. 
 
 ## Credits
 Throughout the project the [Code Institute Walkthrough project "Moments"](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+RA101+2021_T3/courseware/70a8c55db0504bbdb5bcc3bfcf580080/953cd4e5015f483bb05263db3e740e19/) has been used as a template and inspiration. The basic structure of this project is based on that, as well as several components and other parts of the code, with my own additions and customizations of course. The Walkthrough is heavily referenced throughout the project. The basic layout and design of the site is also inspired by the Moments Walkthrough, with my own additions here as well. 
 
-Other sources of inspirations are [BoardGameGeek](https://boardgamegeek.com/), for inspiration on what to include for creating a review. As well as other students project such as [TravelTickr](https://github.com/SandraBergstrom/travel-tickr) for inspiration on layout and design. For this readme I have taken parts of the structure from my previous project [LeagueHub](https://github.com/MorganStenberg/League-hub)
+Other sources of inspirations are [BoardGameGeek](https://boardgamegeek.com/), for inspiration on what to include for creating a review, and text for a test review. As well as other students project such as [TravelTickr](https://github.com/SandraBergstrom/travel-tickr) for inspiration on layout and design. For this readme I have taken parts of the structure from my previous project [LeagueHub](https://github.com/MorganStenberg/League-hub)
 
 [ChatGPT](https://chatgpt.com/) has been used to create content for reviews, by prompting it to write a review for a certain board game. As well as generating the image that is used as the logo and favicon.
 
 ### Other credits
-- 
+- [React-Bootstrap documentation](https://react-bootstrap-v4.netlify.app/getting-started/introduction/) - Used throughout the project. 
+- [CKEditor documentation](https://ckeditor.com/docs/ckeditor5/latest/installation/integrations/react/react.html) - Used for implementing the rich text editor. 
+- [LogRocket](https://blog.logrocket.com/using-dangerouslysetinnerhtml-react-application/) - Using Dangerouslysetinnerhtml.
+- [Upbeatcode](https://www.upbeatcode.com/react/how-to-write-text-on-image-in-react-js/) - For cards in most discussed review section
 
 ### Images
-- 
+- [Upload picture - Pixabay](https://pixabay.com/sv/vectors/kamera-ikon-webb-filma-multimedia-1674882)
+- [No results image - Flaticon](https://www.flaticon.com/free-icon/no-results_6134116?term=no+results&page=1&position=2&origin=tag&related_id=6134116)
+- [Ticket to ride board game - Pexels](https://www.pexels.com/sv-se/foto/vanner-sitter-spelar-grupp-4691599)
+- [Concordia board game - Unsplash](https://unsplash.com/photos/person-in-white-shirt-sitting-beside-table-with-puzzle-game-NrS53eUKgiE)
+- [Wingspan board game- Pexels](https://www.pexels.com/sv-se/foto/flyg-natur-fagel-djur-16845928)
+- Images of the board games Yatzy and Exploding Kittens were taken by my self. 
 
 ## Acknowledgements
+I would like to thank our Code Institute coordinator Kay for the support throughout the project!

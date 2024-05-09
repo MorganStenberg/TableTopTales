@@ -29,7 +29,7 @@
     font-size: 1.5rem;
     padding: 4px 6px;
 }
-/* remove here and in component */ 
+
 .Heart:hover {
   color: #01989b;
 }
@@ -48,7 +48,7 @@
   color: #f7b195
 }
 
-/* remove here and in component */ 
+/* rename to better match use with both comment and bookmark icons */ 
 .CommentIcon {
     color: #006566;
     font-size: 1.5rem;
@@ -99,13 +99,3 @@
 .RatingBar > * {
   background-color: #006566;
 }
-
-/* i {
-  color: #006566;
-  font-size: 1.5rem;
-  padding: 4px 6px;
-}
-
-i:hover {
-color: #01989b;
-} */
