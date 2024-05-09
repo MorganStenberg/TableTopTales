@@ -33,13 +33,16 @@
 .NavLogo span {
   font-size: 1.8rem;
 }
-  
 .Active {
   background-color: #FFA07A;
 }
 
 .NavLogo:hover {
-  background-color:#fff
+  background-color:#fff;
+}
+
+.NavLogoText:hover {
+  color: #006566 !important;
 }
 
 .Profile:hover {

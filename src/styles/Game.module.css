@@ -9,10 +9,14 @@
 
 
 .Badge {
-    background-color: #008080;
+    background-color: #006566;
     color: #fff;
     padding: .5rem .8rem;
     font-size: 90%;
+}
+
+.Badge:hover {
+    background-color: #008080;
 }
 
 .CardShadow {

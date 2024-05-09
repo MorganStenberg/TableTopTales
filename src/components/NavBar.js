@@ -110,7 +110,7 @@ const NavBar = () => {
                         alt='logo'
                         height='40'
                     />
-                    <Navbar.Brand className='pl-2 m-auto'>TableTopTales</Navbar.Brand>
+                    <Navbar.Brand className={`pl-2 m-auto ${styles.NavLogoText}`}>TableTopTales</Navbar.Brand>
 
                 </NavLink>
 
