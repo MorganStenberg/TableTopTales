@@ -112,7 +112,7 @@ const ProfileEditForm = () => {
 				/>
 			</Form.Group>
 
-			{errors?.content?.map((message, idx) => (
+			{errors?.favorite_game?.map((message, idx) => (
 				<Alert variant="warning" key={idx}>
 					{message}
 				</Alert>

@@ -90,6 +90,7 @@ The site has been tested for responsiveness throughout the development by using 
 | unlike review | click | user can unlike a review, symbol changes color and decreases count of number of likes | pass |
 | comment form | type | user can type comments in to input form field | pass |
 | comment post button | click | users comment is submitted and is displayed underneatch in descending order, comment count is increased | pass |
+| comment - three dots symbol | hover | changes color | pass |
 | comment - three dots symbol | display | displays the symbol only for comments made by the logged in user | pass |
 | comment - three dots symbol | click | displays menu with buttons for delete and edit comment | pass |
 | comment - three dots symbol - delete | click | deletes comment | pass |
@@ -113,36 +114,66 @@ The site has been tested for responsiveness throughout the development by using 
 | Edit game button | click | takes user to page for editing game | pass |
 | Delete game button | hover | change color | pass |
 | Delete game button | click | deletes game from wishlist and refreshes the page | pass |
+| Games added to wishlist | scroll | infinite scroll | pass |
 
 #### Create game form to add to wishlist page
 | Feature | Action | Expected outcome | Pass/Fail |
 | --- | --- | --- | --- |
-| |  |  |  |
+| Add game button | hover | change color | pass |
+| Add game button | click | if the form inputs are valid, create a game and redirect user to the wishlist page | pass |
+| Add game button | click | if form input is not valid, displays warnings to user indicating invalid form input | pass |
+| Cancel button | click | redirects user back to the previous page | pass |
+| Saved reviews | click | displays a list of saved reviews | pass |
+
 
 #### Edit game form 
 | Feature | Action | Expected outcome | Pass/Fail |
 | --- | --- | --- | --- |
-| |  |  |  |
+| Save your changes | hover | change color | pass |
+| Save your changes | click | if the form inputs are valid, create a game and redirect user to the wishlist page | pass |
+| Save your changes | click | if form input is not valid, displays warnings to user indicating invalid form input | pass |
+| Cancel button | click | redirects user back to the previous page | pass |
+| Saved reviews | click | displays the review that the user has chosen to connect the game with, if not chosen displays a list of saved reviews | pass |
 
 #### Profile page
 | Feature | Action | Expected outcome | Pass/Fail |
 | --- | --- | --- | --- |
-| |  |  |  |
+| Profile - three dots symbol | display | displays the symbol only for comments made by the logged in user | pass |
+| Profile - three dots symbol | click | displays menu with buttons for edit profile, change username, change password | pass |
+| Profile - three dots symbol | hover | changes color | pass |
+| Profile - three dots symbol - Edit profile | click | takes user to page with form for editing user profile | pass |
+| Profile - three dots symbol - Change username | click | takes user to page with form for changing username | pass |
+| Profile - three dots symbol - Change password | click | takes user to page with form for changing password | pass |
+| Profile information | view | displays information on bio, favorite game, username and number of reviews written | pass |
 
-#### Edit profile page form
+#### Edit profile page form, edit password form and edit username form
 | Feature | Action | Expected outcome | Pass/Fail |
 | --- | --- | --- | --- |
-| |  |  |  |
+| Save button, cancel button, change image button | hover | change color | pass |
+| Save button  | click | if the form inputs are valid, update profile fields and redirect user back to profile page | pass |
+| Save button | click | if form inputs are not valid, displays warnings to user indicating invalid form input | pass |
+| Cancel button | click | redirects user back to the previous page | pass |
+| Change image button | click | opens input for selecting image | pass |
 
 #### Create review form
 | Feature | Action | Expected outcome | Pass/Fail |
 | --- | --- | --- | --- |
-| |  |  |  |
+| Share your tale button, cancel button, change image button | hover | change color | pass |
+| Share your tale  | click | if the form inputs are valid, create review and redirect user to detailed view of that review | pass |
+| Share your tale | click | if form inputs are not valid, displays warnings to user indicating invalid form input | pass |
+| Cancel button | click | redirects user back to the previous page the were on| pass |
+| Image upload symbol | click | opens input for selecting image | pass |
+| Change image button | click | opens input for selecting image | pass |
 
 #### Edit review form
 | Feature | Action | Expected outcome | Pass/Fail |
 | --- | --- | --- | --- |
-| |  |  |  |
+| Save your changes, cancel button, change image button | hover | change color | pass |
+| Save your changes | click | if the form inputs are valid, save changes to review and redirect user to detailed view of that review | pass |
+| Save your changes | click | if form inputs are not valid, displays warnings to user indicating invalid form input | pass |
+| Cancel button | click | redirects user back to the previous page the were on| pass |
+| Image upload symbol | click | opens input for selecting image | pass |
+| Change image button | click | opens input for selecting image | pass |
 
 
 

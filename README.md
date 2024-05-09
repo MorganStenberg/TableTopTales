@@ -219,6 +219,7 @@ One major bug that was found during the later stages of development of the site 
 After much trial and error I still could not get it working properly and moved on to trying another editor, React Draft Wysiwyg, and had similar issues with the editor not handling the content correctly after initializing and with the content not being saved correctly. Tried several different methods of handling and initializing the content with the editor, including building the editor as a seperate component and trying to handle the state of the editor more locally, but could not get it working properly. So I finally moved on the the third editor, which was the CKEditor and that finally worked and solved all my issues both with the editor losing focus and issues with initializing the content. 
 
 - Minor bugs and problems
+
 I had some minor issues and bugs during development, like one where I could not create reviews without including an image even though the image field was supposed to be optional. This was solved by including extra_kwargs for the review serializer, with help from an answer from Stackoverflow. There were also a few design issues with the navbar and with the review cards as well, but eventually these were solved as well. 
 
 ## Deployment

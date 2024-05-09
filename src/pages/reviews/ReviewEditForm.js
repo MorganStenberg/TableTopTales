@@ -13,6 +13,9 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import styles from "../../styles/ReviewEditCreateForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
+
+import Asset from "../../components/Asset";
+import Upload from "../../assets/camera_upload.png"
 import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useParams } from "react-router-dom/cjs/react-router-dom";
@@ -200,33 +203,43 @@ function ReviewEditForm() {
                         className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
                     >
                         <Form.Group className="text-center">
+                        {image ? (
+								<>
+									<figure>
+										<Image className={appStyles.Image} src={image} rounded />
+									</figure>
+									<div>
+										<Form.Label
+											className={`
+												${btnStyles.Button} 
+												${btnStyles.Orange} btn`
+											}
+											htmlFor="image-upload">
+											Change image
+										</Form.Label>
+									</div>
+								</>
+							) : (
+								<Form.Label
+									className="d-flex justify-content-center"
+									htmlFor="image-upload"
+								>
+									<Asset src={Upload} message="Click to upload an image with your review" />
+								</Form.Label>
+							)}
 
-                            <figure>
-                                <Image className={appStyles.Image} src={image} rounded />
-                            </figure>
-                            <div>
-                                <Form.Label
-                                    className={`
-                                    ${btnStyles.Button} 
-                                    ${btnStyles.Orange} btn`}
-                                    htmlFor="image-upload">
-                                    Change image
-                                </Form.Label>
-                            </div>
-
-                            <Form.File
-                                id="image-upload"
-                                accept="image/*"
-                                onChange={handleChangeImage}
-                                ref={imageInput}
-                            />
-                        </Form.Group>
-                        {errors.image?.map((message, idx) => (
-                            <Alert key={idx} variant="warning">
-                                {message}
-                            </Alert>
-                        ))}
-                        <div className="d-md-none">{formFields}</div>
+							<Form.File
+								id="image-upload"
+								accept="image/*"
+								onChange={handleChangeImage}
+								ref={imageInput}
+							/>
+						</Form.Group>
+						{errors.image?.map((message, idx) => (
+							<Alert key={idx} variant="warning">
+								{message}
+							</Alert>
+						))}
                     </Container>
 
                 </Col>
