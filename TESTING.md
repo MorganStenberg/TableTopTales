@@ -22,6 +22,8 @@ The site has been tested for performance and accessibility through Google Devtoo
 
 There are some issues with accessibility related some React Bootstrap components, like the Progressbar the is being used for the rating in the reviews. I have added an aria-label, but it is not targeting the inner div that is being created. To sort this out and improve the accessibility I created a custom progressbar component instead, that I could target with and Aria-label. 
 
+There is also some issues with "best practices", which is related to the fact that Chrome will suspend oper
+
 ### Responsiveness
 The site has been tested for responsiveness throughout the development by using Google Dev Tools, as well as through [Responsivetesttool](https://responsivetesttool.com/). 
 
@@ -177,6 +179,6 @@ The site has been tested for responsiveness throughout the development by using 
 | Change image button | click | opens input for selecting image | pass |
 
 
-
-
 ### Summary
+
+The site has been tested on different browsers, Chrome, Firefox and Edge, as well as on chrome through Android devices. The site has demonstrated its functionality across all of its features during testing, minor design flaws were identified and taken care of. 

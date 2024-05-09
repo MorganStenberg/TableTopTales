@@ -102,6 +102,7 @@ function ReviewEditForm() {
             <Form.Group>
                 <Form.Label>Title</Form.Label>
                 <Form.Control
+                    aria-label="Title"
                     type="text"
                     name="title"
                     value={title}
@@ -138,6 +139,7 @@ function ReviewEditForm() {
             <Form.Group>
                 <Form.Label>Game</Form.Label>
                 <Form.Control
+                    aria-label="Game"
                     type="text"
                     name="game"
                     value={game}
@@ -153,6 +155,7 @@ function ReviewEditForm() {
             <Form.Group>
                 <Form.Label>Rating</Form.Label>
                 <Form.Control
+                    aria-label="Rating"
                     as="select"
                     name="rating"
                     value={rating}
