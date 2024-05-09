@@ -2,7 +2,7 @@ import React from 'react'
 
 import styles from "../../styles/Review.module.css"
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
-import { Card, OverlayTrigger, ProgressBar, Tooltip } from 'react-bootstrap';
+import { Card, OverlayTrigger, Tooltip } from 'react-bootstrap';
 
 import Avatar from '../../components/Avatar';
 import { Link, useHistory } from 'react-router-dom/cjs/react-router-dom';
@@ -34,8 +34,6 @@ const Review = (props) => {
 
 	const currentUser = useCurrentUser();
 	const is_owner = currentUser?.username === owner;
-
-	const ratingPercentage = (rating / 10) * 100;
 
 	const history = useHistory();
 
@@ -117,6 +115,25 @@ const Review = (props) => {
 		}
 	};
 
+	const CustomProgressBar = ({ rating }) => {
+		const ratingPercentage = (rating / 10) * 100;
+		
+		return (
+			<div className={`progress ${styles.RatingBar}`} aria-label={`Rating: ${rating} out of 10`}>
+				<div
+					aria-label="progressbar" 
+					role="progressbar" 
+					className="progress-bar"
+					aria-valuenow={ratingPercentage} 
+					aria-valuemin="0" 
+					aria-valuemax="100" 
+					style={{ width: `${ratingPercentage}%` }}>
+					{`${rating}/10`}
+				</div>
+			</div>
+		);
+	};
+
 	// Credit to Code Institute walkthrough for the structure for ternary for like icon and like function
 	return (
 
@@ -129,12 +146,13 @@ const Review = (props) => {
 			<Link to={`/reviews/${id}`}>
 				{image && <Card.Img src={image} alt={title} className={styles.Image} />}
 			</Link>
-
+			
 			<Card.Body className={`${styles.CardPadding} ${styles.GameRatingTitle}`}>
 				<Card.Title>Rating</Card.Title>
-				{rating && <ProgressBar className={styles.RatingBar} now={ratingPercentage} label={`${rating}/10`} />}
+				{rating && <CustomProgressBar rating={rating}/>}
 
 			</Card.Body>
+			
 			<Card.Body className={`${styles.CardPadding} ${styles.GameRatingTitle}`}>
 				<Card.Title className={styles.BorderBottom}>Game</Card.Title>
 				{game && <Card.Text className={styles.CardGame}>{game}</Card.Text>}
@@ -171,7 +189,7 @@ const Review = (props) => {
 							{likes_count}
 						</span>
 						<span className={styles.LikesAndComments}>
-							<Link to={`/reviews/${id}`}>
+							<Link to={`/reviews/${id}`} aria-label={`Read more about ${title}`}>
 								<i className={`fa-regular fa-comments ${styles.CommentIcon}`}></i>
 							</Link>
 							{comments_count}

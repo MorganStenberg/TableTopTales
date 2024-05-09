@@ -14,15 +14,16 @@ The testing documentation provides an overview of all testing conducted on Table
 
 ### Validation
 
-- JSX code have been manually validated and adjusted throughout development via direct feedback from npm in the terminal.
+- JSX code have been manually validated and adjusted throughout development via direct feedback from npm in the terminal, via Eslint. Any errors or violations that were detected was immediately displayed in the terminal, which helped in identifying and fixing the underlying issues with the code that was causing it. 
 - The CSS code has been validated through [W3Cs validation](https://jigsaw.w3.org/css-validator/) service and passed without remarks.  
 
-### Accessibility
+### Accessibility and performance
+The site has been tested for performance and accessibility through Google Devtools Lighthouse. 
+
+There are some issues with accessibility related some React Bootstrap components, like the Progressbar the is being used for the rating in the reviews. I have added an aria-label, but it is not targeting the inner div that is being created. To sort this out and improve the accessibility I created a custom progressbar component instead, that I could target with and Aria-label. 
 
 ### Responsiveness
 The site has been tested for responsiveness throughout the development by using Google Dev Tools, as well as through [Responsivetesttool](https://responsivetesttool.com/). 
-
-### Performance
 
 ### Manual testing
 
