@@ -24,6 +24,16 @@ There are some issues with accessibility related to using React Bootstrap compon
 
 There are also some issues with "best practices", which is related to the fact that Chrome will block the use of third-party cookies, which are in use in this project. 
 
+![Lighthouse report create review page](documentation/lighthouse_createreview.PNG)
+
+![Lighthouse report home page](documentation/lighthouse_homepage.PNG)
+
+![Lighthouse report saved page](documentation/lighthouse_saved.PNG)
+
+![Lighthouse report wishlist](documentation/lighthouse_wishlist.PNG)
+
+
+
 ### Responsiveness
 The site has been tested for responsiveness throughout the development by using Google Dev Tools, as well as through [Responsivetesttool](https://responsivetesttool.com/). 
 

@@ -12,6 +12,8 @@ The app is built in two parts with this making up the backend API and the front 
 
 [Link to backend repo here](https://github.com/MorganStenberg/tabletop-api)
 
+![An image of the deployed site on different screen sizes](documentation/responsive_ttt.PNG)
+
 ## Project Goals
 The goal of this site is to create a place where people can share reviews and discuss board games, and inspire other people to find their new favorite games! 
 
@@ -70,7 +72,60 @@ The design of the site is focused on being user friendly and giving the reviews 
 Therefore the colors chosen are fairly neutral, especially the background color of a shade of gray. The two other colors in use are used consistently throughout the site in the same manner for buttons and other elements, to give the user a sense of familiarity when navigating the site. As well as using different shades of those colors for hover effects. The font of Roboto was chosen as it is clean and easily read by the user. 
 
 
-**Wireframes**
+#### Wireframes
+Wireframes were used to set the basic design and layout of the site. 
+
+<details>
+
+<summary>Home page</summary>
+
+![Home Page - logged out](documentation/wireframes/homepage_loggedout.PNG)
+![Home Page - logged in](documentation/wireframes/homepage_loggedin.PNG)
+![Home Page - mobile device](documentation/wireframes/reviews_mobile.PNG)
+
+</details>
+
+<details>
+
+<summary>Sign up page</summary>
+
+![Sign up Page](documentation/wireframes/signup_page.PNG)
+</details>
+
+<details>
+
+<summary>Create review page</summary>
+
+![Create review Page](documentation/wireframes/create_review.PNG)
+</details>
+
+<details>
+
+<summary>Detailed view of review</summary>
+
+![Create review Page](documentation/wireframes/detailed_review.PNG)
+</details>
+
+<details>
+
+<summary>Create Game page</summary>
+
+![Create review Page](documentation/wireframes/create_game.PNG)
+</details>
+
+<details>
+
+<summary>Profile page</summary>
+
+![Profile Page](documentation/wireframes/profile_page.PNG)
+</details>
+
+<details>
+
+<summary>Wishlist page</summary>
+
+![Wishlist Page](documentation/wireframes/wishlist_page.PNG)
+</details>
 
 
 ## Agile Development
@@ -108,13 +163,20 @@ The comment model contains all information about a comment, such as which user h
 - Displays different items depending on if the user is logged in or not, with sign up and sign in links displaying for users that are not logged in. And the other links to the different pages of the site displaying for logged in users.
 - The navbar is responsive and collapses when the screen size decreases. All links are displayed when clicking the 'burger' icon.
 
+![Navbar logged in](documentation/features/navbar_loggedin.PNG)
+![Navbar logged out](documentation/features/navbar_loggedout.PNG)
+
 **Loading spinner**
 - A loading spinner is displayed on all pages where data is fetched from API, while data is being fetched. 
+
+![Loading spinner](documentation/features/loading_spinner.PNG)
 
 #### Home Page
 - Intro, a short welcoming text that is displayed for users that are not logged in. Giving some context to what the purpose of the site is to new visitors. 
 
-- Reviews, displays a feed of reviews created by users. With the reviews being displayed with the latest displayed at the top. Infinite scrolling is active, meaning that the user can scroll infinitely as long as there is more content available
+- Reviews, displays a feed of reviews created by users. With the reviews being displayed with the latest displayed at the top. Infinite scrolling is active, meaning that the user can scroll infinitely as long as there is more content available.
+
+- A search bar is present beneath the navbar, where the user can search for reviews, other users and games.
 
 - The reviews are displayed as Cards with a structure of, title, image, rating, game, content (review text). At the bottom of the cards the avatar and username of the user that created the review is displayed to the left, with symbols for likes, comments and saving a post in the middle and lastly the date it was created to the bottom right. The title of the review also serves as a link to the detailed view of the review.
 
@@ -123,8 +185,12 @@ Next to the like symbol the number of likes is displayed.
 
 - Users can click on the comment symbol to be taken to the detailed view of the review where the comments are displayed and new ones can be created. Logged in users can comment on all posts. Next to the comment symbol the number of comments made to that review is displayed.
 
-#### Detailed review
+![Home Page - welcome message](documentation/features/welcome_message.PNG)
+![Home page](documentation/features/homepage_review.PNG)
+![Review Icons for comments, likes, saved](documentation/features/comment_like_icons.PNG)
+![Search Bar](documentation/features/search_bar_search.PNG)
 
+#### Detailed review
 - Displays a review in the same structure as the home page, but in a wider format. And also displays the comments that have been made and an input field to make new comments on a review. 
 
 - If the user is logged in and is the owner of the review they can click the three dots symbol in the bottom right corner to edit or delete the review. If the user clicks delete the review is removed and the user is taken back to the page they were previously on. 
@@ -135,18 +201,22 @@ Next to the like symbol the number of likes is displayed.
 
 - If the user chooses to delete their comment, the comment is removed and the user stays on the same page.
 
-#### Most discussed (commented) reviews
+![Detailed review - comments](documentation/features/comments.PNG)
+![Edit a comment](documentation/features/edit_comment.PNG)
+![Edit or Delete comment](documentation/features/edit_delete_comments.PNG)
 
+#### Most discussed (commented) reviews
 - To the right of the feed of reviews there is a section for the most discussed reviews, which is displaying the top 5 reviews with the most comments on. The reviews are displayed as small cards with the Title of the review over the image of the review as background. When the cards are hovered over there is an orange outline around the card. Each card also links to the review it is representing. 
 
 - On smaller screens the section is moved to be displayed on top of the feed of reviews, in a smaller format with only the top 3 most discussed reviews. Otherwise it is displayed in the same structure with the image in the background and title on top. 
 
-#### Saved reviews
+![Most discussed reviews section](documentation/features/most_discussed_reviews.PNG)
+![Most discussed reviews small screen](documentation/features/navbar_mostdiscussed_responsive.PNG)
 
+#### Saved reviews
 - Displays the reviews the logged in user has chosen to save, in the same way and format as the home page, with infinite scrolling. As well as displaying the section for the most discussed reviews in the same way. 
 
 #### Sign up/Log in
-
 - The sign up page displays a form for the user to enter username and password to create a account/profile. Displays warning messages if the user has not entered the username and password correctly.
 
 - Has a link to the sign in page as well. 
@@ -155,6 +225,9 @@ Next to the like symbol the number of likes is displayed.
 
 - Has a link to the sign up page if the user already has an account.
 
+![Sign up page](documentation/features/sign_up_page.PNG)
+![Sign in page](documentation/features/sign_in_page.PNG)
+
 #### Create and edit review
 - When clicking the create review button in the navbar the user is taken to the Create Review page, where a form with inputs for Title, Content, Game, Rating and an image section with a symbol for an image where the user can click and choose an image to upload if they want. 
 
@@ -162,12 +235,21 @@ Next to the like symbol the number of likes is displayed.
 
 - Editing a review, when clicking the edit button from the dropdown menu in the detailed view of a review the user is taken to the page for editing a review. Which is the same form for when creating a review, but with the fields prefilled with the content fetched from the API for that review. Similarly to when creating a review in the first place, there are two buttons, one for saving your edits and one "cancel" for exiting the edit review page and taking the user back to the page they were previously on. The edit form contains the same rich text editor and also has warnings for if fields are left empty or with invalid data. 
 
+![Create review form](documentation/features/create_review_form.PNG)
+![Edit review form](documentation/features/edit_review_form.PNG)
+
 #### Profile
 - The profile page displays information about a user that has created an account on the site. The information displayed is username, profile image, favorite game, description (bio) and number of reviews written. The profile page also displays all the reviews written by that user as a feed as well. 
 
 - When the user is visiting their own profile there are three dots in the top right corner where the user can access the menu for editing their username, password and profile in general. When clicking either of those the user is taken to a page with a form for updating or editing their profile information. If the user has not written any reviews yet, there is a text informing the visitor of the profile that. The profile page also has the section for most commented reviews. 
 
 - When the user first creates an account they only choose a username and a password, the rest of the profile information can be added/updated via clicking the edit button on the three dots menu when visiting their own profile page. The fields are not required as the user should be able to decide on their own how much information they want to include in their own profile. 
+
+![Profile page](documentation/features/profile_page.PNG)
+![Profile page dropdownmenu](documentation/features/profile_dropdown_menu.PNG)
+![Edit profile form](documentation/features/edit_profile_form.PNG)
+![Change username form](documentation/features/change_password_form.PNG)
+![Change password form](documentation/features/change_username_form.PNG)
 
 #### Wishlist page and create and edit Game to add to wishlist
 - The user can access the wishlist page by clicking the wishlist button in the navbar. If they have not created any games to add to their wishlist the page is empty and displays information to the user that they have not created any games yet, as well as presenting a button for the user to click to create games. 
@@ -182,8 +264,14 @@ Next to the like symbol the number of likes is displayed.
 
 - If the user clicks the delete button the game is removed and the page is refreshed. 
 
+![Wishlist page](documentation/features/wishlist_page.PNG)
+![Create game form](documentation/features/create_game_form.PNG)
+![Edit game form](documentation/features/edit_game_form.PNG)
+
 #### Not Found
-- Displays if the user enters an incorrect url that does not exist on the page. Displays a small image and text saying the page could not be found. 
+- Displays if the user enters an incorrect url that does not exist on the page. Displays a small image and text saying the page could not be found.
+
+![Not found](documentation/features/not_found.PNG)
 
 ### Future Features
 
