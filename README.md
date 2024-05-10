@@ -2,7 +2,7 @@
 
 TabletopTales is a social media site for board games enthusiasts, targeted towards people who love to play board games and want to share their reviews for others! As well as finding new games to add to their wishlist of games they want to play. 
 
-On TableTopTales users can write their own review of a game, create games to add to their whishlist, connect those games to an existing review, like and comment on other reviews. 
+On TableTopTales users can write their own review of a game, create games to add to their wishlist, connect those games to an existing review, like and comment on other reviews. 
 
 The app is built in two parts with this making up the backend API and the front end is built with React.js. 
 
@@ -10,15 +10,16 @@ The app is built in two parts with this making up the backend API and the front 
 
 [Link to deployed backend API here](https://ttt-api-0a140d9077e3.herokuapp.com/)
 
+[Link to backend repo here](https://github.com/MorganStenberg/tabletop-api)
 
 ## Project Goals
 The goal of this site is to create a place where people can share reviews and discuss board games, and inspire other people to find their new favorite games! 
 
 ### User Goals
-Users can have a variety of goals when visiting the site, some may want to find a new board game to add to their collection, some may want to discuss a board game the like to play and some may just want to read up on a board game they want to know more about. Other users may want to share their knowledge and insights on a board game, or share their love of a certain board game with others. Some users may want to share their thoughts and critique of a board game. Some users may want to save a review to come back to it later and read more, or to gather information on a board game they may want to look into in the future or add to their wishlist of board games now. 
+Users can have a variety of goals when visiting the site, some may want to find a new board game to add to their collection, some may want to discuss a board game they like to play and some may just want to read up on a board game they want to know more about. Other users may want to share their knowledge and insights on a board game, or share their love of a certain board game with others. Some users may want to share their thoughts and critique of a board game. Some users may want to save a review to come back to it later and read more, or to gather information on a board game they may want to look into in the future or add to their wishlist of board games now. 
 
 ### Site owner Goals
-The goal of the site owner is to provide a reliable and user friendly platform for users to share and discuss reviews of board games. Encouraging users to engage and interact, by having a intiuitive and structured site.
+The goal of the site owner is to provide a reliable and user friendly platform for users to share and discuss reviews of board games. Encouraging users to engage and interact, by having an intuitive and structured site.
 
 ## UX
 
@@ -33,7 +34,7 @@ The user of TableTopTales is anyone with an interest in board games and wants to
 - As a user I can edit a review I have created so that I can make changes and updates to my own review after it has been created
 - As a user I can delete my own review so that I can control the removal of my own reviews
 - As a user I can save a review so that I can save them to read at a later point or return and read the saved reviews at any time
-- As a user I can view the reviews I have saved so that I can return to reviews that I like, or so that I can read reviews that I didnt have time to finish earlier
+- As a user I can view the reviews I have saved so that I can return to reviews that I like, or so that I can read reviews that I didn't have time to finish earlier
 - As a user I can remove previously saved reviews so that I can manage what reviews I want to keep as saved and remove those that are no longer of interest
 - As a user I can like a review so that I can show that I appreciate the review and that it is interesting
 - As a user I can remove i like I have previously made so that I can change my mind about if I like a review or not
@@ -66,7 +67,7 @@ The user of TableTopTales is anyone with an interest in board games and wants to
 ### Design 
 The design of the site is focused on being user friendly and giving the reviews center stage, as they are the main purpose and content of the site. The design principle throughout the project has been to keep the site fairly simple and to not clutter the view for the user with unnecessary features.
 
-Therefore the colors chosen are fairly neutral, especially the background color of a shade of grey. The two other colors in use are used consistently throughout the site in the same manner for buttons and other elements, to give the user a sense of familiarity when navigating the site. As well as using different shades of those colors for hover effects. The font of Roboto was chosen as it is clean and easily read by the user. 
+Therefore the colors chosen are fairly neutral, especially the background color of a shade of gray. The two other colors in use are used consistently throughout the site in the same manner for buttons and other elements, to give the user a sense of familiarity when navigating the site. As well as using different shades of those colors for hover effects. The font of Roboto was chosen as it is clean and easily read by the user. 
 
 
 **Wireframes**
@@ -85,7 +86,7 @@ The profile model was created so the user can create and save reviews and create
 
 The game model contains all information on a game item that a user can create and add to a wishlist of games, such as creator of the game, title, description, review connection and a choice of genre. 
 
-The reiew model contains all information about a review, such as creator, title, content, image, rating and created at information.  
+The review model contains all information about a review, such as creator, title, content, image, rating and created at information.  
 
 The saved model enables the user to connect a wishlist game item to a review by saving the review. 
 
@@ -102,8 +103,8 @@ The comment model contains all information about a comment, such as which user h
 
 #### Relevant on all pages
 **Navbar**
-- Contains logo and navigation links to all pages. Is constantantly located at the top as users would expect, and to be easily reached at all times. 
-- Is displayed with active links, with the links displaying an orange color that stays when the user is on that page. Except for the profile page, to distingish that from other pages with content on. The links also display the orange color when the user hovers over them. 
+- Contains logo and navigation links to all pages. Is constantly located at the top as users would expect, and to be easily reached at all times. 
+- Is displayed with active links, with the links displaying an orange color that stays when the user is on that page. Except for the profile page, to distinguish that from other pages with content on. The links also display the orange color when the user hovers over them. 
 - Displays different items depending on if the user is logged in or not, with sign up and sign in links displaying for users that are not logged in. And the other links to the different pages of the site displaying for logged in users.
 - The navbar is responsive and collapses when the screen size decreases. All links are displayed when clicking the 'burger' icon.
 
@@ -111,10 +112,9 @@ The comment model contains all information about a comment, such as which user h
 - A loading spinner is displayed on all pages where data is fetched from API, while data is being fetched. 
 
 #### Home Page
-
 - Intro, a short welcoming text that is displayed for users that are not logged in. Giving some context to what the purpose of the site is to new visitors. 
 
-- Reviews, displayes a feed of reviews created by users. With the reviews being displayed with the latest displayed at the top. Infinite scrolling is active, meaning that the user can scroll infinitly as long as there is more content available
+- Reviews, displays a feed of reviews created by users. With the reviews being displayed with the latest displayed at the top. Infinite scrolling is active, meaning that the user can scroll infinitely as long as there is more content available
 
 - The reviews are displayed as Cards with a structure of, title, image, rating, game, content (review text). At the bottom of the cards the avatar and username of the user that created the review is displayed to the left, with symbols for likes, comments and saving a post in the middle and lastly the date it was created to the bottom right. The title of the review also serves as a link to the detailed view of the review.
 
@@ -125,19 +125,19 @@ Next to the like symbol the number of likes is displayed.
 
 #### Detailed review
 
-- Displays a review in the same structure as the home page, but in a wider format. And also displays the comments that have been made and a input field to make new comments on a review. 
+- Displays a review in the same structure as the home page, but in a wider format. And also displays the comments that have been made and an input field to make new comments on a review. 
 
 - If the user is logged in and is the owner of the review they can click the three dots symbol in the bottom right corner to edit or delete the review. If the user clicks delete the review is removed and the user is taken back to the page they were previously on. 
 
 - If the user is logged in and is a owner of a comment, then three dots are displayed to the right of the comment that the user can click to display a menu for editing and deleting a comment. 
 
-- If the edit option of the menu is clicked then the comment is changed in to a input field where the user can choose to edit their comment, two buttons for save and cancel is displayed as well. They can also choose to cancel their edit by clicking the cancel button that is displayed.
+- If the edit option of the menu is clicked then the comment is changed in to an input field where the user can choose to edit their comment, two buttons for save and cancel are displayed as well. They can also choose to cancel their edit by clicking the cancel button that is displayed.
 
 - If the user chooses to delete their comment, the comment is removed and the user stays on the same page.
 
 #### Most discussed (commented) reviews
 
-- To the right of the feed of reviews there is a section for the most discussed reviews, which is displaying the top 5 reviews with the most comments on. The reviews are displayed as small cards with the Title of the review over the image of the review as background. When the cards are hovered over there is a orange outlining around the card. Each card also links to the review it is representing. 
+- To the right of the feed of reviews there is a section for the most discussed reviews, which is displaying the top 5 reviews with the most comments on. The reviews are displayed as small cards with the Title of the review over the image of the review as background. When the cards are hovered over there is an orange outline around the card. Each card also links to the review it is representing. 
 
 - On smaller screens the section is moved to be displayed on top of the feed of reviews, in a smaller format with only the top 3 most discussed reviews. Otherwise it is displayed in the same structure with the image in the background and title on top. 
 
@@ -160,21 +160,21 @@ Next to the like symbol the number of likes is displayed.
 
 - The form displays warnings if the fields are not empty or not valid. In the content field there is also included a rich text editor for the user to be able to customize their review text. The rating field contains a dropdown menu with choices ranging from 1-10. There are two buttons, Cancel takes the user back to their previous page and 'Share your tale' publishes the review.
 
-- Editing a review, when clickin the edit button from the dropdown menu in the detailed view of a review the user is taken to the page for editing a review. Which is the same form for when creating a review, but with the fields prefilled with the content fetched from the API for that review. Similarly to when creating a review in the first place, there is two buttons, one for saving your edits and one "cancel" for exiting the edit review page and taking the user back to the page they were previously on. The edit form contains the same rich text editor and also has warnings for if fields are left empty or with invalid data. 
+- Editing a review, when clicking the edit button from the dropdown menu in the detailed view of a review the user is taken to the page for editing a review. Which is the same form for when creating a review, but with the fields prefilled with the content fetched from the API for that review. Similarly to when creating a review in the first place, there are two buttons, one for saving your edits and one "cancel" for exiting the edit review page and taking the user back to the page they were previously on. The edit form contains the same rich text editor and also has warnings for if fields are left empty or with invalid data. 
 
 #### Profile
-- The profile page displays information about a user, that has created an account on the site. The information displayed is username, profile image, favorite game, description (bio) and number of reviews written. The profile page also displays all the reviews written by that user as a feed as well. 
+- The profile page displays information about a user that has created an account on the site. The information displayed is username, profile image, favorite game, description (bio) and number of reviews written. The profile page also displays all the reviews written by that user as a feed as well. 
 
 - When the user is visiting their own profile there are three dots in the top right corner where the user can access the menu for editing their username, password and profile in general. When clicking either of those the user is taken to a page with a form for updating or editing their profile information. If the user has not written any reviews yet, there is a text informing the visitor of the profile that. The profile page also has the section for most commented reviews. 
 
-- When the user first creates an account they only choose a username and a password, the rest of the profile information can be added/updated via clickin the edit button on the three dots menu when visiting their own profile page. The fields are not required as the user should be able to decide on their own how much information they want to include in their own profile. 
+- When the user first creates an account they only choose a username and a password, the rest of the profile information can be added/updated via clicking the edit button on the three dots menu when visiting their own profile page. The fields are not required as the user should be able to decide on their own how much information they want to include in their own profile. 
 
 #### Wishlist page and create and edit Game to add to wishlist
 - The user can access the wishlist page by clicking the wishlist button in the navbar. If they have not created any games to add to their wishlist the page is empty and displays information to the user that they have not created any games yet, as well as presenting a button for the user to click to create games. 
 
-- When clickin the add a game to your wishlist-button they are taken to the page for creating games. Which has similar form input fields as other parts of the site. They can add a game title/name, a short description and choose a genre from a prepopulated dropdown list of genres. 
+- When clicking the add a game to your wishlist-button they are taken to the page for creating games. Which has similar form input fields as other parts of the site. They can add a game title/name, a short description and choose a genre from a prepopulated dropdown list of genres. 
 
-- There is also a section to the right with a dropdown menu for connecting their wishlist game to a previously saved review. To enable the user to connect a wellwritten review for a game that they want to add to there wishlist of games. If they have no saved reviews there is a text displaying that information to the user. If they have saved reviews they are displayed with the titles of the review. This field is not required to add a new game, so the user can choose freely to add games without connecting them to reviews.
+- There is also a section to the right with a dropdown menu for connecting their wishlist game to a previously saved review. To enable the user to connect a well written review for a game that they want to add to their wishlist of games. If they have no saved reviews there is a text displaying that information to the user. If they have saved reviews they are displayed with the titles of the review. This field is not required to add a new game, so the user can choose freely to add games without connecting them to reviews.
 
 - Once the user has created a game to add to their wishlist, the games are displayed as cards with information on the title, description, genre and connected reviews, if there are any. There are also buttons for editing and deleting the wishlist games. 
 
@@ -183,18 +183,18 @@ Next to the like symbol the number of likes is displayed.
 - If the user clicks the delete button the game is removed and the page is refreshed. 
 
 #### Not Found
-- Displays if the user enters an incorrect url, that does not exist on the page. Displays a small image and text saying the the page could not be found. 
+- Displays if the user enters an incorrect url that does not exist on the page. Displays a small image and text saying the page could not be found. 
 
 ### Future Features
 
 - Adding tags to reviews to further categorize or sort the content. The user should be able to click on the tags to see all reviews with the same tags. 
-- Making the reviews collapseable, so that not all the text is visible at once and the user should be able to choose to expand the review to view all the content. 
+- Making the reviews collapsible, so that not all the text is visible at once and the user should be able to choose to expand the review to view all the content. 
 - Add a feature to have the most discussed reviews section update every month/week, to keep the content changing. 
 
 ## Components
 
 ### Navbar
-- The navbar component is displaying on all pages, with conditional rendering of navbar items depending on if the user is logged in or not. 
+- The navbar component is displayed on all pages, with conditional rendering of navbar items depending on if the user is logged in or not. 
 
 ### Avatar
 - Displays the users profile images, is used throughout the site everytime the users profile image is to be displayed. Such as next to reviews, in the navbar and comments section. 
@@ -218,7 +218,7 @@ See [TESTING](TESTING.md) for the full documentation of all testing done.
 
 One major bug that was found during the later stages of development of the site was with the rich text editor for creating and editing reviews. The issue was specifically with initializing the editor with the content of the review from the API when the user tries to edit their previously written review. First when trying with the Quill editor I could not get it to function properly in the edit page, with some trouble just initializing the content correctly in the first place and then with the editor consistently losing focus after typing. This was most likely related to how I was handling the changing state of the editor content. 
 
-After much trial and error I still could not get it working properly and moved on to trying another editor, React Draft Wysiwyg, and had similar issues with the editor not handling the content correctly after initializing and with the content not being saved correctly. Tried several different methods of handling and initializing the content with the editor, including building the editor as a seperate component and trying to handle the state of the editor more locally, but could not get it working properly. So I finally moved on the the third editor, which was the CKEditor and that finally worked and solved all my issues both with the editor losing focus and issues with initializing the content. 
+After much trial and error I still could not get it working properly and moved on to trying another editor, React Draft Wysiwyg, and had similar issues with the editor not handling the content correctly after initializing and with the content not being saved correctly. Tried several different methods of handling and initializing the content with the editor, including building the editor as a separate component and trying to handle the state of the editor more locally, but could not get it working properly. So I finally moved on the third editor, which was the CKEditor and that finally worked and solved all my issues both with the editor losing focus and issues with initializing the content. 
 
 - Minor bugs and problems
 
@@ -265,7 +265,7 @@ The site was deployed to Heroku from GitHub with the following steps:
 ## Credits
 Throughout the project the [Code Institute Walkthrough project "Moments"](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+RA101+2021_T3/courseware/70a8c55db0504bbdb5bcc3bfcf580080/953cd4e5015f483bb05263db3e740e19/) has been used as a template and inspiration. The basic structure of this project is based on that, as well as several components and other parts of the code, with my own additions and customizations of course. The Walkthrough is heavily referenced throughout the project. The basic layout and design of the site is also inspired by the Moments Walkthrough, with my own additions here as well. 
 
-Other sources of inspirations are [BoardGameGeek](https://boardgamegeek.com/), for inspiration on what to include for creating a review, and text for a test review. As well as other students project such as [TravelTickr](https://github.com/SandraBergstrom/travel-tickr) for inspiration on layout and design. For this readme I have taken parts of the structure from my previous project [LeagueHub](https://github.com/MorganStenberg/League-hub)
+Other sources of inspiration are [BoardGameGeek](https://boardgamegeek.com/), for inspiration on what to include for creating a review, and text for a test review. As well as other students projects such as [TravelTickr](https://github.com/SandraBergstrom/travel-tickr) for inspiration on layout and design. For this readme I have taken parts of the structure from my previous project [LeagueHub](https://github.com/MorganStenberg/League-hub)
 
 [ChatGPT](https://chatgpt.com/) has been used to create content for reviews, by prompting it to write a review for a certain board game. As well as generating the image that is used as the logo and favicon.
 

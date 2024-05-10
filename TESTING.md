@@ -14,15 +14,15 @@ The testing documentation provides an overview of all testing conducted on Table
 
 ### Validation
 
-- JSX code have been manually validated and adjusted throughout development via direct feedback from npm in the terminal, via Eslint. Any errors or violations that were detected was immediately displayed in the terminal, which helped in identifying and fixing the underlying issues with the code that was causing it. 
+- JSX code has been manually validated and adjusted throughout development via direct feedback from npm in the terminal, via Eslint. Any errors or violations that were detected were immediately displayed in the terminal, which helped in identifying and fixing the underlying issues with the code that was causing it. 
 - The CSS code has been validated through [W3Cs validation](https://jigsaw.w3.org/css-validator/) service and passed without remarks.  
 
 ### Accessibility and performance
 The site has been tested for performance and accessibility through Google Devtools Lighthouse. 
 
-There are some issues with accessibility related to using React Bootstrap components, like the Progressbar component the was being used for the rating in the reviews.  To sort this out and improve the accessibility I created a custom progressbar component instead, that I could target with and Aria-label. As well as the form components where there are lables, but Lightho
+There are some issues with accessibility related to using React Bootstrap components, like the Progressbar component that was being used for the rating in the reviews.  To sort this out and improve the accessibility I created a custom progressbar component instead, that I could target with an Aria-label. As well as the form components where there are labels, but Lighthouse could not recognise them. Most likely due to the how Bootstrap React renders the components in HTML.
 
-There is also some issues with "best practices", which is related to the fact that Chrome will block the use of third-party cookies, which are in use in this project. 
+There are also some issues with "best practices", which is related to the fact that Chrome will block the use of third-party cookies, which are in use in this project. 
 
 ### Responsiveness
 The site has been tested for responsiveness throughout the development by using Google Dev Tools, as well as through [Responsivetesttool](https://responsivetesttool.com/). 
@@ -33,7 +33,7 @@ The site has been tested for responsiveness throughout the development by using 
 | Feature | Action | Expected outcome | Pass/Fail |
 | --- | --- | --- | --- |
 | logo | hover | Change color of text | pass |
-| navbar items | hover | change backgroundcolor to orange | pass |
+| navbar items | hover | change background color to orange | pass |
 | navbar items, except Profile | click - active page | background color stays orange to indicate active page | pass |
 | logo | click | redirect to home page | pass |
 | navbar items | click | redirect to correct page | pass |
@@ -92,7 +92,7 @@ The site has been tested for responsiveness throughout the development by using 
 | like review | hover | symbol changes color, a text with information appears if user is hovering over its own review | pass |
 | unlike review | click | user can unlike a review, symbol changes color and decreases count of number of likes | pass |
 | comment form | type | user can type comments in to input form field | pass |
-| comment post button | click | users comment is submitted and is displayed underneatch in descending order, comment count is increased | pass |
+| comment post button | click | users comment is submitted and is displayed underneath in descending order, comment count is increased | pass |
 | comment - three dots symbol | hover | changes color | pass |
 | comment - three dots symbol | display | displays the symbol only for comments made by the logged in user | pass |
 | comment - three dots symbol | click | displays menu with buttons for delete and edit comment | pass |
