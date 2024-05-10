@@ -41,17 +41,15 @@ function ReviewEditForm() {
             try {
                 const { data } = await axiosReq.get(`/reviews/${id}/`);
                 const { title, content, image, is_owner, rating, game } = data;
-                console.log("this is data= ",data)
 
                 is_owner ? setReviewData({ title, content, image, rating, game }) : history.push("/");
                 
                                 
             } catch (err) {
-                //console.log(err)
+
             }
         };
         handleMount();
-        console.log("now the useeffect is running")
     }, [history, id])
 
    
@@ -60,7 +58,6 @@ function ReviewEditForm() {
             ...reviewData,
             [event.target.name]: event.target.value,
         });
-        console.log("now callin handlechange!")
     };
 
     const handleChangeImage = (event) => {
@@ -90,7 +87,6 @@ function ReviewEditForm() {
             await axiosReq.put(`/reviews/${id}/`, formData);
             history.push(`/reviews/${id}`)
         } catch (err) {
-            //console.log(err)
             if (err.response?.status !== 401) {
                 setErrors(err.response?.data)
             }

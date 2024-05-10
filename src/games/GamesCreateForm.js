@@ -47,7 +47,7 @@ function GamesCreateForm({ filter = "" }) {
 
                 setGenres(structuredData);
             } catch (err) {
-                //console.log(err)
+            
             }
         };
         fetchGenres();
@@ -63,7 +63,7 @@ function GamesCreateForm({ filter = "" }) {
                 const { data } = await axiosReq.get(`/reviews/?${filter}/`);
                 setSavedReviews(data);
             } catch (err) {
-                //console.log(err)
+            
             }
         }
         fetchSavedReviews();
@@ -95,7 +95,6 @@ function GamesCreateForm({ filter = "" }) {
             await axiosReq.post('/games/', formData);
             history.push('/wishlist/')
         } catch (err) {
-            //console.log(err)
             if (err.response?.status !== 401) {
                 setErrors(err.response?.data)
             }

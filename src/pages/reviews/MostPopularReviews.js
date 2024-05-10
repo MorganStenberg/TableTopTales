@@ -26,7 +26,7 @@ const MostPopularReviews = ({ smallscreen }) => {
 					popularReviews: data
 				}))
 			} catch (err) {
-				//console.log(err)
+
 			}
 		};
 

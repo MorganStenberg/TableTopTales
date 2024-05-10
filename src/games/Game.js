@@ -32,7 +32,7 @@ const Game = (props) => {
 			await axiosRes.delete(`/games/${id}/`);
 			window.location.reload();
 		} catch (err) {
-			//console.log(err)
+		
 		}
 	};
 
