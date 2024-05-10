@@ -64,7 +64,9 @@ The user of TableTopTales is anyone with an interest in board games and wants to
 
 
 ### Design 
-The design of the site is focused on being user friendly and giving the reviews center stage, as they are the main purpose and content of the site. Therefore the colors chosen are fairly neutral, especially the background color of a shade of grey. The two other colors in use are used consistently throughout the site in the same manner for buttons and other elements, to give the user a sense of familiarity when navigating the site. The font of Roboto was chosen as it is clean and easily read by the user. 
+The design of the site is focused on being user friendly and giving the reviews center stage, as they are the main purpose and content of the site. The design principle throughout the project has been to keep the site fairly simple and to not clutter the view for the user with unnecessary features.
+
+Therefore the colors chosen are fairly neutral, especially the background color of a shade of grey. The two other colors in use are used consistently throughout the site in the same manner for buttons and other elements, to give the user a sense of familiarity when navigating the site. As well as using different shades of those colors for hover effects. The font of Roboto was chosen as it is clean and easily read by the user. 
 
 
 **Wireframes**

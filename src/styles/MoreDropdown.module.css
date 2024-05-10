@@ -27,12 +27,12 @@
     right: 0;
 }
 
-.CommentIcon {
+.Icons {
     color: #006566;
     font-size: 1.5rem;
     padding: 4px 6px;
 }
 
-.CommentIcon:hover {
+.Icons:hover {
   color: #01989b;
 }

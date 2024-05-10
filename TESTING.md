@@ -20,9 +20,9 @@ The testing documentation provides an overview of all testing conducted on Table
 ### Accessibility and performance
 The site has been tested for performance and accessibility through Google Devtools Lighthouse. 
 
-There are some issues with accessibility related some React Bootstrap components, like the Progressbar the is being used for the rating in the reviews. I have added an aria-label, but it is not targeting the inner div that is being created. To sort this out and improve the accessibility I created a custom progressbar component instead, that I could target with and Aria-label. 
+There are some issues with accessibility related to using React Bootstrap components, like the Progressbar component the was being used for the rating in the reviews.  To sort this out and improve the accessibility I created a custom progressbar component instead, that I could target with and Aria-label. As well as the form components where there are lables, but Lightho
 
-There is also some issues with "best practices", which is related to the fact that Chrome will suspend oper
+There is also some issues with "best practices", which is related to the fact that Chrome will block the use of third-party cookies, which are in use in this project. 
 
 ### Responsiveness
 The site has been tested for responsiveness throughout the development by using Google Dev Tools, as well as through [Responsivetesttool](https://responsivetesttool.com/). 

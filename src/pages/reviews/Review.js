@@ -190,14 +190,14 @@ const Review = (props) => {
 						</span>
 						<span className={styles.LikesAndComments}>
 							<Link to={`/reviews/${id}`} aria-label={`Read more about ${title}`}>
-								<i className={`fa-regular fa-comments ${styles.CommentIcon}`}></i>
+								<i className={`fa-regular fa-comments ${styles.Icons}`}></i>
 							</Link>
 							{comments_count}
 						</span>
 						<span className={styles.LikesAndComments}>
 							{is_owner ? (
 								<OverlayTrigger placement='top' overlay={<Tooltip>You can't save your own review!</Tooltip>}>
-									<i className={`fa-regular fa-bookmark ml-1 ${styles.CommentIcon}`}></i>
+									<i className={`fa-regular fa-bookmark ml-1 ${styles.Icons}`}></i>
 								</OverlayTrigger>
 							) : save_id ? (
 								<span onClick={handleRemoveSave}>
@@ -207,13 +207,13 @@ const Review = (props) => {
 
 								<span onClick={handleSave}>
 									<OverlayTrigger placement='top' overlay={<Tooltip>Save review!</Tooltip>}>
-										<i className={`fa-regular fa-bookmark ml-1 ${styles.HeartOutline} ${styles.CommentIcon}`}></i>
+										<i className={`fa-regular fa-bookmark ml-1 ${styles.HeartOutline} ${styles.Icons}`}></i>
 									</OverlayTrigger>
 								</span>
 
 							) : (
 								<OverlayTrigger placement='top' overlay={<Tooltip>You can't save reviews if you are not logged in!</Tooltip>}>
-									<i className={`fa-regular fa-bookmark ml-1 ${styles.CommentIcon}`}></i>
+									<i className={`fa-regular fa-bookmark ml-1 ${styles.Icons}`}></i>
 								</OverlayTrigger>
 							)}
 

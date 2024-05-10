@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom";
 
 const ThreeDots = React.forwardRef(({ onClick }, ref) => (
     <i
-        className={`fa-solid fa-ellipsis-vertical ${styles.CommentIcon}`}
+        className={`fa-solid fa-ellipsis-vertical ${styles.Icons}`}
         ref={ref}
         onClick={(e) => {
             e.preventDefault();
