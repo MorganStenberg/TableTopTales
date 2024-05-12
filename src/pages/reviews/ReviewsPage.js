@@ -7,7 +7,7 @@ import Container from "react-bootstrap/Container";
 
 import appStyles from "../../App.module.css";
 import styles from "../../styles/ReviewsPage.module.css";
-import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
+import { Link, useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 import Review from "./Review";
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -54,7 +54,9 @@ function ReviewsPage({ message, filter = "" }) {
                 <Col className="py-3 p-0">
                     <Container className="text-center">
                         <h4 className={styles.IntroHeader}>Welcome to TableTopTales, the best place for sharing board game reviews!</h4>
-                        <h5 className={styles.IntroSubHeader}>Sign up today and share your review!</h5>
+                        <Link className={styles.IntroSubHeader} to="/signup">
+                        Sign up today and share your review!
+                        </Link>
                     </Container>
                 </Col>
                 )}

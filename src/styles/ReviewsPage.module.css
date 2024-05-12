@@ -25,6 +25,13 @@
 
 .IntroSubHeader {
   color:#FFA07A;
-
+  text-decoration: none;
+  max-width: 350px;
+  font-size: 1.15rem;
 }
 
+.IntroSubHeader:hover {
+  text-decoration: underline;
+  color:#FFA07A;
+
+}
