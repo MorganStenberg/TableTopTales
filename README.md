@@ -69,7 +69,8 @@ The user of TableTopTales is anyone with an interest in board games and wants to
 ### Design 
 The design of the site is focused on being user friendly and giving the reviews center stage, as they are the main purpose and content of the site. The design principle throughout the project has been to keep the site fairly simple and to not clutter the view for the user with unnecessary features.
 
-Therefore the colors chosen are fairly neutral, especially the background color of a shade of gray. The two other colors in use are used consistently throughout the site in the same manner for buttons and other elements, to give the user a sense of familiarity when navigating the site. As well as using different shades of those colors for hover effects. The font of Roboto was chosen as it is clean and easily read by the user. 
+#### Fonts and Color
+The colors chosen are fairly neutral, especially the background color of of gray. The two other main colors, #006566 and #FFA07A, in use are used consistently throughout the site in the same manner for buttons and other elements, to give the user a sense of familiarity when navigating the site. As well as using different shades of those colors for hover effects. The colors were chosen to give the site a fresh and appealing look, while maintaining a lightweight design. The font of Roboto was chosen as it is clean and easily read by the user. 
 
 
 #### Wireframes
@@ -320,7 +321,20 @@ The site was deployed to Heroku from GitHub with the following steps:
 
 - Create a Heroku app by logging in to your Heroku account. Click the "New" button in the top right corner and then "Create new app". Give it a name, choose a region and then click the "Create app" button. 
 
-- In Gitpod or other IDE, save all files, add, commit and push your code to GitHub. Then go to Heroku, scroll to the top menu and click the "Deploy"-tab. Connect to your Github repository by selecting Github in the Deployment Method section and searching for your repository, either manually deploy the branch or activate "Enable Automatic Deploys". When the deployment is ready you can find the link to your deployed app. 
+- In Gitpod or other IDE, save all files, add, commit and push your code to GitHub. Then go to Heroku, scroll to the top menu and click the "Deploy"-tab. Connect to your Github repository by selecting Github in the Deployment Method section and searching for your repository, either manually deploy the branch or activate "Enable Automatic Deploys". When the deployment is ready you can find the link to your deployed app.
+
+### Fork 
+- Navigate to the repository [TableTopTales](https://github.com/MorganStenberg/tabletoptales).
+- On the right side of the page, at the top of the repository, select "Fork".
+- A copy of the repository is now created.
+
+
+### Clone
+- Navigate to the repository [TableTopTales](https://github.com/MorganStenberg/tabletoptales).
+- Click on the 'Code' dropdown menu above the list of files and choose a method to copy the URL, via HTTPS, SSH or GitHub CLI.
+- Open Terminal, change the current working directory to the desired location of the cloned directory.
+- Type 'git clone' and paste the URL copied form GitHub.
+- Type 'Enter' to create the local clone.
 
 
 ## Technologies, frameworks, libraries and languages used
