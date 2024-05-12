@@ -89,6 +89,7 @@ The site has been tested for responsiveness throughout the development by using 
 | card with most discussed review on home page, profile page, saved page and wishlist page | hover | orange shadow around card | pass |
 | card with most discussed review on home page, profile page, saved page and wishlist page | click | takes user to detailed view of review | pass |
 | reviews on home page, profile page, saved reviews page | scroll | infinite scroll | pass |
+| Welcome message with link | click | takes user to sign up page | pass |
 
 
 ### Detailed view of review
